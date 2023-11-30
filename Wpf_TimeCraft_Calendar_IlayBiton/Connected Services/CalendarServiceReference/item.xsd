@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="UserList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserList" nillable="true" type="tns:UserList" />
+  <xs:complexType name="User">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Birthday" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Calendars" nillable="true" type="tns:CalendarList" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Events" nillable="true" type="tns:EventList" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="BaseEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseEntity" nillable="true" type="tns:BaseEntity" />
+  <xs:complexType name="CalendarList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Calendar" nillable="true" type="tns:Calendar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CalendarList" nillable="true" type="tns:CalendarList" />
+  <xs:complexType name="Calendar">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CalendarName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Creator" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="Events" nillable="true" type="tns:EventList" />
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:UserList" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Calendar" nillable="true" type="tns:Calendar" />
+  <xs:complexType name="EventList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Event" nillable="true" type="tns:Event" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventList" nillable="true" type="tns:EventList" />
+  <xs:complexType name="Event">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Creator" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="DisplayColor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EventType" nillable="true" type="tns:EventType" />
+          <xs:element minOccurs="0" name="IsDone" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:UserList" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Event" nillable="true" type="tns:Event" />
+  <xs:complexType name="EventType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EventType" nillable="true" type="tns:EventType" />
+  <xs:complexType name="EventTypeList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventType" nillable="true" type="tns:EventType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventTypeList" nillable="true" type="tns:EventTypeList" />
+</xs:schema>
