@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Wpf_TimeCraft_Calendar_IlayBiton.NavigationBarUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="200">
+
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize"
+                    Value="30" />
+            <Setter Property="FontFamily"
+                    Value="Bookman Old Style" />
+            <Setter Property="Padding"
+                    Value="10, 5, 0, 5" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="LightBlue">
+        <StackPanel>
+            <Image Source="/Media/logo-modified.png"
+                   Height="75"
+                   Margin="10"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left" />
+            <TextBlock Text="Home"
+                       MouseEnter="TB_MouseEnter"
+                       MouseLeave="TB_MouseLeave" 
+                       MouseLeftButtonDown="Home_Down"/>
+            <TextBlock Text="Login"
+                       MouseEnter="TB_MouseEnter"
+                       MouseLeave="TB_MouseLeave" 
+                       MouseLeftButtonDown="Login_Down"/>
+            <TextBlock Text="Sign Up"
+                       MouseEnter="TB_MouseEnter"
+                       MouseLeave="TB_MouseLeave" 
+                       MouseLeftButtonDown="SignUp_Down"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

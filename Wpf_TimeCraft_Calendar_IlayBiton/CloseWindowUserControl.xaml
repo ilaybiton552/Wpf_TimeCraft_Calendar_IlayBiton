@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Wpf_TimeCraft_Calendar_IlayBiton.CloseWindowUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
+             mc:Ignorable="d" 
+             d:DesignHeight="75" d:DesignWidth="50">
+    <Grid>
+        <Border HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Height="50"
+                Width="75"
+                MouseEnter="Close_MouseEnter"
+                MouseLeave="Close_MouseLeave"
+                MouseLeftButtonDown="Close_LeftClick">
+            <TextBlock Width="75"
+                       x:Name="tbClose"
+                       VerticalAlignment="Center"
+                       Text="X"
+                       Margin="0, 7.5, 0, 0"
+                       FontSize="30"
+                       TextAlignment="Center"
+                       FontFamily="David" />
+        </Border>
+    </Grid>
+</UserControl>

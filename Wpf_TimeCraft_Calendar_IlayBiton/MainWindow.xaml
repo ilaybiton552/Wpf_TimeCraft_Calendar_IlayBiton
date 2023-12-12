@@ -5,15 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
-    <Border Background="White" CornerRadius="20" BorderThickness="2" BorderBrush="Black">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height=".2*"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Image Grid.Row="1" Source="/Media/logo-slogan.png" />
-
+        Title="MainWindow"
+        Height="450"
+        Width="800"
+        WindowStyle="None"
+        AllowsTransparency="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".5*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <local:NavigationBarUserControl />
+        <Grid Grid.Column="1">
+            <Image Source="/Media/logo-slogan.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="-50, -50, 0, 0" />
+            <local:CloseWindowUserControl />
         </Grid>
-    </Border>
+    </Grid>
 </Window>
