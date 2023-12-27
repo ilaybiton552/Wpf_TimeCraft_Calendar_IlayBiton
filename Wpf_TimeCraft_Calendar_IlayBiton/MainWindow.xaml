@@ -21,7 +21,7 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
                    Margin="-50, -50, 0, 0" />
-            <local:CloseWindowUserControl />
+            <local:CloseWindowUserControl MainWindow="True" />
         </Grid>
     </Grid>
 </Window>

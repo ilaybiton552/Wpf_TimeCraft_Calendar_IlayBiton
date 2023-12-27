@@ -20,7 +20,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class NavigationBarUserControl : UserControl
     {
-        Window currWindow;
+        private Window currWindow;
         public NavigationBarUserControl()
         {
             InitializeComponent();
@@ -54,7 +54,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             SignUpWindow nextWindow = new SignUpWindow();
             nextWindow.Left = currWindow.Left + (currWindow.Width - nextWindow.Width) / 2;
             nextWindow.Top = currWindow.Top + (currWindow.Height - nextWindow.Height) / 2;
-            nextWindow.ShowDialog();
+            nextWindow.Show();
         }
 
         private void Home_Down(object sender, MouseButtonEventArgs e)
