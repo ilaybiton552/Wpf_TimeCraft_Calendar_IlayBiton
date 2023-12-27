@@ -69,6 +69,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IsUsenameTaken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q7:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsUsenameTakenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsUsenameTakenResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsEmailTaken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q8:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsEmailTakenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsEmailTakenResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllEventTypes">
     <xs:complexType>
       <xs:sequence />
@@ -77,14 +105,14 @@
   <xs:element name="GetAllEventTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllEventTypesResult" nillable="true" type="q7:EventTypeList" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllEventTypesResult" nillable="true" type="q9:EventTypeList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertEventType">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="eventType" nillable="true" type="q8:EventType" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="eventType" nillable="true" type="q10:EventType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -98,7 +126,7 @@
   <xs:element name="UpdateEventType">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="eventType" nillable="true" type="q9:EventType" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="eventType" nillable="true" type="q11:EventType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -112,7 +140,7 @@
   <xs:element name="DeleteEventType">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="eventType" nillable="true" type="q10:EventType" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="eventType" nillable="true" type="q12:EventType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -131,14 +159,14 @@
   <xs:element name="GetAllEventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllEventsResult" nillable="true" type="q11:EventList" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllEventsResult" nillable="true" type="q13:EventList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertEvent">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="_event" nillable="true" type="q12:Event" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="_event" nillable="true" type="q14:Event" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -152,7 +180,7 @@
   <xs:element name="UpdateEvent">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="_event" nillable="true" type="q13:Event" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="_event" nillable="true" type="q15:Event" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -166,7 +194,7 @@
   <xs:element name="DeleteEvent">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="_event" nillable="true" type="q14:Event" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="_event" nillable="true" type="q16:Event" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -185,14 +213,14 @@
   <xs:element name="GetAllCalendarsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllCalendarsResult" nillable="true" type="q15:CalendarList" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllCalendarsResult" nillable="true" type="q17:CalendarList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertCalendar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="calendar" nillable="true" type="q16:Calendar" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="calendar" nillable="true" type="q18:Calendar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -206,7 +234,7 @@
   <xs:element name="UpdateCalendar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="calendar" nillable="true" type="q17:Calendar" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="calendar" nillable="true" type="q19:Calendar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -220,7 +248,7 @@
   <xs:element name="DeleteCalendar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="calendar" nillable="true" type="q18:Calendar" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="calendar" nillable="true" type="q20:Calendar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

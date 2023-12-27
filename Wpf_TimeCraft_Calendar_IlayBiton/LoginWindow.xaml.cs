@@ -81,6 +81,13 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 return;
             }
             user = serviceClient.Login(user);
+            if (user == null) 
+            {
+                MessageBox.Show("Error login in", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                user = new User() { Username = tbxUsername.Text, Password = pbPass.Password.ToString() };
+                return;
+            }
+            MessageBox.Show("Logged in!");
         }
     }
 }

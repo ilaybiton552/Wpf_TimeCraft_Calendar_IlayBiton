@@ -29,6 +29,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             serviceClient = new CalendarServiceReference.CalendarServiceClient();
             user = new User();
             this.DataContext = user;
+            user.Birthday = DateTime.Now;
         }
 
         private void ShowPassword_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -81,7 +82,25 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("Fix your errors!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            serviceClient.InsertUser(user);
+            if (serviceClient.IsEmailTaken(user))
+            {
+                MessageBox.Show("Email is already used!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (serviceClient.IsUsenameTaken(user))
+            {
+                MessageBox.Show("Username is already used!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {
+                if (serviceClient.InsertUser(user) == 1)
+                    MessageBox.Show("Success creating user!");
+            }
+            catch(Exception)
+            {
+                return;
+            }
         }
     }
 }

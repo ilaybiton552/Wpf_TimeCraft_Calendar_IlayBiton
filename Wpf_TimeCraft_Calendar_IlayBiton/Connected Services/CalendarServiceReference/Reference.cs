@@ -11,7 +11,8 @@
 namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
     using System.Runtime.Serialization;
     using System;
-
+    
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="UserList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="User")]
@@ -551,6 +552,18 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/DeleteUser", ReplyAction="http://tempuri.org/ICalendarService/DeleteUserResponse")]
         System.Threading.Tasks.Task<int> DeleteUserAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/IsUsenameTaken", ReplyAction="http://tempuri.org/ICalendarService/IsUsenameTakenResponse")]
+        bool IsUsenameTaken(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/IsUsenameTaken", ReplyAction="http://tempuri.org/ICalendarService/IsUsenameTakenResponse")]
+        System.Threading.Tasks.Task<bool> IsUsenameTakenAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/IsEmailTaken", ReplyAction="http://tempuri.org/ICalendarService/IsEmailTakenResponse")]
+        bool IsEmailTaken(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/IsEmailTaken", ReplyAction="http://tempuri.org/ICalendarService/IsEmailTakenResponse")]
+        System.Threading.Tasks.Task<bool> IsEmailTakenAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetAllEventTypes", ReplyAction="http://tempuri.org/ICalendarService/GetAllEventTypesResponse")]
         Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.EventTypeList GetAllEventTypes();
         
@@ -689,6 +702,22 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         
         public System.Threading.Tasks.Task<int> DeleteUserAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user) {
             return base.Channel.DeleteUserAsync(user);
+        }
+        
+        public bool IsUsenameTaken(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user) {
+            return base.Channel.IsUsenameTaken(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsUsenameTakenAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user) {
+            return base.Channel.IsUsenameTakenAsync(user);
+        }
+        
+        public bool IsEmailTaken(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user) {
+            return base.Channel.IsEmailTaken(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsEmailTakenAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user) {
+            return base.Channel.IsEmailTakenAsync(user);
         }
         
         public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.EventTypeList GetAllEventTypes() {

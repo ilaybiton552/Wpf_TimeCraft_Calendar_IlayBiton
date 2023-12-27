@@ -927,27 +927,8 @@
                                         Foreground="Black"
                                         BorderThickness="0, 0, 0, 2"
                                         BorderBrush="Black"
-                                        CalendarStyle="{StaticResource CalendarStyle}">
-                                <DatePicker.Resources>
-                                    <Style TargetType="DatePickerTextBox">
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="DatePickerTextBox">
-                                                    <TextBox x:Name="tbxBirthday">
-                                                        <Binding Path="Birthday"
-                                                                 ValidatesOnDataErrors="True"
-                                                                 UpdateSourceTrigger="PropertyChanged">
-                                                            <Binding.ValidationRules>
-                                                                <local:ValidBirthday />
-                                                            </Binding.ValidationRules>
-                                                        </Binding>
-                                                    </TextBox>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </DatePicker.Resources>
-                            </DatePicker>
+                                        SelectedDate="{Binding Path=Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        CalendarStyle="{StaticResource CalendarStyle}" />
                             <ContentPresenter Margin="0, 5"
                                               Content="{Binding ElementName=tbxBirthday, Path=(Validation.Errors)[0]}" />
                         </StackPanel>

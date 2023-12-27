@@ -144,13 +144,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             try
             {
                 string phoneNumber = value.ToString();
-                Regex reg = new Regex(@"^\d+$");
+                Regex reg = new Regex(@"^0\d{2}-\d{7}$");
                 if (!reg.IsMatch(phoneNumber))
-                    return new ValidationResult(false, "Only numbers allowed");
-                if (phoneNumber[0] != '0')
-                    return new ValidationResult(false, "Phone number must start with 0");
-                if (phoneNumber.Length != 10)
-                    return new ValidationResult(false, "Phone number must be have 10 numbers");
+                    return new ValidationResult(false, "Allowed format: 0dd-ddddddd");
             }
             catch (Exception ex)
             {
