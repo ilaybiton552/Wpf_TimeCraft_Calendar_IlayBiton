@@ -10,12 +10,11 @@
         Width="800"
         WindowStyle="None"
         AllowsTransparency="True">
-    <Grid>
+    <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".5*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <local:NavigationBarUserControl />
         <Grid Grid.Column="1">
             <Image Source="/Media/logo-slogan.png"
                    HorizontalAlignment="Left"

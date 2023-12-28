@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
 
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
@@ -21,10 +22,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     public partial class NavigationBarUserControl : UserControl
     {
         private Window currWindow;
-        public NavigationBarUserControl()
+        private User user;
+        public NavigationBarUserControl(ref User user)
         {
             InitializeComponent();
             currWindow = Application.Current.MainWindow;
+            this.user = user;
         }
 
         private void TB_MouseLeave(object sender, MouseEventArgs e)
@@ -43,7 +46,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Login_Down(object sender, MouseButtonEventArgs e)
         {
-            LoginWindow nextWindow = new LoginWindow();
+            LoginWindow nextWindow = new LoginWindow(ref user);
             nextWindow.Left = currWindow.Left + (currWindow.Width - nextWindow.Width) / 2;
             nextWindow.Top = currWindow.Top + (currWindow.Height - nextWindow.Height) / 2;
             nextWindow.Show();
@@ -51,7 +54,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void SignUp_Down(object sender, MouseButtonEventArgs e)
         {
-            SignUpWindow nextWindow = new SignUpWindow();
+            SignUpWindow nextWindow = new SignUpWindow(ref user);
             nextWindow.Left = currWindow.Left + (currWindow.Width - nextWindow.Width) / 2;
             nextWindow.Top = currWindow.Top + (currWindow.Height - nextWindow.Height) / 2;
             nextWindow.Show();

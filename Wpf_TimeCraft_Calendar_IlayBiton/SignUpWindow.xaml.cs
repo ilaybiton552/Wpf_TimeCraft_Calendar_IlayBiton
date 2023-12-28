@@ -23,13 +23,13 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     {
         private User user;
         private CalendarServiceReference.CalendarServiceClient serviceClient;
-        public SignUpWindow()
+        public SignUpWindow(ref User user)
         {
             InitializeComponent();
             serviceClient = new CalendarServiceReference.CalendarServiceClient();
-            user = new User();
-            this.DataContext = user;
-            user.Birthday = DateTime.Now;
+            this.user = user;
+            this.DataContext = this.user;
+            this.user.Birthday = DateTime.Now;
         }
 
         private void ShowPassword_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -96,6 +96,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             {
                 if (serviceClient.InsertUser(user) == 1)
                     MessageBox.Show("Success creating user!");
+                Close();
             }
             catch(Exception)
             {

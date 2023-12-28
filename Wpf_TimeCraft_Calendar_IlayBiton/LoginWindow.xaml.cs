@@ -24,12 +24,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     {
         private User user;
         private CalendarServiceReference.CalendarServiceClient serviceClient;
-        public LoginWindow()
+        public LoginWindow(ref User user)
         {
             InitializeComponent();
             serviceClient = new CalendarServiceReference.CalendarServiceClient();
-            user = new User();
-            this.DataContext = user;
+            this.user = user;
+            this.DataContext = this.user;
         }
 
         private void ShowPassword_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -88,6 +88,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 return;
             }
             MessageBox.Show("Logged in!");
+            Close();
         }
     }
 }

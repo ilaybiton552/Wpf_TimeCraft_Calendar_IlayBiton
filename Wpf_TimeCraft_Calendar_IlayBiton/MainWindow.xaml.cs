@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
 
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
@@ -20,10 +21,13 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class MainWindow : Window
     {
+        private User user;
         public MainWindow()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            user = new User();
+            mainGrid.Children.Add(new NavigationBarUserControl(ref user));
         }
     }
 }
