@@ -20,7 +20,7 @@
     </UserControl.Resources>
 
     <Grid Background="LightBlue">
-        <StackPanel>
+        <StackPanel x:Name="sp">
             <Image Source="/Media/logo-modified.png"
                    Height="75"
                    Margin="10"
@@ -31,13 +31,15 @@
                        MouseLeave="TB_MouseLeave" 
                        MouseLeftButtonDown="Home_Down"/>
             <TextBlock Text="Login"
+                       x:Name="tbLogin"
                        MouseEnter="TB_MouseEnter"
                        MouseLeave="TB_MouseLeave" 
                        MouseLeftButtonDown="Login_Down"/>
             <TextBlock Text="Sign Up"
+                       x:Name="tbSignup"
                        MouseEnter="TB_MouseEnter"
-                       MouseLeave="TB_MouseLeave" 
-                       MouseLeftButtonDown="SignUp_Down"/>
+                       MouseLeave="TB_MouseLeave"
+                       MouseLeftButtonDown="SignUp_Down" />
         </StackPanel>
     </Grid>
 </UserControl>

@@ -66,5 +66,47 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             //currWindow.Close();
             //nextWindow.ShowDialog();
         }
+
+        public void UserLogged()
+        {
+            AddLogout();
+            sp.Children.Remove(tb)
+        }
+
+        private void AddLogout()
+        {
+            TextBlock logout = new TextBlock();
+            logout.Name = "tbLogout";
+            logout.Text = "Log Out";
+            logout.MouseEnter += TB_MouseEnter;
+            logout.MouseLeave += TB_MouseLeave;
+            logout.MouseLeftButtonDown += Logout_Down;
+        }
+
+        private void AddLogin()
+        {
+            TextBlock login = new TextBlock();
+            login.Text = "tbLogin";
+            login.Text = "Login";
+            login.MouseEnter += TB_MouseEnter;
+            login.MouseLeave += TB_MouseLeave;
+            login.MouseLeftButtonDown += Login_Down;
+        }
+
+        private void AddSingup()
+        {
+            TextBlock signup = new TextBlock();
+            signup.Name = "tbSignup";
+            signup.Text = "Log Out";
+            signup.MouseEnter += TB_MouseEnter;
+            signup.MouseLeave += TB_MouseLeave;
+            signup.MouseLeftButtonDown += SignUp_Down;
+        }
+
+        private void Logout_Down(object sender, MouseButtonEventArgs e)
+        {
+            AddLogin();
+            AddSingup();
+        }
     }
 }
