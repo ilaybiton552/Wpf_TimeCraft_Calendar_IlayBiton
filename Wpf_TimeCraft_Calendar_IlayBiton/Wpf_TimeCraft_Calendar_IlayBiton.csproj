@@ -74,11 +74,18 @@
     <Compile Include="CloseWindowUserControl.xaml.cs">
       <DependentUpon>CloseWindowUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HomeUserControl.xaml.cs">
+      <DependentUpon>HomeUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SignUpWindow.xaml.cs">
       <DependentUpon>SignUpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation.cs" />
     <Page Include="CloseWindowUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomeUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

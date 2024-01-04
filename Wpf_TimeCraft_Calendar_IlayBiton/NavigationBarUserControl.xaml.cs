@@ -23,11 +23,17 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     {
         private Window currWindow;
         private User user;
-        public NavigationBarUserControl(ref User user)
+        private Grid grid;
+        public NavigationBarUserControl(ref User user, ref Grid ucGrid)
         {
             InitializeComponent();
             currWindow = Application.Current.MainWindow;
             this.user = user;
+            this.grid = ucGrid;
+            grid.Children.Add(new HomeUserControl());
+            AddHome();
+            AddLogin();
+            AddSignup();
         }
 
         private void TB_MouseLeave(object sender, MouseEventArgs e)
@@ -49,7 +55,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             LoginWindow nextWindow = new LoginWindow(ref user);
             nextWindow.Left = currWindow.Left + (currWindow.Width - nextWindow.Width) / 2;
             nextWindow.Top = currWindow.Top + (currWindow.Height - nextWindow.Height) / 2;
-            nextWindow.Show();
+            nextWindow.ShowDialog();
+            if (user.Username != string.Empty) UserLogged();
         }
 
         private void SignUp_Down(object sender, MouseButtonEventArgs e)
@@ -57,56 +64,70 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             SignUpWindow nextWindow = new SignUpWindow(ref user);
             nextWindow.Left = currWindow.Left + (currWindow.Width - nextWindow.Width) / 2;
             nextWindow.Top = currWindow.Top + (currWindow.Height - nextWindow.Height) / 2;
-            nextWindow.Show();
+            nextWindow.ShowDialog();
+            if (user.Username != string.Empty) UserLogged();
         }
 
         private void Home_Down(object sender, MouseButtonEventArgs e)
         {
-            //MainWindow nextWindow = new MainWindow();
-            //currWindow.Close();
-            //nextWindow.ShowDialog();
+            grid.Children.Clear();
+            grid.Children.Add(new HomeUserControl());
         }
 
         public void UserLogged()
         {
+            sp.Children.Clear();
+            AddHome();
             AddLogout();
-            sp.Children.Remove(tb)
+        }
+
+        private void AddHome()
+        {
+            TextBlock main = new TextBlock();
+            main.Text = "Home";
+            main.MouseEnter += TB_MouseEnter;
+            main.MouseLeave += TB_MouseLeave;
+            main.MouseLeftButtonDown += Home_Down;
+            sp.Children.Add(main);
         }
 
         private void AddLogout()
         {
             TextBlock logout = new TextBlock();
-            logout.Name = "tbLogout";
             logout.Text = "Log Out";
             logout.MouseEnter += TB_MouseEnter;
             logout.MouseLeave += TB_MouseLeave;
             logout.MouseLeftButtonDown += Logout_Down;
+            sp.Children.Add(logout);
         }
 
         private void AddLogin()
         {
             TextBlock login = new TextBlock();
-            login.Text = "tbLogin";
             login.Text = "Login";
             login.MouseEnter += TB_MouseEnter;
             login.MouseLeave += TB_MouseLeave;
             login.MouseLeftButtonDown += Login_Down;
+            sp.Children.Add(login);
         }
 
-        private void AddSingup()
+        private void AddSignup()
         {
             TextBlock signup = new TextBlock();
-            signup.Name = "tbSignup";
-            signup.Text = "Log Out";
+            signup.Text = "Sign Up";
             signup.MouseEnter += TB_MouseEnter;
             signup.MouseLeave += TB_MouseLeave;
             signup.MouseLeftButtonDown += SignUp_Down;
+            sp.Children.Add(signup);
         }
 
         private void Logout_Down(object sender, MouseButtonEventArgs e)
         {
+            sp.Children.Clear();
+            user = new User();
+            AddHome();
             AddLogin();
-            AddSingup();
+            AddSignup();
         }
     }
 }

@@ -12,22 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
 
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HomeUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomeUserControl : UserControl
     {
-        private User user;
-        public MainWindow()
+        public HomeUserControl()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            user = new User();
-            mainGrid.Children.Add(new NavigationBarUserControl(ref user, ref userControlGrid));
         }
     }
 }

@@ -23,11 +23,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     public partial class LoginWindow : Window
     {
         private User user;
-        private CalendarServiceReference.CalendarServiceClient serviceClient;
+        private CalendarServiceClient serviceClient;
         public LoginWindow(ref User user)
         {
             InitializeComponent();
-            serviceClient = new CalendarServiceReference.CalendarServiceClient();
+            serviceClient = new CalendarServiceClient();
             this.user = user;
             this.DataContext = this.user;
         }

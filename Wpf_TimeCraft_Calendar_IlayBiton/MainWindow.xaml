@@ -16,11 +16,12 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1">
-            <Image Source="/Media/logo-slogan.png"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="-50, -50, 0, 0" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".1*" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
             <local:CloseWindowUserControl MainWindow="True" />
+            <Grid x:Name="userControlGrid" Grid.Row="1"/>
         </Grid>
     </Grid>
 </Window>
