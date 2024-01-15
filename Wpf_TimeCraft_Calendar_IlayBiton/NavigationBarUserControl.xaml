@@ -31,7 +31,7 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left" />
         </StackPanel>
-        <StackPanel x:Name="sp" />
+        <StackPanel Grid.Row="1" x:Name="sp" />
         
     </Grid>
 </UserControl>

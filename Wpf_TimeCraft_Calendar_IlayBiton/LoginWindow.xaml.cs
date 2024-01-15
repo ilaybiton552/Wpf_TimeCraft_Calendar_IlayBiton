@@ -30,6 +30,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             serviceClient = new CalendarServiceClient();
             this.user = user;
             this.DataContext = this.user;
+            CloseWindowUserControl closeWindowUserControl = new CloseWindowUserControl(ref user);
+            closeWindowUserControl.MainWindow = false;
+            grid.Children.Add(closeWindowUserControl);
         }
 
         private void ShowPassword_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -89,6 +92,26 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             MessageBox.Show("Logged in!");
             Close();
+        }
+
+        private void Signup_MouseEnter(object sender, MouseEventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+            textBlock.FontWeight = FontWeights.Bold;
+        }
+
+        private void Singup_MouseLeave(object sender, MouseEventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+            textBlock.FontWeight = FontWeights.Normal;
+        }
+
+        private void Signup_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            user = new User();
+            SignUpWindow signUpWindow = new SignUpWindow(ref user);
+            Close();
+            signUpWindow.ShowDialog();
         }
     }
 }

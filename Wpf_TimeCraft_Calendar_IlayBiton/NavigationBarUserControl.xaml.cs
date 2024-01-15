@@ -56,7 +56,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             nextWindow.Left = currWindow.Left + (currWindow.Width - nextWindow.Width) / 2;
             nextWindow.Top = currWindow.Top + (currWindow.Height - nextWindow.Height) / 2;
             nextWindow.ShowDialog();
-            if (user.Username != string.Empty) UserLogged();
+            if (!string.IsNullOrWhiteSpace(user.Username)) UserLogged();
         }
 
         private void SignUp_Down(object sender, MouseButtonEventArgs e)
@@ -65,7 +65,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             nextWindow.Left = currWindow.Left + (currWindow.Width - nextWindow.Width) / 2;
             nextWindow.Top = currWindow.Top + (currWindow.Height - nextWindow.Height) / 2;
             nextWindow.ShowDialog();
-            if (user.Username != string.Empty) UserLogged();
+            if (!string.IsNullOrWhiteSpace(user.Username)) UserLogged();
         }
 
         private void Home_Down(object sender, MouseButtonEventArgs e)

@@ -30,6 +30,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             this.user = user;
             this.DataContext = this.user;
             this.user.Birthday = DateTime.Now;
+            CloseWindowUserControl closeWindowUserControl = new CloseWindowUserControl(ref user);
+            closeWindowUserControl.MainWindow = false;
+            grid.Children.Add(closeWindowUserControl);
         }
 
         private void ShowPassword_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -103,5 +106,26 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 return;
             }
         }
+
+        private void Login_MouseEnter(object sender, MouseEventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+            textBlock.FontWeight = FontWeights.Bold;
+        }
+
+        private void Login_MouseLeave(object sender, MouseEventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+            textBlock.FontWeight = FontWeights.Normal;
+        }
+
+        private void Login_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            user = new User();
+            LoginWindow loginWindow = new LoginWindow(ref user);
+            Close();
+            loginWindow.ShowDialog();
+        }
+
     }
 }

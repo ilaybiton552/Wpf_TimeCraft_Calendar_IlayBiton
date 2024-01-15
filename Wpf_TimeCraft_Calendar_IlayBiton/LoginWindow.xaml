@@ -58,8 +58,7 @@
                                   ShadowDepth="2"
                                   Color="Gray" />
             </Border.Effect>
-            <Grid>
-                <local:CloseWindowUserControl MainWindow="False" />
+            <Grid x:Name="grid">
                 <StackPanel Orientation="Vertical"
                             Margin="20">
                     <TextBlock Text="Login"
@@ -184,7 +183,10 @@
                     <TextBlock Text="Not a member? Sign Up"
                                Margin="0,5"
                                VerticalAlignment="Bottom"
-                               HorizontalAlignment="Center" />
+                               HorizontalAlignment="Center"
+                               MouseEnter="Signup_MouseEnter"
+                               MouseLeave="Singup_MouseLeave"
+                               MouseLeftButtonDown="Signup_MouseLeftButtonDown"/>
                 </StackPanel>
             </Grid>
         </Border>

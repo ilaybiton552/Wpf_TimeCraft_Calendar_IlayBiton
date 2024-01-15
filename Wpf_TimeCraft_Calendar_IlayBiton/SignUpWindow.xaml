@@ -743,14 +743,13 @@
                 </ControlTemplate>
             </HeaderedItemsControl.Template>
             <HeaderedItemsControl.Header>
-                <Grid>
+                <Grid x:Name="grid">
                     <TextBlock Text="Sign Up"
                                FontSize="30"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontWeight="Bold"
                                Margin="0, 5" />
-                    <local:CloseWindowUserControl MainWindow="False" />
                 </Grid>
             </HeaderedItemsControl.Header>
             <HeaderedItemsControl.Items>
@@ -972,7 +971,10 @@
                                VerticalAlignment="Bottom"
                                HorizontalAlignment="Center"
                                FontSize="13"
-                               Margin="0, 5, 0, 15" />
+                               Margin="0, 5, 0, 15" 
+                               MouseEnter="Login_MouseEnter"
+                               MouseLeave="Login_MouseLeave"
+                               MouseLeftButtonDown="Login_MouseLeftButtonDown"/>
                 </StackPanel>
             </HeaderedItemsControl.Items>
         </HeaderedItemsControl>
