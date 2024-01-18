@@ -78,6 +78,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             sp.Children.Clear();
             AddHome();
+            AddCalendars();
             AddLogout();
         }
 
@@ -119,6 +120,17 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             signup.MouseLeave += TB_MouseLeave;
             signup.MouseLeftButtonDown += SignUp_Down;
             sp.Children.Add(signup);
+        }
+
+        private void AddCalendars()
+        {
+            ComboBox calendar = new ComboBox();
+            calendar.Text = "Calendars";
+            calendar.IsReadOnly = true;
+            calendar.MouseEnter += TB_MouseEnter;
+            calendar.MouseLeave += TB_MouseLeave;
+            calendar.ItemsSource = user.Calendars;
+            sp.Children.Add(calendar);
         }
 
         private void Logout_Down(object sender, MouseButtonEventArgs e)
