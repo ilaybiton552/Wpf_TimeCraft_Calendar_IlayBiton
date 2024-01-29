@@ -124,13 +124,18 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void AddCalendars()
         {
-            ComboBox calendar = new ComboBox();
+            TextBlock calendar = new TextBlock();
             calendar.Text = "Calendars";
-            calendar.IsReadOnly = true;
             calendar.MouseEnter += TB_MouseEnter;
             calendar.MouseLeave += TB_MouseLeave;
-            calendar.ItemsSource = user.Calendars;
+            calendar.MouseLeftButtonDown += Calendar_Down;
             sp.Children.Add(calendar);
+        }
+
+        private void Calendar_Down(object sender, MouseButtonEventArgs e)
+        {
+            grid.Children.Clear();
+            grid.Children.Add(new CalendarsUserControl(user));
         }
 
         private void Logout_Down(object sender, MouseButtonEventArgs e)

@@ -12,10 +12,26 @@
         <Style TargetType="TextBlock">
             <Setter Property="FontSize"
                     Value="30" />
+            <Setter Property="Height"
+                    Value="45" />
             <Setter Property="FontFamily"
                     Value="Bookman Old Style" />
             <Setter Property="Padding"
                     Value="10, 5, 0, 5" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize"
+                    Value="30" />
+            <Setter Property="Height"
+                    Value="45" />
+            <Setter Property="FontFamily"
+                    Value="Bookman Old Style" />
+            <Setter Property="Padding"
+                    Value="10, 5, 0, 5" />
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="BorderThickness"
+                    Value="0" />
         </Style>
     </UserControl.Resources>
 

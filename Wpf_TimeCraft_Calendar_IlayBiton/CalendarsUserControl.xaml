@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Wpf_TimeCraft_Calendar_IlayBiton.CalendarsUserControl"
+             xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="533">
+
+    <UserControl.Resources>
+        
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".25*" />
+            <RowDefinition Height=".25*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Add Calendar" />
+            <TextBlock Text="Add Event" />
+            <TextBlock Text="Edit Calendar" />
+        </StackPanel>
+        <ComboBox Grid.Row="1" MaterialDesign:HintAssist.Hint="Your Calendars" x:Name="calendars"/>
+    </Grid>
+</UserControl>

@@ -43,6 +43,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="CalendarName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Creator" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Events" nillable="true" type="tns:EventList" />
           <xs:element minOccurs="0" name="Users" nillable="true" type="tns:UserList" />
         </xs:sequence>
@@ -61,14 +62,13 @@
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="Creator" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DisplayColor" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
           <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="EventType" nillable="true" type="tns:EventType" />
           <xs:element minOccurs="0" name="IsDone" type="xs:boolean" />
           <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Users" nillable="true" type="tns:UserList" />
         </xs:sequence>
       </xs:extension>

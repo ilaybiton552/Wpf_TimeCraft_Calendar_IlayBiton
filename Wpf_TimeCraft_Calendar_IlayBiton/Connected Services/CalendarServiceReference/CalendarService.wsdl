@@ -49,6 +49,24 @@
   <wsdl:message name="ICalendarService_IsEmailTaken_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsEmailTakenResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalendarService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="ICalendarService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalendarService_GetUsersByCalendar_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByCalendar" />
+  </wsdl:message>
+  <wsdl:message name="ICalendarService_GetUsersByCalendar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByCalendarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalendarService_GetUsersByEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICalendarService_GetUsersByEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByEventResponse" />
+  </wsdl:message>
   <wsdl:message name="ICalendarService_GetAllEventTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEventTypes" />
   </wsdl:message>
@@ -97,6 +115,18 @@
   <wsdl:message name="ICalendarService_DeleteEvent_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteEventResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalendarService_GetUserEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserEvents" />
+  </wsdl:message>
+  <wsdl:message name="ICalendarService_GetUserEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalendarService_GetCalendarEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCalendarEvents" />
+  </wsdl:message>
+  <wsdl:message name="ICalendarService_GetCalendarEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCalendarEventsResponse" />
+  </wsdl:message>
   <wsdl:message name="ICalendarService_GetAllCalendars_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllCalendars" />
   </wsdl:message>
@@ -120,6 +150,12 @@
   </wsdl:message>
   <wsdl:message name="ICalendarService_DeleteCalendar_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteCalendarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalendarService_GetUserCalendars_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserCalendars" />
+  </wsdl:message>
+  <wsdl:message name="ICalendarService_GetUserCalendars_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserCalendarsResponse" />
   </wsdl:message>
   <wsdl:portType name="ICalendarService">
     <wsdl:operation name="GetAllUsers">
@@ -149,6 +185,18 @@
     <wsdl:operation name="IsEmailTaken">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/IsEmailTaken" message="tns:ICalendarService_IsEmailTaken_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/IsEmailTakenResponse" message="tns:ICalendarService_IsEmailTaken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetUser" message="tns:ICalendarService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/GetUserResponse" message="tns:ICalendarService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByCalendar">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetUsersByCalendar" message="tns:ICalendarService_GetUsersByCalendar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/GetUsersByCalendarResponse" message="tns:ICalendarService_GetUsersByCalendar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetUsersByEvent" message="tns:ICalendarService_GetUsersByEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/GetUsersByEventResponse" message="tns:ICalendarService_GetUsersByEvent_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllEventTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetAllEventTypes" message="tns:ICalendarService_GetAllEventTypes_InputMessage" />
@@ -182,6 +230,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/DeleteEvent" message="tns:ICalendarService_DeleteEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/DeleteEventResponse" message="tns:ICalendarService_DeleteEvent_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetUserEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetUserEvents" message="tns:ICalendarService_GetUserEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/GetUserEventsResponse" message="tns:ICalendarService_GetUserEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendarEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetCalendarEvents" message="tns:ICalendarService_GetCalendarEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/GetCalendarEventsResponse" message="tns:ICalendarService_GetCalendarEvents_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllCalendars">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetAllCalendars" message="tns:ICalendarService_GetAllCalendars_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/GetAllCalendarsResponse" message="tns:ICalendarService_GetAllCalendars_OutputMessage" />
@@ -197,6 +253,10 @@
     <wsdl:operation name="DeleteCalendar">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/DeleteCalendar" message="tns:ICalendarService_DeleteCalendar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/DeleteCalendarResponse" message="tns:ICalendarService_DeleteCalendar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCalendars">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetUserCalendars" message="tns:ICalendarService_GetUserCalendars_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/GetUserCalendarsResponse" message="tns:ICalendarService_GetUserCalendars_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICalendarService" type="tns:ICalendarService">
@@ -257,6 +317,33 @@
     </wsdl:operation>
     <wsdl:operation name="IsEmailTaken">
       <soap:operation soapAction="http://tempuri.org/ICalendarService/IsEmailTaken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/ICalendarService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByCalendar">
+      <soap:operation soapAction="http://tempuri.org/ICalendarService/GetUsersByCalendar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByEvent">
+      <soap:operation soapAction="http://tempuri.org/ICalendarService/GetUsersByEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -336,6 +423,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetUserEvents">
+      <soap:operation soapAction="http://tempuri.org/ICalendarService/GetUserEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendarEvents">
+      <soap:operation soapAction="http://tempuri.org/ICalendarService/GetCalendarEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllCalendars">
       <soap:operation soapAction="http://tempuri.org/ICalendarService/GetAllCalendars" style="document" />
       <wsdl:input>
@@ -365,6 +470,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteCalendar">
       <soap:operation soapAction="http://tempuri.org/ICalendarService/DeleteCalendar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCalendars">
+      <soap:operation soapAction="http://tempuri.org/ICalendarService/GetUserCalendars" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

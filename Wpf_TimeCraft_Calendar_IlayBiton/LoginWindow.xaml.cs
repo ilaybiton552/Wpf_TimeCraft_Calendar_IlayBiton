@@ -76,20 +76,30 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            user.Username = "Username"; user.Password = "Password1";
             ValidPassword validPassword = new ValidPassword();
             ValidationResult validationResult = validPassword.Validate(pbPass.Password, CultureInfo.CurrentCulture);
-            if (!validationResult.IsValid || Validation.GetHasError(tbxUsername))
-            {
-                MessageBox.Show("Fix your errors!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            user = serviceClient.Login(user);
-            if (user == null) 
+            //if (!validationResult.IsValid || Validation.GetHasError(tbxUsername))
+            //{
+            //    MessageBox.Show("Fix your errors!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
+            User temp = serviceClient.Login(user);
+            if (temp == null) 
             {
                 MessageBox.Show("Error login in", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 user = new User() { Username = tbxUsername.Text, Password = pbPass.Password.ToString() };
                 return;
             }
+            user.Email = temp.Email;
+            user.Birthday = temp.Birthday;
+            user.PhoneNumber = temp.PhoneNumber;
+            user.FirstName = temp.FirstName;
+            user.LastName = temp.LastName;
+            user.IsAdmin = temp.IsAdmin;
+            user.ID = temp.ID;
+            user.Calendars = serviceClient.GetUserCalendars(user);
+            user.Events = serviceClient.GetUserEvents(user);
             MessageBox.Show("Logged in!");
             Close();
         }
