@@ -31,9 +31,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             this.user = user;
             this.grid = ucGrid;
             grid.Children.Add(new HomeUserControl());
-            AddHome();
-            AddLogin();
-            AddSignup();
         }
 
         private void TB_MouseLeave(object sender, MouseEventArgs e)
@@ -76,60 +73,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         public void UserLogged()
         {
-            sp.Children.Clear();
-            AddHome();
-            AddCalendars();
-            AddLogout();
-        }
-
-        private void AddHome()
-        {
-            TextBlock main = new TextBlock();
-            main.Text = "Home";
-            main.MouseEnter += TB_MouseEnter;
-            main.MouseLeave += TB_MouseLeave;
-            main.MouseLeftButtonDown += Home_Down;
-            sp.Children.Add(main);
-        }
-
-        private void AddLogout()
-        {
-            TextBlock logout = new TextBlock();
-            logout.Text = "Log Out";
-            logout.MouseEnter += TB_MouseEnter;
-            logout.MouseLeave += TB_MouseLeave;
-            logout.MouseLeftButtonDown += Logout_Down;
-            sp.Children.Add(logout);
-        }
-
-        private void AddLogin()
-        {
-            TextBlock login = new TextBlock();
-            login.Text = "Login";
-            login.MouseEnter += TB_MouseEnter;
-            login.MouseLeave += TB_MouseLeave;
-            login.MouseLeftButtonDown += Login_Down;
-            sp.Children.Add(login);
-        }
-
-        private void AddSignup()
-        {
-            TextBlock signup = new TextBlock();
-            signup.Text = "Sign Up";
-            signup.MouseEnter += TB_MouseEnter;
-            signup.MouseLeave += TB_MouseLeave;
-            signup.MouseLeftButtonDown += SignUp_Down;
-            sp.Children.Add(signup);
-        }
-
-        private void AddCalendars()
-        {
-            TextBlock calendar = new TextBlock();
-            calendar.Text = "Calendars";
-            calendar.MouseEnter += TB_MouseEnter;
-            calendar.MouseLeave += TB_MouseLeave;
-            calendar.MouseLeftButtonDown += Calendar_Down;
-            sp.Children.Add(calendar);
+            login.Visibility = Visibility.Collapsed;
+            signup.Visibility = Visibility.Collapsed;
+            calendars.Visibility = Visibility.Visible;
+            logout.Visibility = Visibility.Visible;
         }
 
         private void Calendar_Down(object sender, MouseButtonEventArgs e)
@@ -140,11 +87,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Logout_Down(object sender, MouseButtonEventArgs e)
         {
-            sp.Children.Clear();
             user = new User();
-            AddHome();
-            AddLogin();
-            AddSignup();
+            login.Visibility = Visibility.Visible;
+            signup.Visibility = Visibility.Visible;
+            calendars.Visibility = Visibility.Collapsed;
+            logout.Visibility = Visibility.Collapsed;
         }
     }
 }

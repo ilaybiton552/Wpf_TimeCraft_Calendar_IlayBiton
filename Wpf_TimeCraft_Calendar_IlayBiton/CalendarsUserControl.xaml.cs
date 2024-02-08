@@ -28,7 +28,51 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             InitializeComponent();
             this.user = user;
-            calendars.ItemsSource = user.Calendars;
+            AddCalendars();
+        }
+
+        private void AddCalendars()
+        {
+            foreach (var calendar in user.Calendars)
+            {
+                Button button = new Button();
+                button.Content = calendar.CalendarName;
+                button.Style = (Style)FindResource("ExapderButtonStyle");
+                button.Click += Calendar_Click;
+                button.Tag = calendar;
+                calendars.Children.Add(button);
+            }
+        }
+
+        private void Calendar_Click(object sender, RoutedEventArgs e)
+        {
+            addEveBtn.Visibility = Visibility.Visible;
+            editCalBtn.Visibility = Visibility.Visible;
+            yourCalsBtn.Visibility = Visibility.Visible;
+            expander.Visibility = Visibility.Collapsed;
+        }
+
+        private void AddCalendar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddEvent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditCalendar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void YourCalendars_Click(object sender, RoutedEventArgs e)
+        {
+            addEveBtn.Visibility = Visibility.Hidden;
+            editCalBtn.Visibility = Visibility.Hidden;
+            yourCalsBtn.Visibility = Visibility.Hidden;
+            expander.Visibility = Visibility.Visible;
         }
     }
 }

@@ -47,7 +47,31 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left" />
         </StackPanel>
-        <StackPanel Grid.Row="1" x:Name="sp" />
+        <StackPanel Grid.Row="1"
+                    x:Name="sp">
+            <TextBlock Text="Home"
+                       MouseEnter="TB_MouseEnter"
+                       MouseLeave="TB_MouseLeave"
+                       MouseLeftButtonDown="Home_Down" />
+            <TextBlock Text="Login" x:Name="login"
+                       MouseEnter="TB_MouseEnter"
+                       MouseLeave="TB_MouseLeave"
+                       MouseLeftButtonDown="Login_Down" />
+            <TextBlock Text="Sign Up" x:Name="signup"
+                       MouseEnter="TB_MouseEnter"
+                       MouseLeave="TB_MouseLeave"
+                       MouseLeftButtonDown="SignUp_Down" />
+            <TextBlock Text="Calendars" x:Name="calendars"
+                       MouseEnter="TB_MouseEnter"
+                       MouseLeave="TB_MouseLeave"
+                       MouseLeftButtonDown="Calendar_Down"
+                       Visibility="Collapsed"/>
+            <TextBlock Text="Log Out" x:Name="logout"
+                       MouseEnter="TB_MouseEnter"
+                       MouseLeave="TB_MouseLeave"
+                       MouseLeftButtonDown="Logout_Down" 
+                       Visibility="Collapsed"/>
+        </StackPanel>
         
     </Grid>
 </UserControl>
