@@ -154,12 +154,6 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver"
                                      Value="true">
-                                <!--<Setter Property="FontWeight"
-                                        TargetName="textBlock"
-                                        Value="Bold" />
-                                <Setter Property="BorderThickness"
-                                        TargetName="border"
-                                        Value="2" />-->
                                 <Setter Property="Background"
                                         TargetName="border"
                                         Value="#FF10C4FF" />
@@ -178,14 +172,17 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Button Content="Add Calendar" Style="{DynamicResource ButtonStyle}" Click="AddCalendar_Click"/>
-            <Button x:Name="addEveBtn" Content="Add Event" Style="{DynamicResource ButtonStyle}" Visibility="Hidden" Click="AddEvent_Click" />
-            <Button x:Name="editCalBtn" Content="Edit Calendar" Style="{DynamicResource ButtonStyle}" Visibility="Hidden" Click="EditCalendar_Click" />
-            <Button x:Name="yourCalsBtn" Content="Your Calendars" Style="{DynamicResource ButtonStyle}" Visibility="Hidden" Click="YourCalendars_Click" />
+            <Button x:Name="addEveBtn" Content="Add Event" Style="{DynamicResource ButtonStyle}" Visibility="Collapsed" Click="AddEvent_Click" />
+            <Button x:Name="editCalBtn" Content="Edit Calendar" Style="{DynamicResource ButtonStyle}" Visibility="Collapsed" Click="EditCalendar_Click" />
+            <Button x:Name="yourCalsBtn" Content="Your Calendars" Style="{DynamicResource ButtonStyle}" Visibility="Collapsed" Click="YourCalendars_Click" />
         </StackPanel>
-        <Expander Grid.Row="1" x:Name="expander"
+        <Expander x:Name="expander"
+                  Grid.Row="1"
                   Header="Your Calendars"
                   ExpandDirection="Down">
             <StackPanel x:Name="calendars" />
         </Expander>
+        <StackPanel Grid.Row="1" x:Name="ucGrid" />
+        
     </Grid>
 </UserControl>

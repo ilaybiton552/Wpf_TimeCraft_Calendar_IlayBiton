@@ -23,12 +23,88 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     {
         private User user;
         private CalendarServiceReference.Calendar calendar;
-        public AddCalendarUserControl(ref User user)
+        private CalendarServiceClient serviceClient;
+        public AddCalendarUserControl(User user)
         {
             InitializeComponent();
+            serviceClient = new CalendarServiceClient();
             this.user = user;
             calendar = new CalendarServiceReference.Calendar();
             this.DataContext = calendar;
+            calendar.Users = new UserList();
+            calendar.Creator = user;
+            AddUsers();
+        }
+
+        private void AddUsers()
+        {
+            UserList users = serviceClient.GetAllUsers();
+            users.RemoveAll(x => x.ID == user.ID);
+            foreach (User user in users) 
+            {
+                CheckBox userCB = new CheckBox();
+                userCB.Margin = new Thickness(2.5);
+                userCB.Content = user.Username;
+                userCB.Tag = user;
+                userCB.Style = FindResource("CheckBoxStyle") as Style;
+                usersWP.Children.Add(userCB);
+            }
+        }
+
+        private void GetChosenUsers()
+        {
+            calendar.Users.Add(user);
+            foreach (CheckBox userCB in usersWP.Children) 
+            {
+                if ((bool)userCB.IsChecked)
+                {
+                    calendar.Users.Add(userCB.Tag as User);
+                }
+            }
+        }
+
+        private void ClearChosenUsers()
+        {
+            foreach (CheckBox userDB in usersWP.Children)
+            {
+                if ((bool)userDB.IsChecked)
+                {
+                    userDB.IsChecked = false;
+                }
+            }
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            calendar.CalendarName = string.Empty;
+            calendar.Data = string.Empty;
+            calendar.Users = new UserList();
+            ClearChosenUsers();
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            GetChosenUsers();
+            int numOfRows = serviceClient.InsertCalendar(calendar);
+            if (numOfRows < calendar.Users.Count + 1)
+            {
+                MessageBox.Show("Error creating calendar");
+                return;
+            }
+            MessageBox.Show("Created Calendar Succesfully");
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.LineCount > 1) // if text starts wrapping
+            {
+                textBox.Height = Double.NaN;
+            }
+            else
+            {
+                textBox.Height = 25;
+            }
         }
     }
 }

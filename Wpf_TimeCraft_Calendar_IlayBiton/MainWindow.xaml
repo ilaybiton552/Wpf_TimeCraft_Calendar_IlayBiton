@@ -16,12 +16,8 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height=".1*" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+            <Grid x:Name="userControlGrid" Margin="0, 5"/>
             <local:CloseWindowUserControl MainWindow="True" />
-            <Grid x:Name="userControlGrid" Grid.Row="1"/>
         </Grid>
     </Grid>
 </Window>

@@ -54,7 +54,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void AddCalendar_Click(object sender, RoutedEventArgs e)
         {
-
+            ucGrid.Children.Clear();
+            expander.Visibility = Visibility.Collapsed;
+            yourCalsBtn.Visibility = Visibility.Visible;
+            ucGrid.Children.Add(new AddCalendarUserControl(user));
         }
 
         private void AddEvent_Click(object sender, RoutedEventArgs e)
@@ -69,6 +72,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void YourCalendars_Click(object sender, RoutedEventArgs e)
         {
+            ucGrid.Children.Clear();
             addEveBtn.Visibility = Visibility.Hidden;
             editCalBtn.Visibility = Visibility.Hidden;
             yourCalsBtn.Visibility = Visibility.Hidden;
