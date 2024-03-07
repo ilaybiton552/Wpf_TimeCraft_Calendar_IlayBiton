@@ -40,12 +40,20 @@
             <RowDefinition Height=".3*" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel>
+        <StackPanel Orientation="Horizontal">
             <Image Source="/Media/logo-modified.png"
-                   Height="75"
-                   Margin="10"
+                   Width="75"
+                   Margin="5, 0"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left" />
+            <Grid Margin="-10, 0"
+                  Height="80"
+                  Width="190">
+                <TextBlock x:Name="tbHello"
+                           VerticalAlignment="Center" TextAlignment="Center"
+                           Height="auto"
+                           Text="Hello Guest" TextWrapping="Wrap"/>
+            </Grid>
         </StackPanel>
         <StackPanel Grid.Row="1"
                     x:Name="sp">
