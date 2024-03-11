@@ -74,12 +74,17 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
         }
 
-        private void Clear_Click(object sender, RoutedEventArgs e)
+        private void ClearDetails()
         {
             calendar.CalendarName = string.Empty;
             calendar.Data = string.Empty;
             calendar.Users = new UserList();
             ClearChosenUsers();
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            ClearDetails();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -92,6 +97,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 return;
             }
             MessageBox.Show("Created Calendar Succesfully");
+            user.Calendars = serviceClient.GetUserCalendars(user);
+            ClearDetails();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
