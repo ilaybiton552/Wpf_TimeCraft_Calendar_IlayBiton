@@ -37,14 +37,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             TextBlock textBlock = sender as TextBlock;
             textBlock.Background = Brushes.LightBlue;
-            textBlock.FontWeight = FontWeights.Regular;
         }
 
         private void TB_MouseEnter(object sender, MouseEventArgs e)
         {
             TextBlock textBlock = sender as TextBlock;
-            textBlock.Background = Brushes.DarkCyan;
-            textBlock.FontWeight = FontWeights.Bold;
+            textBlock.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#10C4FF");
         }
 
         private void Login_Down(object sender, MouseButtonEventArgs e)

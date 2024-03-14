@@ -80,6 +80,9 @@
     <Compile Include="CloseWindowUserControl.xaml.cs">
       <DependentUpon>CloseWindowUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DisplayCalendarUserControl.xaml.cs">
+      <DependentUpon>DisplayCalendarUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomeUserControl.xaml.cs">
       <DependentUpon>HomeUserControl.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CloseWindowUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DisplayCalendarUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

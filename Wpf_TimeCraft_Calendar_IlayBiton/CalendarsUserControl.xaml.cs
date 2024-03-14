@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
 using MaterialDesignThemes;
 using MaterialDesignThemes.Wpf;
+using Calendar = Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar;
 
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
@@ -46,10 +47,13 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Calendar_Click(object sender, RoutedEventArgs e)
         {
+            ucGrid.Children.Clear();
             addEveBtn.Visibility = Visibility.Visible;
             editCalBtn.Visibility = Visibility.Visible;
             yourCalsBtn.Visibility = Visibility.Visible;
             expander.Visibility = Visibility.Collapsed;
+            Calendar cal = (sender as Button).Tag as Calendar;
+            ucGrid.Children.Add(new DisplayCalendarUserControl(ref cal));
         }
 
         private void AddCalendar_Click(object sender, RoutedEventArgs e)
