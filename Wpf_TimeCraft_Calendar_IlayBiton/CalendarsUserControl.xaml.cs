@@ -66,12 +66,16 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void AddEvent_Click(object sender, RoutedEventArgs e)
         {
-
+            ucGrid.Children.Clear();
+            expander.Visibility = Visibility.Collapsed;
+            yourCalsBtn.Visibility = Visibility.Visible;
         }
 
         private void EditCalendar_Click(object sender, RoutedEventArgs e)
         {
-
+            ucGrid.Children.Clear();
+            expander.Visibility = Visibility.Collapsed;
+            yourCalsBtn.Visibility = Visibility.Visible;
         }
 
         private void YourCalendars_Click(object sender, RoutedEventArgs e)
