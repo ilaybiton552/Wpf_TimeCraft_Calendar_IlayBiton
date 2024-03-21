@@ -111,31 +111,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetUsersByCalendar">
+  <xs:element name="GetCalendarUsers">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="calendar" nillable="true" type="q11:Calendar" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetUsersByCalendarResponse">
+  <xs:element name="GetCalendarUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersByCalendarResult" nillable="true" type="q12:UserList" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetCalendarUsersResult" nillable="true" type="q12:UserList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetUsersByEvent">
+  <xs:element name="GetEventUsers">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="_event" nillable="true" type="q13:Event" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetUsersByEventResponse">
+  <xs:element name="GetEventUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersByEventResult" nillable="true" type="q14:UserList" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetEventUsersResult" nillable="true" type="q14:UserList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

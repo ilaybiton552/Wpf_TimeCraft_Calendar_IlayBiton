@@ -25,10 +25,13 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     public partial class CalendarsUserControl : UserControl
     {
         private User user;
+        private Calendar calendar;
+
         public CalendarsUserControl(User user)
         {
             InitializeComponent();
             this.user = user;
+            calendar = new Calendar();
             AddCalendars();
         }
 
@@ -52,8 +55,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             editCalBtn.Visibility = Visibility.Visible;
             yourCalsBtn.Visibility = Visibility.Visible;
             expander.Visibility = Visibility.Collapsed;
-            Calendar cal = (sender as Button).Tag as Calendar;
-            ucGrid.Children.Add(new DisplayCalendarUserControl(ref cal));
+            calendar = (sender as Button).Tag as Calendar;
+            ucGrid.Children.Add(new DisplayCalendarUserControl(ref calendar));
         }
 
         private void AddCalendar_Click(object sender, RoutedEventArgs e)
@@ -69,6 +72,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             ucGrid.Children.Clear();
             expander.Visibility = Visibility.Collapsed;
             yourCalsBtn.Visibility = Visibility.Visible;
+            ucGrid.Children.Add(new AddEventUserControl(ref user, ref calendar));
         }
 
         private void EditCalendar_Click(object sender, RoutedEventArgs e)

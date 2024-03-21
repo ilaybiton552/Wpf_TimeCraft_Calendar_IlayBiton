@@ -570,17 +570,17 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetUser", ReplyAction="http://tempuri.org/ICalendarService/GetUserResponse")]
         System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User> GetUserAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetUsersByCalendar", ReplyAction="http://tempuri.org/ICalendarService/GetUsersByCalendarResponse")]
-        Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList GetUsersByCalendar(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetCalendarUsers", ReplyAction="http://tempuri.org/ICalendarService/GetCalendarUsersResponse")]
+        Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList GetCalendarUsers(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetUsersByCalendar", ReplyAction="http://tempuri.org/ICalendarService/GetUsersByCalendarResponse")]
-        System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetUsersByCalendarAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetCalendarUsers", ReplyAction="http://tempuri.org/ICalendarService/GetCalendarUsersResponse")]
+        System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetCalendarUsersAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetUsersByEvent", ReplyAction="http://tempuri.org/ICalendarService/GetUsersByEventResponse")]
-        Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList GetUsersByEvent(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetEventUsers", ReplyAction="http://tempuri.org/ICalendarService/GetEventUsersResponse")]
+        Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList GetEventUsers(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetUsersByEvent", ReplyAction="http://tempuri.org/ICalendarService/GetUsersByEventResponse")]
-        System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetUsersByEventAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetEventUsers", ReplyAction="http://tempuri.org/ICalendarService/GetEventUsersResponse")]
+        System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetEventUsersAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetAllEventTypes", ReplyAction="http://tempuri.org/ICalendarService/GetAllEventTypesResponse")]
         Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.EventTypeList GetAllEventTypes();
@@ -764,20 +764,20 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
             return base.Channel.GetUserAsync(user);
         }
         
-        public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList GetUsersByCalendar(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar) {
-            return base.Channel.GetUsersByCalendar(calendar);
+        public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList GetCalendarUsers(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar) {
+            return base.Channel.GetCalendarUsers(calendar);
         }
         
-        public System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetUsersByCalendarAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar) {
-            return base.Channel.GetUsersByCalendarAsync(calendar);
+        public System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetCalendarUsersAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar) {
+            return base.Channel.GetCalendarUsersAsync(calendar);
         }
         
-        public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList GetUsersByEvent(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
-            return base.Channel.GetUsersByEvent(_event);
+        public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList GetEventUsers(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
+            return base.Channel.GetEventUsers(_event);
         }
         
-        public System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetUsersByEventAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
-            return base.Channel.GetUsersByEventAsync(_event);
+        public System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetEventUsersAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
+            return base.Channel.GetEventUsersAsync(_event);
         }
         
         public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.EventTypeList GetAllEventTypes() {
