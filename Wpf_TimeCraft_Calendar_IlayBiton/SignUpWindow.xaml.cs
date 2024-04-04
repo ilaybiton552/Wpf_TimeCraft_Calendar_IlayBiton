@@ -97,9 +97,13 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             try
             {
-                if (serviceClient.InsertUser(user) == 1)
+                if (serviceClient.InsertUser(user) == -1)
+                {
                     MessageBox.Show("Success creating user!");
-                Close();
+                    Close();
+                }
+                else
+                    MessageBox.Show("Error Creating User", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch(Exception)
             {
