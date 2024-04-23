@@ -969,7 +969,7 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition Height="1.2*" />
+            <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -1019,63 +1019,13 @@
         <TextBlock Text="Start Date:" Grid.Row="3" />
         <TextBlock Text="End Date:" Grid.Column="1" Grid.Row="3" />
         <StackPanel Grid.Row="4" Orientation="Vertical">
-            <DatePicker BorderThickness="0, 0, 0, 2" BorderBrush="Black" CalendarStyle="{StaticResource CalendarStyle}"/>
+            <DatePicker Width="255" BorderThickness="0, 0, 0, 2" BorderBrush="Black" CalendarStyle="{StaticResource CalendarStyle}"/>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical">
-            <DatePicker BorderThickness="0, 0, 0, 2" BorderBrush="Black" CalendarStyle="{StaticResource CalendarStyle}"/>
+            <DatePicker BorderThickness="0, 0, 0, 2" Width="255" BorderBrush="Black" CalendarStyle="{StaticResource CalendarStyle}" />
         </StackPanel>
-        <!--<StackPanel Orientation="Horizontal">
-            <TextBlock Text="{Binding Date, StringFormat={}{0:yyyy-MM-dd HH:mm:ss}}"
-                       VerticalAlignment="Center"
-                       FontSize="24" />
-            <Button Margin="8 0 0 0"
-                    Content="..."
-                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                    materialDesign:DialogHost.DialogOpenedAttached="CombinedDialogOpenedEventHandler"
-                    materialDesign:DialogHost.DialogClosingAttached="CombinedDialogClosingEventHandler">
-                <Button.CommandParameter>
-                    <Grid Margin="-1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0"
-                                    Orientation="Horizontal">
-                            <Calendar x:Name="CombinedCalendar"
-                                      Margin="-1 -4 -1 0" />
-                            <materialDesign:Clock x:Name="CombinedClock"
-                                                  DisplayAutomation="CycleWithSeconds"
-                                                  Is24Hours="True" />
-                        </StackPanel>
-                        <StackPanel Grid.Row="1"
-                                    Margin="8"
-                                    HorizontalAlignment="Right"
-                                    Orientation="Horizontal">
-                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                                    CommandParameter="0"
-                                    Style="{DynamicResource MaterialDesignFlatButton}">
-                                CANCEL
-                            </Button>
-                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                                    CommandParameter="1"
-                                    Style="{DynamicResource MaterialDesignFlatButton}">
-                                OK
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </Button.CommandParameter>
-            </Button>
-        </StackPanel>-->
-        <TextBlock Grid.Row="5"
-                   Text="Event's Users:" />
-        <Expander x:Name="usersExpander"
-                  Header="Users"
-                  ExpandDirection="Down"
-                  Grid.Row="5"
-                  Grid.Column="1"
-                  Grid.RowSpan="2">
-            <WrapPanel x:Name="usersWP" />
-        </Expander>
+        <TextBlock Text="Event Type:" Grid.Row="5" />
+        <ComboBox x:Name="cmbTypes" Grid.Row="5" Grid.Column="1" VerticalAlignment="Top" Grid.RowSpan="2" />
         <StackPanel Grid.Row="6"
                     Orientation="Horizontal"
                     Grid.ColumnSpan="2"

@@ -243,6 +243,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
     public partial class Calendar : Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Windows.Media.Color BaseColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CalendarNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -256,6 +259,19 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList UsersField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Windows.Media.Color BaseColor {
+            get {
+                return this.BaseColorField;
+            }
+            set {
+                if ((this.BaseColorField.Equals(value) != true)) {
+                    this.BaseColorField = value;
+                    this.RaisePropertyChanged("BaseColor");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CalendarName {
@@ -330,13 +346,13 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
     public partial class Event : Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar CalendarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User CreatorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DisplayColorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime DueDateField;
@@ -355,6 +371,19 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList UsersField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar Calendar {
+            get {
+                return this.CalendarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CalendarField, value) != true)) {
+                    this.CalendarField = value;
+                    this.RaisePropertyChanged("Calendar");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User Creator {
@@ -378,19 +407,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
                 if ((object.ReferenceEquals(this.DataField, value) != true)) {
                     this.DataField = value;
                     this.RaisePropertyChanged("Data");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DisplayColor {
-            get {
-                return this.DisplayColorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DisplayColorField, value) != true)) {
-                    this.DisplayColorField = value;
-                    this.RaisePropertyChanged("DisplayColor");
                 }
             }
         }
@@ -481,7 +497,39 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
     public partial class EventType : Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.EventType.ArithmeticAct ActField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Windows.Media.Color ColorShadeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TypeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.EventType.ArithmeticAct Act {
+            get {
+                return this.ActField;
+            }
+            set {
+                if ((this.ActField.Equals(value) != true)) {
+                    this.ActField = value;
+                    this.RaisePropertyChanged("Act");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Windows.Media.Color ColorShade {
+            get {
+                return this.ColorShadeField;
+            }
+            set {
+                if ((this.ColorShadeField.Equals(value) != true)) {
+                    this.ColorShadeField = value;
+                    this.RaisePropertyChanged("ColorShade");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Type {
@@ -494,6 +542,20 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
                     this.RaisePropertyChanged("Type");
                 }
             }
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.DataContractAttribute(Name="EventType.ArithmeticAct", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+        public enum ArithmeticAct : int {
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            ADD = 0,
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            SUBTRACT = 1,
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            NONE = 2,
         }
     }
     

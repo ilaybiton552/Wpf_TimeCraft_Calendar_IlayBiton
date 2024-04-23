@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,55 +35,17 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             this.calendar = calendar;
             _event = new Event();
             this.DataContext = _event;
-            _event.Users = new UserList();
+            _event.Users = calendar.Users;
             _event.Creator = user;
-            AddUsers();
-        }
-
-        private void AddUsers()
-        {
-            UserList users = serviceClient.GetCalendarUsers(calendar);
-            users.RemoveAll(x => x.ID == user.ID);
-            foreach (User user in users)
-            {
-                CheckBox userCB = new CheckBox();
-                userCB.Margin = new Thickness(2.5);
-                userCB.Content = user.Username;
-                userCB.Tag = user;
-                userCB.Style = FindResource("CheckBoxStyle") as Style;
-                usersWP.Children.Add(userCB);
-            }
-        }
-
-        private void GetChosenUsers()
-        {
-            _event.Users.Add(user);
-            foreach (CheckBox userCB in usersWP.Children)
-            {
-                if ((bool)userCB.IsChecked)
-                {
-                    _event.Users.Add(userCB.Tag as User);
-                }
-            }
-        }
-
-        private void ClearChosenUsers()
-        {
-            foreach (CheckBox userDB in usersWP.Children)
-            {
-                if ((bool)userDB.IsChecked)
-                {
-                    userDB.IsChecked = false;
-                }
-            }
+            EventTypeList eventTypes = serviceClient.GetAllEventTypes();
+            cmbTypes.ItemsSource = eventTypes;
+            cmbTypes.DisplayMemberPath = "Type";
         }
 
         private void ClearDetails()
         {
             _event.EventName = string.Empty;
             _event.Data = string.Empty;
-            _event.Users = new UserList();
-            ClearChosenUsers();
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
@@ -92,7 +55,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            GetChosenUsers();
             int numOfRows = serviceClient.InsertEvent(_event);
             if (numOfRows < _event.Users.Count + 1)
             {

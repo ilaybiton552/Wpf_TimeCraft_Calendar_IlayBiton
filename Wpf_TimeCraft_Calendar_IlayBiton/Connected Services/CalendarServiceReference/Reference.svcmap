@@ -22,10 +22,11 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/ServiceModel/CalendarService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e116cf3c-2120-4d46-a1dc-f912d6ce0980" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/CalendarService/?disco" />
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="88fd86f9-92ad-4a16-882c-8ce0975f3e51" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/CalendarService/?xsd=xsd2" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="0cac555a-7b49-4e92-9aa8-4f61f8bfd858" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/CalendarService/?xsd=xsd0" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="6e1879cb-5782-475a-95d2-71488dbd6342" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/CalendarService/?xsd=xsd3" />
     <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="64c8b24f-d857-495f-b30d-cf665aee37ab" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/CalendarService/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e116cf3c-2120-4d46-a1dc-f912d6ce0980" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/CalendarService/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="0cac555a-7b49-4e92-9aa8-4f61f8bfd858" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/CalendarService/?xsd=xsd0" />
     <MetadataFile FileName="CalendarService.wsdl" MetadataType="Wsdl" ID="8589c4d4-a9b8-4e69-83ac-2c83f905419d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ServiceModel/CalendarService/?wsdl" />
   </Metadata>
   <Extensions>

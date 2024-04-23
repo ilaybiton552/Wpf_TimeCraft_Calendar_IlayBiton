@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ServiceModel/CalendarService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media" />
   <xs:complexType name="UserList">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
@@ -41,6 +42,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Windows.Media" minOccurs="0" name="BaseColor" type="q1:Color" />
           <xs:element minOccurs="0" name="CalendarName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Creator" nillable="true" type="tns:User" />
           <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
@@ -61,9 +63,9 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
+          <xs:element minOccurs="0" name="Calendar" nillable="true" type="tns:Calendar" />
           <xs:element minOccurs="0" name="Creator" nillable="true" type="tns:User" />
           <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DisplayColor" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="EventType" nillable="true" type="tns:EventType" />
@@ -79,12 +81,22 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
+          <xs:element minOccurs="0" name="Act" type="tns:EventType.ArithmeticAct" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Windows.Media" minOccurs="0" name="ColorShade" type="q2:Color" />
           <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="EventType" nillable="true" type="tns:EventType" />
+  <xs:simpleType name="EventType.ArithmeticAct">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ADD" />
+      <xs:enumeration value="SUBTRACT" />
+      <xs:enumeration value="NONE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EventType.ArithmeticAct" nillable="true" type="tns:EventType.ArithmeticAct" />
   <xs:complexType name="EventTypeList">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="EventType" nillable="true" type="tns:EventType" />
