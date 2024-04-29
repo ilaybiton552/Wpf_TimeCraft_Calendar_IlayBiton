@@ -18,22 +18,23 @@ using Calendar = Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calen
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
-    /// Interaction logic for AddCalendarUserControl.xaml
+    /// Interaction logic for EditCalendarUserControl.xaml
     /// </summary>
-    public partial class AddCalendarUserControl : UserControl
+    public partial class EditCalendarUserControl : UserControl
     {
         private User user;
         private Calendar calendar;
+        private Calendar tempCal;
         private CalendarServiceClient serviceClient;
-        public AddCalendarUserControl(ref User user)
+        public EditCalendarUserControl(ref User user, ref Calendar calendar)
         {
             InitializeComponent();
             serviceClient = new CalendarServiceClient();
             this.user = user;
-            calendar = new Calendar();
-            this.DataContext = calendar;
-            calendar.Users = new UserList();
-            calendar.Creator = user;
+            this.calendar = calendar;
+            tempCal = new Calendar() { BaseColor = calendar.BaseColor, CalendarName = calendar.CalendarName,
+                                       Data = calendar.Data, Users = calendar.Users, ID = calendar.ID};                          
+            this.DataContext = tempCal;
             AddUsers();
         }
 
@@ -41,25 +42,30 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             UserList users = serviceClient.GetAllUsers();
             users.RemoveAll(x => x.ID == user.ID);
-            foreach (User user in users) 
+            foreach (User user in users)
             {
                 CheckBox userCB = new CheckBox();
                 userCB.Margin = new Thickness(2.5);
                 userCB.Content = user.Username;
                 userCB.Tag = user;
                 userCB.Style = FindResource("CheckBoxStyle") as Style;
+                if (calendar.Users.Contains(user)) // checking calendar's users
+                {
+                    userCB.IsChecked = true;
+                }
                 usersWP.Children.Add(userCB);
             }
         }
 
         private void GetChosenUsers()
         {
-            calendar.Users.Add(user);
-            foreach (CheckBox userCB in usersWP.Children) 
+            tempCal.Users.Clear();
+            tempCal.Users.Add(user);
+            foreach (CheckBox userCB in usersWP.Children)
             {
                 if ((bool)userCB.IsChecked)
                 {
-                    calendar.Users.Add(userCB.Tag as User);
+                    tempCal.Users.Add(userCB.Tag as User);
                 }
             }
         }
@@ -77,9 +83,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void ClearDetails()
         {
-            calendar.CalendarName = string.Empty;
-            calendar.Data = string.Empty;
-            calendar.Users = new UserList();
+            tempCal.CalendarName = string.Empty;
+            tempCal.Data = string.Empty;
+            tempCal.Users = new UserList();
             ClearChosenUsers();
         }
 
@@ -88,16 +94,20 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             ClearDetails();
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
             GetChosenUsers();
-            int numOfRows = serviceClient.InsertCalendar(calendar);
-            if (numOfRows < calendar.Users.Count + 1)
+            int numOfRows = serviceClient.UpdateCalendar(tempCal);
+            if (numOfRows < tempCal.Users.Count + 1)
             {
-                MessageBox.Show("Error creating calendar");
+                MessageBox.Show("Error editing calendar");
                 return;
             }
-            MessageBox.Show("Created Calendar Succesfully");
+            MessageBox.Show("Edited Calendar Succesfully");
+            calendar.CalendarName = tempCal.CalendarName;
+            calendar.Data = tempCal.Data;
+            calendar.Users = tempCal.Users;
+            calendar.BaseColor = tempCal.BaseColor;
             user.Calendars = serviceClient.GetUserCalendars(user);
             ClearDetails();
         }
@@ -114,5 +124,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 textBox.Height = 25;
             }
         }
+
     }
 }

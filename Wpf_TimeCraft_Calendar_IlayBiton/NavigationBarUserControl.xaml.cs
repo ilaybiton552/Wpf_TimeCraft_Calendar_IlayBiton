@@ -82,7 +82,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void Calendar_Down(object sender, MouseButtonEventArgs e)
         {
             grid.Children.Clear();
-            grid.Children.Add(new CalendarsUserControl(user));
+            grid.Children.Add(new CalendarsUserControl(ref user));
         }
 
         private void Logout_Down(object sender, MouseButtonEventArgs e)
