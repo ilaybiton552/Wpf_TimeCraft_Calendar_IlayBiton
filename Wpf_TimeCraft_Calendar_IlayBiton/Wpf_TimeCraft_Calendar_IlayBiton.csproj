@@ -83,6 +83,9 @@
     <Compile Include="CloseWindowUserControl.xaml.cs">
       <DependentUpon>CloseWindowUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DateTimePickerUserControl.xaml.cs">
+		<DependentUpon>DateTimePickerUserControl.xaml</DependentUpon>
+	</Compile>
     <Compile Include="DisplayCalendarUserControl.xaml.cs">
       <DependentUpon>DisplayCalendarUserControl.xaml</DependentUpon>
     </Compile>
@@ -108,6 +111,10 @@
     <Page Include="CloseWindowUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DateTimePickerUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DisplayCalendarUserControl.xaml">
       <SubType>Designer</SubType>

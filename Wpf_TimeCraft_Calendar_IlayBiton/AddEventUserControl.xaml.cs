@@ -24,18 +24,17 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     public partial class AddEventUserControl : UserControl
     {
         private User user;
-        private Calendar calendar;
         private Event _event;
         private CalendarServiceClient serviceClient;
-        public AddEventUserControl(ref User user, ref Calendar calendar)
+        public AddEventUserControl(ref User user, Calendar calendar)
         {
             InitializeComponent();
             serviceClient = new CalendarServiceClient();
             this.user = user;
-            this.calendar = calendar;
             _event = new Event();
             this.DataContext = _event;
-            _event.Users = calendar.Users;
+            _event.Calendar = calendar;
+            _event.Users = serviceClient.GetCalendarUsers(calendar);
             _event.Creator = user;
             EventTypeList eventTypes = serviceClient.GetAllEventTypes();
             cmbTypes.ItemsSource = eventTypes;
@@ -46,6 +45,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             _event.EventName = string.Empty;
             _event.Data = string.Empty;
+            cmbTypes.SelectedItem = null;
+            startDate.ClearDateChoice();
+            dueDate.ClearDateChoice();
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
@@ -55,15 +57,21 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            int numOfRows = serviceClient.InsertEvent(_event);
-            if (numOfRows < _event.Users.Count + 1)
+            _event.StartDate = startDate.Date;
+            _event.DueDate = dueDate.Date;
+            _event.EventType = cmbTypes.SelectedItem as EventType;
+            try
             {
-                MessageBox.Show("Error creating event");
-                return;
+                if (serviceClient.InsertEvent(_event) != 1)
+                {
+                    MessageBox.Show("Error creating event");
+                    return;
+                }
+                MessageBox.Show("Created event Succesfully");
+                user.Events = serviceClient.GetUserEvents(user);
+                ClearDetails();
             }
-            MessageBox.Show("Created event Succesfully");
-            user.Events = serviceClient.GetUserEvents(user);
-            ClearDetails();
+            catch { }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

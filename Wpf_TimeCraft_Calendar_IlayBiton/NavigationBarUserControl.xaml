@@ -74,6 +74,11 @@
                        MouseLeave="TB_MouseLeave"
                        MouseLeftButtonDown="Calendar_Down"
                        Visibility="Collapsed"/>
+            <TextBlock Text="Events" x:Name="events"
+                       MouseEnter="TB_MouseEnter"
+                       MouseLeave="TB_MouseLeave"
+                       MouseLeftButtonDown="Event_Down"
+                       Visibility="Collapsed"/>
             <TextBlock Text="Log Out" x:Name="logout"
                        MouseEnter="TB_MouseEnter"
                        MouseLeave="TB_MouseLeave"
