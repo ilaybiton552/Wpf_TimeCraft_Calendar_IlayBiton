@@ -26,10 +26,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     {
         private User user;
         private Calendar calendar;
+        private CalendarServiceClient serviceClient;
 
         public CalendarsUserControl(ref User user)
         {
             InitializeComponent();
+            serviceClient = new CalendarServiceClient();
             this.user = user;
             calendar = new Calendar();
             AddCalendars();
@@ -56,6 +58,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             yourCalsBtn.Visibility = Visibility.Visible;
             expander.Visibility = Visibility.Collapsed;
             calendar = (sender as Button).Tag as Calendar;
+            calendar.Users = serviceClient.GetCalendarUsers(calendar);
+            calendar.Events = serviceClient.GetCalendarEvents(calendar);
             ucGrid.Children.Add(new DisplayCalendarUserControl(ref calendar));
         }
 

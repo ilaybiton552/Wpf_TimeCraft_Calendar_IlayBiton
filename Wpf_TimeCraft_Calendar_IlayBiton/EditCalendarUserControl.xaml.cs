@@ -49,7 +49,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 userCB.Content = user.Username;
                 userCB.Tag = user;
                 userCB.Style = FindResource("CheckBoxStyle") as Style;
-                if (calendar.Users.Contains(user)) // checking calendar's users
+                if (tempCal.Users.Where(usr=>usr.Username == user.Username).ToList().Count != 0) // checking calendar's users
                 {
                     userCB.IsChecked = true;
                 }
