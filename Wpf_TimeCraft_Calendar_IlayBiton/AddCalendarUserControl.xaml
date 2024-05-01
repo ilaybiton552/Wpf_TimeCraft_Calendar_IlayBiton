@@ -27,7 +27,7 @@
             <Setter Property="VerticalContentAlignment"
                     Value="Center" />
             <Setter Property="Margin"
-                    Value="5" />
+                    Value="5, -10, 5, 0" />
             <Setter Property="FontSize"
                     Value="15" />
             <Setter Property="Foreground"
@@ -118,9 +118,9 @@
             <Setter Property="FontSize"
                     Value="25" />
             <Setter Property="Margin"
-                    Value="5, 15" />
+                    Value="5, 5" />
         </Style>
-        <Style TargetType="Border">
+        <Style TargetType="Border" x:Key="BorderStyle">
             <Setter Property="Margin"
                     Value="5, 0" />
             <Setter Property="BorderThickness"
@@ -306,7 +306,8 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition Height="1.2*" />
+            <RowDefinition />
+            <RowDefinition />
             <RowDefinition />   
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -318,7 +319,7 @@
                    Grid.Row="1" />
         <StackPanel Grid.Row="2"
                     HorizontalAlignment="Left">
-            <Border Width="255">
+            <Border Width="255" Style="{StaticResource BorderStyle}">
                 <TextBox x:Name="tbxCalName">
                     <Binding Path="CalendarName"
                              ValidatesOnDataErrors="True"
@@ -336,7 +337,7 @@
         <TextBlock Grid.Row="1"
                    Grid.Column="1"
                    Text="Calendar Data:" />
-        <Border Width="255" Grid.Column="1" Grid.Row="2">
+        <Border Width="255" Grid.Column="1" Grid.Row="2" Style="{StaticResource BorderStyle}">
             <TextBox TextWrapping="Wrap"
                      Height="25"
                      AcceptsReturn="True"
@@ -348,17 +349,22 @@
                 </Binding>
             </TextBox>
         </Border>
-        <TextBlock Grid.Row="3"
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="2"
+                   Text="Calendar's Base Color:" />
+        <local:BaseColorListUserControl x:Name="baseColor" Grid.Row="3"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Center" VerticalAlignment="Top" Width="20" Height="20"/>
+        <TextBlock Grid.Row="4"
                    Text="Calendar's Users:" />
         <Expander x:Name="usersExpander"
                   Header="Users"
                   ExpandDirection="Down"
-                  Grid.Row="3"
+                  Grid.Row="4"
                   Grid.Column="1"
                   Grid.RowSpan="2">
             <WrapPanel x:Name="usersWP" />
         </Expander>
-        <StackPanel Grid.Row="4" Orientation="Horizontal" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="5" Orientation="Horizontal" Grid.ColumnSpan="2" HorizontalAlignment="Center">
             <Button Content="Clear"
                     Style="{DynamicResource ButtonStyle}"
                     Click="Clear_Click"/>

@@ -36,6 +36,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                                        Data = calendar.Data, Users = calendar.Users, ID = calendar.ID};                          
             this.DataContext = tempCal;
             AddUsers();
+            baseColor.SetColor(tempCal.BaseColor);
         }
 
         private void AddUsers()
@@ -97,6 +98,25 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             GetChosenUsers();
+            try
+            {
+                tempCal.BaseColor = baseColor.ChosenColor;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("You must to choose a color", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (tempCal.BaseColor == null || Validation.GetHasError(tbxCalName))
+            {
+                MessageBox.Show("Fix your errors", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (serviceClient.IsCalendarNameTaken(tempCal))
+            {
+                MessageBox.Show("Calendar name already taken", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             int numOfRows = serviceClient.UpdateCalendar(tempCal);
             if (numOfRows < tempCal.Users.Count + 1)
             {
