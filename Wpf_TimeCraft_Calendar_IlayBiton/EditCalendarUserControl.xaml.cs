@@ -50,7 +50,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 userCB.Content = user.Username;
                 userCB.Tag = user;
                 userCB.Style = FindResource("CheckBoxStyle") as Style;
-                if (tempCal.Users.Where(usr=>usr.Username == user.Username).ToList().Count != 0) // checking calendar's users
+                if (tempCal.Users.Where(usr=>usr.ID == user.ID).ToList().Count != 0) // checking calendar's users
                 {
                     userCB.IsChecked = true;
                 }
@@ -102,17 +102,15 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             {
                 tempCal.BaseColor = baseColor.ChosenColor;
             }
-            catch (Exception)
-            {
-                MessageBox.Show("You must to choose a color", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (tempCal.BaseColor == null || Validation.GetHasError(tbxCalName))
+            catch { }
+            if (Validation.GetHasError(tbxCalName))
             {
                 MessageBox.Show("Fix your errors", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (serviceClient.IsCalendarNameTaken(tempCal))
+            CalendarList calendars = serviceClient.GetAllCalendars();
+            // if calendar name already exists and its not the same calednar
+            if (calendars.Where(cal=>cal.CalendarName == tempCal.CalendarName && cal.ID != tempCal.ID).Count() != 0)
             {
                 MessageBox.Show("Calendar name already taken", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

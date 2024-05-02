@@ -733,12 +733,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetUserCalendars", ReplyAction="http://tempuri.org/ICalendarService/GetUserCalendarsResponse")]
         System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.CalendarList> GetUserCalendarsAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/IsCalendarNameTaken", ReplyAction="http://tempuri.org/ICalendarService/IsCalendarNameTakenResponse")]
-        bool IsCalendarNameTaken(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/IsCalendarNameTaken", ReplyAction="http://tempuri.org/ICalendarService/IsCalendarNameTakenResponse")]
-        System.Threading.Tasks.Task<bool> IsCalendarNameTakenAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -966,14 +960,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         
         public System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.CalendarList> GetUserCalendarsAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user) {
             return base.Channel.GetUserCalendarsAsync(user);
-        }
-        
-        public bool IsCalendarNameTaken(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar) {
-            return base.Channel.IsCalendarNameTaken(calendar);
-        }
-        
-        public System.Threading.Tasks.Task<bool> IsCalendarNameTakenAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar) {
-            return base.Channel.IsCalendarNameTakenAsync(calendar);
         }
     }
 }

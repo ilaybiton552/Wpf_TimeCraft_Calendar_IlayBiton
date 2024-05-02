@@ -100,22 +100,28 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("You must to choose a color", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (calendar.BaseColor == null || Validation.GetHasError(tbxCalName))
+            if (Validation.GetHasError(tbxCalName))
             {
                 MessageBox.Show("Fix your errors", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (serviceClient.IsCalendarNameTaken(calendar))
+            //if (serviceClient.IsCalendarNameTaken(calendar))
+            //{
+            //    MessageBox.Show("Calendar name already taken", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
+            try
             {
-                MessageBox.Show("Calendar name already taken", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                int numOfRows = serviceClient.InsertCalendar(calendar);
+
+                if (numOfRows < calendar.Users.Count + 1)
+                {
+                    MessageBox.Show("Error creating calendar");
+                    return;
+                }
             }
-            int numOfRows = serviceClient.InsertCalendar(calendar);
-            if (numOfRows < calendar.Users.Count + 1)
-            {
-                MessageBox.Show("Error creating calendar");
-                return;
-            }
+            catch { }
+            return;
             MessageBox.Show("Created Calendar Succesfully");
             user.Calendars = serviceClient.GetUserCalendars(user);
             ClearDetails();

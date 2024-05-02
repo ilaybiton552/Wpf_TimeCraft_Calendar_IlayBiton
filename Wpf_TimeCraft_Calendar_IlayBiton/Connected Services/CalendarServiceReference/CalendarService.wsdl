@@ -158,12 +158,6 @@
   <wsdl:message name="ICalendarService_GetUserCalendars_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserCalendarsResponse" />
   </wsdl:message>
-  <wsdl:message name="ICalendarService_IsCalendarNameTaken_InputMessage">
-    <wsdl:part name="parameters" element="tns:IsCalendarNameTaken" />
-  </wsdl:message>
-  <wsdl:message name="ICalendarService_IsCalendarNameTaken_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IsCalendarNameTakenResponse" />
-  </wsdl:message>
   <wsdl:portType name="ICalendarService">
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetAllUsers" message="tns:ICalendarService_GetAllUsers_InputMessage" />
@@ -264,10 +258,6 @@
     <wsdl:operation name="GetUserCalendars">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetUserCalendars" message="tns:ICalendarService_GetUserCalendars_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/GetUserCalendarsResponse" message="tns:ICalendarService_GetUserCalendars_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IsCalendarNameTaken">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/IsCalendarNameTaken" message="tns:ICalendarService_IsCalendarNameTaken_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/IsCalendarNameTakenResponse" message="tns:ICalendarService_IsCalendarNameTaken_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICalendarService" type="tns:ICalendarService">
@@ -490,15 +480,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserCalendars">
       <soap:operation soapAction="http://tempuri.org/ICalendarService/GetUserCalendars" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IsCalendarNameTaken">
-      <soap:operation soapAction="http://tempuri.org/ICalendarService/IsCalendarNameTaken" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
