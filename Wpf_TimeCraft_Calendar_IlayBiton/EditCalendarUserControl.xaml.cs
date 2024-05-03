@@ -33,7 +33,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             this.user = user;
             this.calendar = calendar;
             tempCal = new Calendar() { BaseColor = calendar.BaseColor, CalendarName = calendar.CalendarName,
-                                       Data = calendar.Data, Users = calendar.Users, ID = calendar.ID};                          
+                                       Data = calendar.Data, Users = calendar.Users, ID = calendar.ID,
+                                       Creator = calendar.Creator};                          
             this.DataContext = tempCal;
             AddUsers();
             baseColor.SetColor(tempCal.BaseColor);
@@ -108,15 +109,13 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("Fix your errors", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            CalendarList calendars = serviceClient.GetAllCalendars();
-            // if calendar name already exists and its not the same calednar
-            if (calendars.Where(cal=>cal.CalendarName == tempCal.CalendarName && cal.ID != tempCal.ID).Count() != 0)
+            if (serviceClient.IsCalendarNameTaken(tempCal))
             {
                 MessageBox.Show("Calendar name already taken", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             int numOfRows = serviceClient.UpdateCalendar(tempCal);
-            if (numOfRows < tempCal.Users.Count + 1)
+            if (numOfRows != 1)
             {
                 MessageBox.Show("Error editing calendar");
                 return;

@@ -34,39 +34,14 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             serviceClient = new CalendarServiceClient();
             this.user = user;
             calendar = new Calendar();
-            AddCalendars();
-        }
-
-        private void AddCalendars()
-        {
-            foreach (var calendar in user.Calendars)
-            {
-                Button button = new Button();
-                button.Content = calendar.CalendarName;
-                button.Style = (Style)FindResource("ExapderButtonStyle");
-                button.Click += Calendar_Click;
-                button.Tag = calendar;
-                calendars.Children.Add(button);
-            }
-        }
-
-        private void Calendar_Click(object sender, RoutedEventArgs e)
-        {
-            ucGrid.Children.Clear();
-            addEveBtn.Visibility = Visibility.Visible;
-            editCalBtn.Visibility = Visibility.Visible;
-            yourCalsBtn.Visibility = Visibility.Visible;
-            expander.Visibility = Visibility.Collapsed;
-            calendar = (sender as Button).Tag as Calendar;
-            calendar.Users = serviceClient.GetCalendarUsers(calendar);
-            calendar.Events = serviceClient.GetCalendarEvents(calendar);
-            ucGrid.Children.Add(new DisplayCalendarUserControl(ref calendar));
+            calendars.ItemsSource = user.Calendars;
+            calendars.DisplayMemberPath = "CalendarName";
         }
 
         private void AddCalendar_Click(object sender, RoutedEventArgs e)
         {
             ucGrid.Children.Clear();
-            expander.Visibility = Visibility.Collapsed;
+            calendars.Visibility = Visibility.Collapsed;
             yourCalsBtn.Visibility = Visibility.Visible;
             ucGrid.Children.Add(new AddCalendarUserControl(ref user));
         }
@@ -74,7 +49,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void AddEvent_Click(object sender, RoutedEventArgs e)
         {
             ucGrid.Children.Clear();
-            expander.Visibility = Visibility.Collapsed;
+            calendars.Visibility = Visibility.Collapsed;
             yourCalsBtn.Visibility = Visibility.Visible;
             ucGrid.Children.Add(new AddEventUserControl(ref user, ref calendar));
         }
@@ -82,7 +57,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void EditCalendar_Click(object sender, RoutedEventArgs e)
         {
             ucGrid.Children.Clear();
-            expander.Visibility = Visibility.Collapsed;
+            calendars.Visibility = Visibility.Collapsed;
             yourCalsBtn.Visibility = Visibility.Visible;
             ucGrid.Children.Add(new EditCalendarUserControl(ref user, ref calendar));
         }
@@ -93,7 +68,20 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             addEveBtn.Visibility = Visibility.Hidden;
             editCalBtn.Visibility = Visibility.Hidden;
             yourCalsBtn.Visibility = Visibility.Hidden;
-            expander.Visibility = Visibility.Visible;
+            calendars.Visibility = Visibility.Visible;
+        }
+
+        private void calendars_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ucGrid.Children.Clear();
+            addEveBtn.Visibility = Visibility.Visible;
+            editCalBtn.Visibility = Visibility.Visible;
+            yourCalsBtn.Visibility = Visibility.Visible;
+            calendars.Visibility = Visibility.Collapsed;
+            calendar = (sender as ComboBox).SelectedItem as Calendar;
+            calendar.Users = serviceClient.GetCalendarUsers(calendar);
+            calendar.Events = serviceClient.GetCalendarEvents(calendar);
+            ucGrid.Children.Add(new DisplayCalendarUserControl(ref calendar));
         }
     }
 }

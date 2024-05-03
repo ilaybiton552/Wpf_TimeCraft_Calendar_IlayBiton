@@ -22,7 +22,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Model", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class User : Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.BaseEntity {
         
@@ -189,7 +189,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BaseEntity", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BaseEntity", Namespace="http://schemas.datacontract.org/2004/07/Model", IsReference=true)]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event))]
@@ -238,7 +238,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Calendar", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Calendar", Namespace="http://schemas.datacontract.org/2004/07/Model", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Calendar : Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.BaseEntity {
         
@@ -341,7 +341,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Event", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Event", Namespace="http://schemas.datacontract.org/2004/07/Model", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Event : Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.BaseEntity {
         
@@ -492,7 +492,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EventType", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventType", Namespace="http://schemas.datacontract.org/2004/07/Model", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class EventType : Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.BaseEntity {
         
@@ -733,6 +733,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetUserCalendars", ReplyAction="http://tempuri.org/ICalendarService/GetUserCalendarsResponse")]
         System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.CalendarList> GetUserCalendarsAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/IsCalendarNameTaken", ReplyAction="http://tempuri.org/ICalendarService/IsCalendarNameTakenResponse")]
+        bool IsCalendarNameTaken(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/IsCalendarNameTaken", ReplyAction="http://tempuri.org/ICalendarService/IsCalendarNameTakenResponse")]
+        System.Threading.Tasks.Task<bool> IsCalendarNameTakenAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -960,6 +966,14 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         
         public System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.CalendarList> GetUserCalendarsAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User user) {
             return base.Channel.GetUserCalendarsAsync(user);
+        }
+        
+        public bool IsCalendarNameTaken(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar) {
+            return base.Channel.IsCalendarNameTaken(calendar);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsCalendarNameTakenAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar) {
+            return base.Channel.IsCalendarNameTakenAsync(calendar);
         }
     }
 }
