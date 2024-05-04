@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow"
         Height="540"
-        Width="960"
+        Width="1000"
         WindowStyle="None"
         AllowsTransparency="True">
     <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".5*" />
             <ColumnDefinition />
+            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1">
             <Grid x:Name="userControlGrid" Margin="0, 5"/>

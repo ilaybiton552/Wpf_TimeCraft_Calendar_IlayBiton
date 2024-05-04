@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d"
              d:DesignHeight="450"
-             d:DesignWidth="330">
+             d:DesignWidth="250">
 
     <UserControl.Resources>
         <Style TargetType="TextBlock">
@@ -18,20 +18,6 @@
                     Value="Bookman Old Style" />
             <Setter Property="Padding"
                     Value="10, 5, 0, 5" />
-        </Style>
-        <Style TargetType="ComboBox">
-            <Setter Property="FontSize"
-                    Value="30" />
-            <Setter Property="Height"
-                    Value="45" />
-            <Setter Property="FontFamily"
-                    Value="Bookman Old Style" />
-            <Setter Property="Padding"
-                    Value="10, 5, 0, 5" />
-            <Setter Property="Background"
-                    Value="Transparent" />
-            <Setter Property="BorderThickness"
-                    Value="0" />
         </Style>
     </UserControl.Resources>
 
@@ -46,10 +32,10 @@
                    Margin="5, 0"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left" />
-            <Grid Margin="-10, 0"
+            <Grid Margin="-20 0"
                   Height="80"
-                  Width="250">
-                <TextBlock x:Name="tbHello"
+                  Width="190">
+                <TextBlock x:Name="tbHello" FontSize="25"
                            VerticalAlignment="Center" TextAlignment="Center"
                            Height="auto"
                            Text="Hello Guest" TextWrapping="Wrap"/>

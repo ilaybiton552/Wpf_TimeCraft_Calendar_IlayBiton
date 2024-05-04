@@ -27,7 +27,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             user = new User();
-            userControlGrid.Width = Width * 2 / 3;
+            userControlGrid.Width = Width * 3 / 4;
             mainGrid.Children.Add(new NavigationBarUserControl(ref user, ref userControlGrid));
         }
     }
