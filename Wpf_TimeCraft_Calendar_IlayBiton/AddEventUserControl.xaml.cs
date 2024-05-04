@@ -86,7 +86,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             else
             {
-                textBox.Height = 25;
+                textBox.Height = 40;
             }
         }
 
