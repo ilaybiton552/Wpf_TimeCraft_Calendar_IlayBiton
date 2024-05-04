@@ -47,7 +47,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 userCB.Margin = new Thickness(2.5);
                 userCB.Content = user.Username;
                 userCB.Tag = user;
-                userCB.Style = FindResource("CheckBoxStyle") as Style;
+                userCB.Style = new Style();
                 usersWP.Children.Add(userCB);
             }
         }
@@ -130,7 +130,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             else
             {
-                textBox.Height = 25;
+                textBox.Height = 40;
             }
         }
     }

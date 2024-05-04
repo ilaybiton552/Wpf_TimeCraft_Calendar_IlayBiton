@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="450"
-        Width="800"
+        Height="540"
+        Width="960"
         WindowStyle="None"
         AllowsTransparency="True">
     <Grid x:Name="mainGrid">

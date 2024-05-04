@@ -6,14 +6,14 @@
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d"
              d:DesignHeight="450"
-             d:DesignWidth="200">
+             d:DesignWidth="330">
 
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize"
-                    Value="30" />
+                    Value="35" />
             <Setter Property="Height"
-                    Value="45" />
+                    Value="55" />
             <Setter Property="FontFamily"
                     Value="Bookman Old Style" />
             <Setter Property="Padding"
@@ -48,7 +48,7 @@
                    HorizontalAlignment="Left" />
             <Grid Margin="-10, 0"
                   Height="80"
-                  Width="190">
+                  Width="250">
                 <TextBlock x:Name="tbHello"
                            VerticalAlignment="Center" TextAlignment="Center"
                            Height="auto"
