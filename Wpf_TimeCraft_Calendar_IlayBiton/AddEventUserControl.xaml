@@ -190,7 +190,7 @@
                    Grid.Row="1" />
         <StackPanel Grid.Row="2"
                     HorizontalAlignment="Left">
-            <Border>
+            <Border Style="{StaticResource BorderStyle}">
                 <TextBox x:Name="tbxEventName">
                     <Binding Path="EventName"
                              ValidatesOnDataErrors="True"
@@ -209,7 +209,7 @@
                    Grid.Column="1"
                    Text="Event Data:" />
         <Border Grid.Column="1"
-                Grid.Row="2">
+                Grid.Row="2" Style="{StaticResource BorderStyle}">
             <TextBox TextWrapping="Wrap"
                      AcceptsReturn="True"
                      TextChanged="TextBox_TextChanged"
