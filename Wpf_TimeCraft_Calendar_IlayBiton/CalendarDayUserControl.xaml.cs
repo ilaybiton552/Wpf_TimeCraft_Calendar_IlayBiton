@@ -12,22 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
-using Calendar = Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar;
 
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
-    /// Interaction logic for DisplayCalendarUserControl.xaml
+    /// Interaction logic for CalendarDayUserControl.xaml
     /// </summary>
-    public partial class DisplayCalendarUserControl : UserControl
+    public partial class CalendarDayUserControl : UserControl
     {
-        private Calendar calendar;
-        public DisplayCalendarUserControl(ref Calendar calendar)
+        public CalendarDayUserControl(int day, Color color)
         {
             InitializeComponent();
-            this.calendar = calendar;
-            grid.Children.Add(new CalendarUserControl(calendar));
+            dayOfMonth.Text = day.ToString();
+            textBorder.Background = new SolidColorBrush(color);
+            textBorder.Background.Opacity = 0.5;
         }
     }
 }

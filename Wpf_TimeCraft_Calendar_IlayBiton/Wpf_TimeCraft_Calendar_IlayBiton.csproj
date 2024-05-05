@@ -80,8 +80,14 @@
     <Compile Include="BaseColorListUserControl.xaml.cs">
       <DependentUpon>BaseColorListUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CalendarDayUserControl.xaml.cs">
+		<DependentUpon>CalendarDayUserControl.xaml</DependentUpon>
+	</Compile>
     <Compile Include="CalendarsUserControl.xaml.cs">
       <DependentUpon>CalendarsUserControl.xaml</DependentUpon>
+    </Compile>
+	<Compile Include="CalendarUserControl.xaml.cs">
+      <DependentUpon>CalendarUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CloseWindowUserControl.xaml.cs">
       <DependentUpon>CloseWindowUserControl.xaml</DependentUpon>
@@ -114,9 +120,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CalendarDayUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CalendarsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CalendarUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="CloseWindowUserControl.xaml">
       <SubType>Designer</SubType>
