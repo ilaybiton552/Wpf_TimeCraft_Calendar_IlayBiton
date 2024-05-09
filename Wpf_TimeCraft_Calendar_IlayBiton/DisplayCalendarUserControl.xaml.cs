@@ -23,11 +23,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     public partial class DisplayCalendarUserControl : UserControl
     {
         private Calendar calendar;
-        public DisplayCalendarUserControl(ref Calendar calendar)
+        public DisplayCalendarUserControl(ref Calendar calendar, ref User user)
         {
             InitializeComponent();
             this.calendar = calendar;
-            grid.Children.Add(new CalendarUserControl(ref calendar));
+            grid.Children.Add(new CalendarUserControl(ref calendar, ref user));
         }
     }
 }

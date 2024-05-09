@@ -21,11 +21,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class CalendarDayUserControl : UserControl
     {
-        private CalendarServiceClient serviceClient;
         public CalendarDayUserControl(int day, EventList events, Color color)
         {
             InitializeComponent();
-            serviceClient = new CalendarServiceClient();
             dayOfMonth.Text = day.ToString();
             textBorder.Background = new SolidColorBrush(color);
             textBorder.Background.Opacity = 0.5;

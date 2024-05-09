@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
+using Calendar = Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar;
 
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
@@ -24,9 +25,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private Window currWindow;
         private User user;
         private Grid grid;
+        private CalendarServiceClient serviceClient;
         public NavigationBarUserControl(ref User user, ref Grid ucGrid)
         {
             InitializeComponent();
+            serviceClient = new CalendarServiceClient();
             currWindow = Application.Current.MainWindow;
             this.user = user;
             this.grid = ucGrid;
@@ -101,7 +104,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void Event_Down(object sender, MouseButtonEventArgs e)
         {
             grid.Children.Clear();
-            // open calendar display of all of the user events
+            Calendar calendar = new Calendar();
+            calendar.BaseColor = Color.FromRgb(0, 0, 0);
+            calendar.Events = user.Events;
+            grid.Children.Add(new CalendarUserControl(ref calendar, ref user, false));
         }
     }
 }

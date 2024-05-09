@@ -81,7 +81,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             calendar = (sender as ComboBox).SelectedItem as Calendar;
             calendar.Users = serviceClient.GetCalendarUsers(calendar);
             calendar.Events = serviceClient.GetCalendarEvents(calendar);
-            ucGrid.Children.Add(new DisplayCalendarUserControl(ref calendar));
+            ucGrid.Children.Add(new DisplayCalendarUserControl(ref calendar, ref user));
         }
     }
 }
