@@ -27,7 +27,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             InitializeComponent();
             this.calendar = calendar;
-            grid.Children.Add(new CalendarUserControl(calendar));
+            grid.Children.Add(new CalendarUserControl(ref calendar));
         }
     }
 }

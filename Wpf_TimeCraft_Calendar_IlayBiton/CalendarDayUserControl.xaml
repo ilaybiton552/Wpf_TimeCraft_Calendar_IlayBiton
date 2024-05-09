@@ -25,6 +25,57 @@
             <Setter Property="CornerRadius"
                     Value="10" />
         </Style>
+        <Style TargetType="Button"
+               x:Key="eventButton">
+            <Setter Property="Height"
+                    Value="20" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="Foreground"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="Margin"
+                    Value="1" />
+            <Setter Property="FontSize"
+                    Value="10" />
+            <Setter Property="Foreground"
+                    Value="Black" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border"
+                                CornerRadius="10"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="true">
+                            <TextBlock x:Name="textBlock"
+                                       Text="{TemplateBinding Content}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="true">
+                                <Setter Property="FontWeight"
+                                        TargetName="textBlock"
+                                        Value="Bold" />
+                                <Setter Property="BorderThickness"
+                                        TargetName="border"
+                                        Value="2" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
 
     <Border Style="{StaticResource dayStyle}">
@@ -36,7 +87,7 @@
             <Border x:Name="textBorder" Style="{StaticResource dayStyle}" CornerRadius="10, 10, 0, 0" BorderThickness="0, 0, 0, 1">
                 <TextBlock x:Name="dayOfMonth" />
             </Border>
-            <StackPanel x:Name="Events" />
+            <StackPanel Grid.Row="1" x:Name="Events" />
         </Grid>
     </Border>
 </UserControl>

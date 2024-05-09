@@ -81,12 +81,12 @@
       <DependentUpon>BaseColorListUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CalendarDayUserControl.xaml.cs">
-		<DependentUpon>CalendarDayUserControl.xaml</DependentUpon>
-	</Compile>
+      <DependentUpon>CalendarDayUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CalendarsUserControl.xaml.cs">
       <DependentUpon>CalendarsUserControl.xaml</DependentUpon>
     </Compile>
-	<Compile Include="CalendarUserControl.xaml.cs">
+    <Compile Include="CalendarUserControl.xaml.cs">
       <DependentUpon>CalendarUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="CloseWindowUserControl.xaml.cs">

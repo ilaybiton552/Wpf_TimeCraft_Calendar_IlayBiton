@@ -358,6 +358,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         private System.DateTime DueDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Windows.Media.Color EventBackgroundField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EventNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -420,6 +423,19 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
                 if ((this.DueDateField.Equals(value) != true)) {
                     this.DueDateField = value;
                     this.RaisePropertyChanged("DueDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Windows.Media.Color EventBackground {
+            get {
+                return this.EventBackgroundField;
+            }
+            set {
+                if ((this.EventBackgroundField.Equals(value) != true)) {
+                    this.EventBackgroundField = value;
+                    this.RaisePropertyChanged("EventBackground");
                 }
             }
         }

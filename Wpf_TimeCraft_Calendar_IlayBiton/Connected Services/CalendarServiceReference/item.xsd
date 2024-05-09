@@ -70,6 +70,7 @@
           <xs:element minOccurs="0" name="Creator" nillable="true" type="tns:User" />
           <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Windows.Media" minOccurs="0" name="EventBackground" type="q2:Color" />
           <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="EventType" nillable="true" type="tns:EventType" />
           <xs:element minOccurs="0" name="IsDone" type="xs:boolean" />
@@ -85,7 +86,7 @@
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="Act" type="tns:EventType.ArithmeticAct" />
-          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Windows.Media" minOccurs="0" name="ColorShade" type="q2:Color" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Windows.Media" minOccurs="0" name="ColorShade" type="q3:Color" />
           <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
