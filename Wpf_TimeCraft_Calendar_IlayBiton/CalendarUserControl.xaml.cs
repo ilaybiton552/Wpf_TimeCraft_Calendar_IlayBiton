@@ -67,6 +67,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private EventList GetEvents(DateTime day)
         {
             EventList events = new EventList();
+            if (day.Month == user.Birthday.Month && day.Day == user.Birthday.Day)
+            {
+                events.Add(new Event() { EventName = "Happy Birthday!" });
+            }
             foreach (Event _event in calendar.Events) 
             {
                 if (_event.StartDate.Date <= day.Date && _event.DueDate.Date >= day.Date)
