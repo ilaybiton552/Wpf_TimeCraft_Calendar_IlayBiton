@@ -33,11 +33,15 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             get
             {
                 var selectedDate = datePicker.SelectedDate;
-                DateTime date = (selectedDate == null) ? DateTime.Now.Date: (DateTime)selectedDate;
-                CheckValidMinutes();
-                date = date.AddMinutes(int.Parse(minutesValue));
-                date = date.AddHours(int.Parse(hoursValue));
-                return date;
+                if (selectedDate != null)
+                {
+                    DateTime date = (DateTime)selectedDate;
+                    CheckValidMinutes();
+                    date = date.AddMinutes(int.Parse(minutesValue));
+                    date = date.AddHours(int.Parse(hoursValue));
+                    return Date;
+                }
+                throw new Exception("Need to select date");
             }
         }
 

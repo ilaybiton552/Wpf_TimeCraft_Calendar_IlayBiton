@@ -101,6 +101,9 @@
     <Compile Include="EditCalendarUserControl.xaml.cs">
       <DependentUpon>EditCalendarUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditEventUserControl.xaml.cs">
+      <DependentUpon>EditEventUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomeUserControl.xaml.cs">
       <DependentUpon>HomeUserControl.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditCalendarUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditEventUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

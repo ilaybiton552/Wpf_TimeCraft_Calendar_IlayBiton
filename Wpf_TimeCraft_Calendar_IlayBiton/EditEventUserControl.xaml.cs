@@ -1,7 +1,7 @@
-﻿using MaterialDesignThemes.Wpf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,23 +19,24 @@ using Calendar = Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calen
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
-    /// Interaction logic for AddEventUserControl.xaml
+    /// Interaction logic for EditEventUserControl.xaml
     /// </summary>
-    public partial class AddEventUserControl : UserControl
+    public partial class EditEventUserControl : UserControl
     {
-        private Calendar calendar;
         private Event _event;
+        private Event tempEvent;
         private CalendarServiceClient serviceClient;
-        public AddEventUserControl(ref User user, ref Calendar calendar)
+        public EditEventUserControl(ref Event _event)
         {
             InitializeComponent();
             serviceClient = new CalendarServiceClient();
-            this.calendar = calendar;
-            _event = new Event();
+            tempEvent = new Event() { ID = _event.ID, EventName = _event.EventName,
+                                      Creator = _event.Creator, IsDone = _event.IsDone,
+                                      StartDate = _event.StartDate, DueDate = _event.DueDate,
+                                      Data = _event.Data, Calendar = _event.Calendar,
+                                      EventType = _event.EventType } ;
             this.DataContext = _event;
-            _event.Calendar = this.calendar;
-            _event.Users = serviceClient.GetCalendarUsers(this.calendar);
-            _event.Creator = user;
+            this._event = _event;
             EventTypeList eventTypes = serviceClient.GetAllEventTypes();
             cmbTypes.ItemsSource = eventTypes;
             cmbTypes.DisplayMemberPath = "Type";
@@ -43,8 +44,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void ClearDetails()
         {
-            _event.EventName = string.Empty;
-            _event.Data = string.Empty;
+            tempEvent.EventName = string.Empty;
+            tempEvent.Data = string.Empty;
             cmbTypes.SelectedItem = null;
             startDate.ClearDateChoice();
             dueDate.ClearDateChoice();
@@ -55,33 +56,37 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             ClearDetails();
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                _event.StartDate = startDate.Date;
-                _event.DueDate = dueDate.Date;
+                tempEvent.StartDate = startDate.Date;
+                tempEvent.DueDate = dueDate.Date;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return;
             }
-            _event.EventType = cmbTypes.SelectedItem as EventType;
-            if (Validation.GetHasError(tbxEventName) || _event.EventType == null)
+            tempEvent.EventType = cmbTypes.SelectedItem as EventType;
+            if (Validation.GetHasError(tbxEventName) || tempEvent.EventType == null)
             {
                 MessageBox.Show("Fields can't remian empty");
                 return;
             }
             try
             {
-                if (serviceClient.InsertEvent(_event) != 1)
+                if (serviceClient.UpdateEvent(tempEvent) != 1)
                 {
-                    MessageBox.Show("Error creating event");
+                    MessageBox.Show("Error editing event");
                     return;
                 }
-                MessageBox.Show("Created event Succesfully");
-                calendar.Events = serviceClient.GetCalendarEvents(calendar);
+                MessageBox.Show("Edited event Succesfully");
+                _event.StartDate = tempEvent.StartDate;
+                _event.DueDate = tempEvent.DueDate;
+                _event.EventType = tempEvent.EventType;
+                _event.Data = tempEvent.Data;
+                _event.EventName = tempEvent.EventName;
                 ClearDetails();
             }
             catch { }
@@ -99,6 +104,5 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 textBox.Height = 40;
             }
         }
-
     }
 }

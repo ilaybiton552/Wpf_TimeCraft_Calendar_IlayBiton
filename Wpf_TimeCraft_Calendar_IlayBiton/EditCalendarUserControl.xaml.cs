@@ -125,7 +125,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             calendar.Data = tempCal.Data;
             calendar.Users = tempCal.Users;
             calendar.BaseColor = tempCal.BaseColor;
-            user.Calendars = serviceClient.GetUserCalendars(user);
             ClearDetails();
         }
 
