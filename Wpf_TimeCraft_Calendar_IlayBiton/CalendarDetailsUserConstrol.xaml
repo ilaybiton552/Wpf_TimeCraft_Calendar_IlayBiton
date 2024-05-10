@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="400">
+             d:DesignHeight="250" d:DesignWidth="300">
 
     <UserControl.Resources>
         <Style TargetType="TextBlock">
@@ -14,41 +14,41 @@
             <Setter Property="FontSize"
                     Value="15" />
             <Setter Property="Margin"
-                    Value="5, 15" />
-        </Style>
-        <Style TargetType="Expander">
-            <Setter Property="Margin"
-                    Value="5, 15" />
-            <Setter Property="FontSize"
-                    Value="15" />
+                    Value="5, 5" />
+            <Setter Property="TextWrapping"
+                    Value="Wrap" />
         </Style>
     </UserControl.Resources>
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <TextBlock Text="{Binding CalendarName, StringFormat={}Name: {0}}" />
-        <TextBlock Grid.Column="1" Text="{Binding Data, StringFormat={}Data: {0}}" TextWrapping="Wrap" />
-        <TextBlock Grid.Row="1" Text="{Binding Creator, StringFormat={}Creator: {0}}" />
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-            <TextBlock Text="Base Color: " />
-            <TextBlock Text="Example" Foreground="{Binding BaseColor}" />
-        </StackPanel>
-        <TextBlock Grid.Row="2" Text="Users:" />
-        <Expander Grid.Row="2" Grid.Column="1" Header="Users">
-            <WrapPanel x:Name="usersWP"/>
-        </Expander>
-        <TextBlock Grid.Row="3" Text="Events: "/>
-        <Expander Grid.Row="3" Grid.Column="1" Header="Events">
-            <WrapPanel x:Name="eventsWP" />
-        </Expander>
-    </Grid>
+
+    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="15" Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="1.5*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding CalendarName, StringFormat={}Name - {0}}" />
+            <TextBlock Grid.Column="1" Text="{Binding Data, StringFormat={}Data - {0}}" />
+            <TextBlock Grid.Row="1" Text="{Binding Creator.Username, StringFormat={}Creator - {0}}" />
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <TextBlock Text="Base Color -" />
+                <Border VerticalAlignment="Top" BorderBrush="Black"
+                        BorderThickness="1.5"
+                        Margin="0, 2.5"
+                        Width="20"
+                        Height="20">
+                    <Border x:Name="inBorder"
+                            BorderBrush="White"
+                            BorderThickness="0.5" />
+                </Border>
+            </StackPanel>
+            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="Users - " x:Name="users" ScrollViewer.HorizontalScrollBarVisibility="Auto" />
+            <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Text="Events - " x:Name="events" ScrollViewer.HorizontalScrollBarVisibility="Auto" />
+        </Grid>
+    </Border>
 </UserControl>

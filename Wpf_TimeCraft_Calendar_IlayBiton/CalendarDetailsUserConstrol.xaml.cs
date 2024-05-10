@@ -29,30 +29,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             InitializeComponent();
             serviceClient = new CalendarServiceClient();
             this.DataContext = calendar;
-            LoadUsers(serviceClient.GetCalendarUsers(calendar));
-            LoadEvents(serviceClient.GetCalendarEvents(calendar));
-        }
-
-        private void LoadUsers(UserList users)
-        {
-            foreach (User user in users)
-            {
-                TextBlock textBlock = new TextBlock();
-                textBlock.FontSize = 12;
-                textBlock.Text = user.Username;
-                usersWP.Children.Add(textBlock);
-            }
-        }
-
-        private void LoadEvents(EventList events)
-        {
-            foreach (Event _event in events)
-            {
-                TextBlock textBlock = new TextBlock();
-                textBlock.FontSize = 12;
-                textBlock.Text = _event.EventName;
-                usersWP.Children.Add(textBlock);
-            }
+            inBorder.Background = new SolidColorBrush(calendar.BaseColor);
+            users.Text += string.Join(", ", serviceClient.GetCalendarUsers(calendar).Select(user => user.Username));
+            events.Text += string.Join(", ", serviceClient.GetCalendarEvents(calendar).Select(eve => eve.EventName));
         }
     }
 }

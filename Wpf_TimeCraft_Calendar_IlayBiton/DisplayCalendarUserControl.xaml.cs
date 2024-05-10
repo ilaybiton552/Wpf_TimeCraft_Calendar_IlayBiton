@@ -27,7 +27,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             InitializeComponent();
             grid.Children.Add(new CalendarUserControl(ref calendar, ref user));
-            popupBorder.Child = new CalendarDetailsUserConstrol(calendar);
+            popup.Child = new CalendarDetailsUserConstrol(calendar);
         }
 
         private void Image_MouseEnter(object sender, MouseEventArgs e)
