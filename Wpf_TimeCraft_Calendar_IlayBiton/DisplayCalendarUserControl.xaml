@@ -6,8 +6,33 @@
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d" 
              d:DesignHeight="460" d:DesignWidth="750">
+
+    <UserControl.Resources>
+        <Style TargetType="Border" x:Key="popupBorder">
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="CornerRadius"
+                    Value="15" />
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="Width"
+                    Value="400" />
+            <Setter Property="Height"
+                    Value="250" />
+        </Style>
+    </UserControl.Resources>
+    
     <Grid x:Name="grid">
-        <Image Source="/Media/setting.png" Margin="5" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" />
-        <Popup x:Name="popup" AllowsTransparency="True" />
+        <Image Source="/Media/setting.png" Margin="5" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" MouseEnter="Image_MouseEnter" />
+        <Popup x:Name="popup"
+               Width="400"
+               Height="250"
+               AllowsTransparency="true"
+               StaysOpen="False"
+               Placement="Relative">
+            <Border x:Name="popupBorder" Style="{StaticResource popupBorder}" />
+        </Popup>
     </Grid>
 </UserControl>

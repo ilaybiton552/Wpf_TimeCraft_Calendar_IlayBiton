@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -22,23 +23,16 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class DisplayCalendarUserControl : UserControl
     {
-        private Calendar calendar;
         public DisplayCalendarUserControl(ref Calendar calendar, ref User user)
         {
             InitializeComponent();
-            this.calendar = calendar;
             grid.Children.Add(new CalendarUserControl(ref calendar, ref user));
-            popup.Child = new CalendarDetailsUserConstrol(calendar);
+            popupBorder.Child = new CalendarDetailsUserConstrol(calendar);
         }
 
         private void Image_MouseEnter(object sender, MouseEventArgs e)
         {
             popup.IsOpen = true;
-        }
-
-        private void Image_MouseLeave(object sender, MouseEventArgs e)
-        {
-            popup.IsOpen = false;
         }
     }
 }
