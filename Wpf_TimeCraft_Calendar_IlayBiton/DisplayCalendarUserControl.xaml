@@ -7,5 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="460" d:DesignWidth="750">
     <Grid x:Name="grid">
+        <Image Source="/Media/setting.png" Margin="5" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" />
+        <Popup x:Name="popup" AllowsTransparency="True" />
     </Grid>
 </UserControl>

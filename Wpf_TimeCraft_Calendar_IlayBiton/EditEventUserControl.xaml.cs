@@ -40,6 +40,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             EventTypeList eventTypes = serviceClient.GetAllEventTypes();
             cmbTypes.ItemsSource = eventTypes;
             cmbTypes.DisplayMemberPath = "Type";
+            cmbTypes.SelectedItem = _event.EventType;
         }
 
         private void ClearDetails()
