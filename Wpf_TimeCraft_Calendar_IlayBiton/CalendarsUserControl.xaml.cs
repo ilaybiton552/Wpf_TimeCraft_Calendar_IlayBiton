@@ -65,6 +65,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void YourCalendars_Click(object sender, RoutedEventArgs e)
         {
             ucGrid.Children.Clear();
+            CollectionViewSource.GetDefaultView(calendars.ItemsSource).Refresh();
             addEveBtn.Visibility = Visibility.Hidden;
             editCalBtn.Visibility = Visibility.Hidden;
             yourCalsBtn.Visibility = Visibility.Hidden;
@@ -74,15 +75,18 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void calendars_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             calendar = (sender as ComboBox).SelectedItem as Calendar;
-            calendar.Users = serviceClient.GetCalendarUsers(calendar);
-            calendar.Events = serviceClient.GetCalendarEvents(calendar);
-            ucGrid.Children.Clear();
-            addEveBtn.Visibility = Visibility.Visible;
-            if (calendar.Creator.ID == user.ID) // only creator can edit calendar
-                editCalBtn.Visibility = Visibility.Visible;
-            yourCalsBtn.Visibility = Visibility.Visible;
-            calendars.Visibility = Visibility.Collapsed;
-            ucGrid.Children.Add(new DisplayCalendarUserControl(ref calendar, ref user));
+            if (calendar != null)
+            {
+                calendar.Users = serviceClient.GetCalendarUsers(calendar);
+                calendar.Events = serviceClient.GetCalendarEvents(calendar);
+                ucGrid.Children.Clear();
+                addEveBtn.Visibility = Visibility.Visible;
+                if (calendar.Creator.ID == user.ID) // only creator can edit calendar
+                    editCalBtn.Visibility = Visibility.Visible;
+                yourCalsBtn.Visibility = Visibility.Visible;
+                calendars.Visibility = Visibility.Collapsed;
+                ucGrid.Children.Add(new DisplayCalendarUserControl(ref calendar, ref user));
+            }
         }
     }
 }

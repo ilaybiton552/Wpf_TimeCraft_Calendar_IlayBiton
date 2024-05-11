@@ -248,6 +248,9 @@
             <Button Content="Edit Calendar"
                     Style="{DynamicResource ButtonStyle}"
                     Click="Edit_Click" />
+            <Button Content="Delete"
+                    Style="{DynamicResource ButtonStyle}"
+                    Click="Delete_Click" />
         </StackPanel>
     </Grid>
 </UserControl>

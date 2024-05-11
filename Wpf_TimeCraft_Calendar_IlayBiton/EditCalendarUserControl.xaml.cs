@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -141,5 +142,16 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
         }
 
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (serviceClient.DeleteCalendar(calendar) == calendar.Users.Count + 1)
+            {
+                user.Calendars.Remove(calendar);
+                ClearDetails();
+                MessageBox.Show("Deleted calendar successfully");
+                return;
+            }
+            MessageBox.Show("Error deleting Calednar");
+        }
     }
 }
