@@ -69,7 +69,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             EventList events = new EventList();
             if (day.Month == user.Birthday.Month && day.Day == user.Birthday.Day)
             {
-                events.Add(new Event() { EventName = "Happy Birthday!" });
+                events.Add(new Event() { ID = -1, EventName = "Happy Birthday!" });
             }
             foreach (Event _event in calendar.Events) 
             {
@@ -96,9 +96,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             if (calView)
                 calendar.Events = serviceClient.GetCalendarEvents(calendar);
             else
-            {
                 calendar.Events = user.Events = serviceClient.GetUserEvents(user);
-            }
             currDisplayMonth = currDisplayMonth.AddMonths(-1);
             Containter.Children.Clear();
             LoadDays();
@@ -109,9 +107,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             if (calView)
                 calendar.Events = serviceClient.GetCalendarEvents(calendar);
             else
-            {
                 calendar.Events = user.Events = serviceClient.GetUserEvents(user);
-            }
             currDisplayMonth = currDisplayMonth.AddMonths(1);
             Containter.Children.Clear();
             LoadDays();

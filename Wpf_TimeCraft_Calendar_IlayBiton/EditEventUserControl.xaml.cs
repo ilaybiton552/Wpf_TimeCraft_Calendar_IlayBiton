@@ -105,5 +105,16 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 textBox.Height = 40;
             }
         }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (serviceClient.DeleteEvent(_event) == 1)
+            {
+
+                MessageBox.Show("Deleted evnet");
+                ClearDetails();
+                return;
+            }
+        }
     }
 }

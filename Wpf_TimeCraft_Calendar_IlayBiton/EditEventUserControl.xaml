@@ -251,6 +251,9 @@
             <Button Content="Edit Event"
                     Style="{DynamicResource ButtonStyle}"
                     Click="Edit_Click" />
+            <Button Content="Delete"
+                    Style="{StaticResource ButtonStyle}"
+                    Click="Delete_Click" />
         </StackPanel>
     </Grid>
 </UserControl>
