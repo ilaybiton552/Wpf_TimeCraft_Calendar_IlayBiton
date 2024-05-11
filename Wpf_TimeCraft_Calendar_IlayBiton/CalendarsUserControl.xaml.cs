@@ -73,14 +73,15 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void calendars_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ucGrid.Children.Clear();
-            addEveBtn.Visibility = Visibility.Visible;
-            editCalBtn.Visibility = Visibility.Visible;
-            yourCalsBtn.Visibility = Visibility.Visible;
-            calendars.Visibility = Visibility.Collapsed;
             calendar = (sender as ComboBox).SelectedItem as Calendar;
             calendar.Users = serviceClient.GetCalendarUsers(calendar);
             calendar.Events = serviceClient.GetCalendarEvents(calendar);
+            ucGrid.Children.Clear();
+            addEveBtn.Visibility = Visibility.Visible;
+            if (calendar.Creator.ID == user.ID) // only creator can edit calendar
+                editCalBtn.Visibility = Visibility.Visible;
+            yourCalsBtn.Visibility = Visibility.Visible;
+            calendars.Visibility = Visibility.Collapsed;
             ucGrid.Children.Add(new DisplayCalendarUserControl(ref calendar, ref user));
         }
     }
