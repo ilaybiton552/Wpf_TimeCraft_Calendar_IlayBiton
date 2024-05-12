@@ -83,7 +83,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void AddControl(int day, EventList events, double opacity = 1)
         {
-            CalendarDayUserControl dayUC = new CalendarDayUserControl(day, events, baseColor);
+            CalendarDayUserControl dayUC = new CalendarDayUserControl(day, events, baseColor, user);
             dayUC.Width = 100;
             dayUC.Height = 65;
             dayUC.Margin = new Thickness(0.5);
@@ -93,10 +93,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void prevBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (calView)
-                calendar.Events = serviceClient.GetCalendarEvents(calendar);
-            else
-                calendar.Events = user.Events = serviceClient.GetUserEvents(user);
+            //if (calView)
+            //    calendar.Events = serviceClient.GetCalendarEvents(calendar);
+            //else
+            //    calendar.Events = user.Events = serviceClient.GetUserEvents(user);
             currDisplayMonth = currDisplayMonth.AddMonths(-1);
             Containter.Children.Clear();
             LoadDays();
@@ -104,10 +104,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void nextBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (calView)
-                calendar.Events = serviceClient.GetCalendarEvents(calendar);
-            else
-                calendar.Events = user.Events = serviceClient.GetUserEvents(user);
+            //if (calView)
+            //    calendar.Events = serviceClient.GetCalendarEvents(calendar);
+            //else
+            //    calendar.Events = user.Events = serviceClient.GetUserEvents(user);
             currDisplayMonth = currDisplayMonth.AddMonths(1);
             Containter.Children.Clear();
             LoadDays();

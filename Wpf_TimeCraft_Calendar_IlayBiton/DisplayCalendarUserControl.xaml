@@ -12,6 +12,7 @@
         <Popup x:Name="popup"
                AllowsTransparency="true"
                StaysOpen="False"
-               Placement="Relative" />
+               Placement="Relative"
+               Width="400"/>
     </Grid>
 </UserControl>

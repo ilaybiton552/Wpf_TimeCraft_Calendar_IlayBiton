@@ -39,9 +39,15 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                     CheckValidMinutes();
                     date = date.AddMinutes(int.Parse(minutesValue));
                     date = date.AddHours(int.Parse(hoursValue));
-                    return Date;
+                    return date;
                 }
                 throw new Exception("Need to select date");
+            }
+            set 
+            {
+                hoursValue = value.Hour.ToString("00");
+                minutesValue = value.Minute.ToString("00");
+                datePicker.SelectedDate = value;
             }
         }
 

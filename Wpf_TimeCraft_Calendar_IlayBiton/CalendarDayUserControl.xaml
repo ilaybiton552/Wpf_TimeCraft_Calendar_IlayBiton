@@ -88,6 +88,9 @@
                 <TextBlock x:Name="dayOfMonth" />
             </Border>
             <StackPanel Grid.Row="1" x:Name="Events" />
+            <Popup Placement="Mouse" Width="350"
+                   AllowsTransparency="True"
+                   StaysOpen="False" x:Name="popup" />
         </Grid>
     </Border>
 </UserControl>

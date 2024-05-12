@@ -35,12 +35,14 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                                       StartDate = _event.StartDate, DueDate = _event.DueDate,
                                       Data = _event.Data, Calendar = _event.Calendar,
                                       EventType = _event.EventType } ;
-            this.DataContext = _event;
+            this.DataContext = tempEvent;
             this._event = _event;
             EventTypeList eventTypes = serviceClient.GetAllEventTypes();
             cmbTypes.ItemsSource = eventTypes;
             cmbTypes.DisplayMemberPath = "Type";
             cmbTypes.SelectedItem = _event.EventType;
+            startDate.Date = tempEvent.StartDate;
+            dueDate.Date = tempEvent.DueDate;
         }
 
         private void ClearDetails()
@@ -102,7 +104,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             else
             {
-                textBox.Height = 40;
+                textBox.Height = 25;
             }
         }
 

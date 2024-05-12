@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -21,9 +22,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class CalendarDayUserControl : UserControl
     {
-        public CalendarDayUserControl(int day, EventList events, Color color)
+        private User user;
+        public CalendarDayUserControl(int day, EventList events, Color color, User user)
         {
             InitializeComponent();
+            this.user = user;
             dayOfMonth.Text = day.ToString();
             textBorder.Background = new SolidColorBrush(color);
             textBorder.Background.Opacity = 0.5;
@@ -47,9 +50,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Event_Click(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            MessageBox.Show((button.Tag as Event).EventName);
+            Event _event = (sender as Button).Tag as Event;
+            if (_event.ID != -1) // happy birthday event
+            {
+                popup.IsOpen = true;
+                popup.Child = new EventDetailsUserControl(ref _event, user);
+            }
         }
-
     }
 }
