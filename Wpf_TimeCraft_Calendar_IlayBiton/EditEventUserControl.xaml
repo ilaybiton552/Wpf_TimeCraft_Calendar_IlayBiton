@@ -115,7 +115,7 @@
             <Setter Property="FontFamily"
                     Value="Lucida Console" />
             <Setter Property="FontSize"
-                    Value="20" />
+                    Value="25" />
             <Setter Property="Margin"
                     Value="5, 5" />
         </Style>
@@ -134,13 +134,13 @@
             <Setter Property="Width"
                     Value="175" />
             <Setter Property="Height"
-                    Value="25" />
+                    Value="30" />
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontSize"
-                    Value="15" />
+                    Value="20" />
             <Setter Property="Height"
-                    Value="25" />
+                    Value="30" />
             <Setter Property="FontFamily"
                     Value="Comic Sans MS" />
             <Setter Property="Width"
@@ -175,20 +175,15 @@
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height=".5*" />
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Edit your Event:"
-                       FontSize="30"
-                       Grid.ColumnSpan="2"
-                       Margin="5, 0" />
-            <TextBlock Text="Event Name:"
-                       Grid.Row="1" />
-            <StackPanel Grid.Row="2"
+            <TextBlock Text="Event Name:" />
+            <StackPanel Grid.Row="1"
                         HorizontalAlignment="Left">
                 <Border Style="{StaticResource BorderStyle}">
                     <TextBox x:Name="tbxEventName">
@@ -205,11 +200,10 @@
                 <ContentPresenter Margin="0, 5"
                                   Content="{Binding ElementName=tbxEventName, Path=(Validation.Errors)[0]}" />
             </StackPanel>
-            <TextBlock Grid.Row="1"
-                       Grid.Column="1"
+            <TextBlock Grid.Column="1"
                        Text="Event Data:" />
             <Border Grid.Column="1"
-                    Grid.Row="2"
+                    Grid.Row="1"
                     Style="{StaticResource BorderStyle}">
                 <TextBox TextWrapping="Wrap"
                          AcceptsReturn="True"
@@ -222,26 +216,35 @@
                 </TextBox>
             </Border>
             <TextBlock Text="Start Date:"
-                       Grid.Row="3" />
+                       Grid.Row="2" />
             <TextBlock Text="End Date:"
                        Grid.Column="1"
-                       Grid.Row="3" />
+                       Grid.Row="2" />
             <local:DateTimePickerUserControl x:Name="startDate"
-                                             Grid.Row="4"
+                                             Grid.Row="3"
                                              Margin="5, 0" />
             <local:DateTimePickerUserControl x:Name="dueDate"
-                                             Grid.Row="4"
+                                             Grid.Row="3"
                                              Grid.Column="1"
                                              Margin="5, 0" />
             <TextBlock Text="Event Type:"
-                       Grid.Row="5" />
+                       Grid.Row="4" />
             <ComboBox x:Name="cmbTypes"
-                      Grid.Row="5"
+                      Grid.Row="4"
                       Margin="5, 5"
                       Grid.Column="1"
                       VerticalAlignment="Top"
                       Grid.RowSpan="2"
-                      Style="{x:Null}" />
+                      Style="{x:Null}"
+                      SelectionChanged="cmbTypes_SelectionChanged"/>
+            <StackPanel Grid.Row="5" 
+                        Orientation="Horizontal"
+                        Grid.ColumnSpan="2"
+                        Visibility="Collapsed"
+                        x:Name="taskSP">
+                <TextBlock Text="Task Done?" Margin="5, 0"/>
+                <CheckBox x:Name="checkboxDone" Style="{x:Null}" Margin="5, 2" />
+            </StackPanel>
             <StackPanel Grid.Row="6"
                         Orientation="Horizontal"
                         Grid.ColumnSpan="2"

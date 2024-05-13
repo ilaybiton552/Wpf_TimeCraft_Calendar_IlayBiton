@@ -41,9 +41,19 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             EventTypeList eventTypes = serviceClient.GetAllEventTypes();
             cmbTypes.ItemsSource = eventTypes;
             cmbTypes.DisplayMemberPath = "Type";
-            cmbTypes.SelectedItem = eventTypes.FirstOrDefault(type => type.Type == tempEvent.EventType.Type); ;
+            cmbTypes.SelectedItem = eventTypes.FirstOrDefault(type => type.Type == tempEvent.EventType.Type);
+            CheckTask();
             startDate.Date = tempEvent.StartDate;
             dueDate.Date = tempEvent.DueDate;
+        }
+
+        private void CheckTask()
+        {
+            if ((cmbTypes.SelectedItem as EventType).Type == "Task")
+            {
+                taskSP.Visibility = Visibility.Visible;
+                checkboxDone.IsChecked = tempEvent.IsDone;
+            }
         }
 
         private void ClearDetails()
@@ -106,7 +116,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             else
             {
-                textBox.Height = 25;
+                textBox.Height = 30;
             }
         }
 
@@ -135,6 +145,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             var grid = wrapPanel.Parent as Grid;
             CalendarUserControl calendarUserControl = grid.Parent as CalendarUserControl;
             calendarUserControl.LoadDays();
+        }
+
+        private void cmbTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CheckTask();
         }
     }
 }
