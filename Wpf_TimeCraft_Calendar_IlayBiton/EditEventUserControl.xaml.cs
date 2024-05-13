@@ -124,9 +124,16 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void UpdateGrid()
         {
             var editPopup = Parent as Popup;
-            var detailsPopup = editPopup.Parent as Popup;
-            var dayUserControl = detailsPopup.Parent as CalendarDayUserControl;
-            CalendarUserControl calendarUserControl = dayUserControl.Parent as CalendarUserControl;
+            var gridPopup = editPopup.Parent as Grid;
+            var borderPopup = gridPopup.Parent as Border;
+            var eventDetailUC = borderPopup.Parent as EventDetailsUserControl;
+            var detailsPopup = eventDetailUC.Parent as Popup;
+            gridPopup = detailsPopup.Parent as Grid;
+            borderPopup = gridPopup.Parent as Border;
+            var dayUserControl = borderPopup.Parent as CalendarDayUserControl;
+            var wrapPanel = dayUserControl.Parent as WrapPanel;
+            var grid = wrapPanel.Parent as Grid;
+            CalendarUserControl calendarUserControl = grid.Parent as CalendarUserControl;
             calendarUserControl.LoadDays();
         }
     }

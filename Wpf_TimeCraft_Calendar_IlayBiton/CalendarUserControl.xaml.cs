@@ -44,6 +44,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         public void LoadDays()
         {
+            Containter.Children.Clear();
             currMonth.Text = DateTimeFormatInfo.CurrentInfo.GetMonthName(currDisplayMonth.Month) + ' ' + currDisplayMonth.Year.ToString();
             int numOfDays = DateTime.DaysInMonth(currDisplayMonth.Year, currDisplayMonth.Month);
             int startOfMonth = (int)new DateTime(currDisplayMonth.Year, currDisplayMonth.Month, 1).DayOfWeek;
@@ -94,14 +95,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void prevBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             currDisplayMonth = currDisplayMonth.AddMonths(-1);
-            Containter.Children.Clear();
             LoadDays();
         }
 
         private void nextBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             currDisplayMonth = currDisplayMonth.AddMonths(1);
-            Containter.Children.Clear();
             LoadDays();
         }
     }
