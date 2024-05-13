@@ -61,11 +61,14 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void CheckValidMinutes()
         {
-            int val = int.Parse(cmbMinutes.Text);
-            if (val < 0 || val > 60)
+            if (cmbMinutes != null)
             {
-                cmbMinutes.SelectedItem = "00";
-                minutesValue = "00";
+                int val = int.Parse(cmbMinutes.Text);
+                if (val < 0 || val > 60)
+                {
+                    cmbMinutes.SelectedItem = "00";
+                    minutesValue = "00";
+                }
             }
         }
 

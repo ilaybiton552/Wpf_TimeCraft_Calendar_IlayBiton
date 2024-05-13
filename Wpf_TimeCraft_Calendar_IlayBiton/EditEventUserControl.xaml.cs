@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -40,7 +41,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             EventTypeList eventTypes = serviceClient.GetAllEventTypes();
             cmbTypes.ItemsSource = eventTypes;
             cmbTypes.DisplayMemberPath = "Type";
-            cmbTypes.SelectedItem = _event.EventType;
+            cmbTypes.SelectedItem = eventTypes.FirstOrDefault(type => type.Type == tempEvent.EventType.Type); ;
             startDate.Date = tempEvent.StartDate;
             dueDate.Date = tempEvent.DueDate;
         }
@@ -91,6 +92,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 _event.Data = tempEvent.Data;
                 _event.EventName = tempEvent.EventName;
                 ClearDetails();
+                UpdateGrid();
             }
             catch { }
         }
@@ -112,11 +114,20 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             if (serviceClient.DeleteEvent(_event) == 1)
             {
-
-                MessageBox.Show("Deleted evnet");
+                UpdateGrid();
+                MessageBox.Show("Deleted event");
                 ClearDetails();
-                return;
+                (Parent as Popup).IsOpen = false;
             }
+        }
+
+        private void UpdateGrid()
+        {
+            var editPopup = Parent as Popup;
+            var detailsPopup = editPopup.Parent as Popup;
+            var dayUserControl = detailsPopup.Parent as CalendarDayUserControl;
+            CalendarUserControl calendarUserControl = dayUserControl.Parent as CalendarUserControl;
+            calendarUserControl.LoadDays();
         }
     }
 }

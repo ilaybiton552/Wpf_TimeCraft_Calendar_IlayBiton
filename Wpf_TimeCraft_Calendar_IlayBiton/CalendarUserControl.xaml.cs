@@ -42,7 +42,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             LoadDays();   
         }
 
-        private void LoadDays()
+        public void LoadDays()
         {
             currMonth.Text = DateTimeFormatInfo.CurrentInfo.GetMonthName(currDisplayMonth.Month) + ' ' + currDisplayMonth.Year.ToString();
             int numOfDays = DateTime.DaysInMonth(currDisplayMonth.Year, currDisplayMonth.Month);
@@ -93,10 +93,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void prevBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //if (calView)
-            //    calendar.Events = serviceClient.GetCalendarEvents(calendar);
-            //else
-            //    calendar.Events = user.Events = serviceClient.GetUserEvents(user);
             currDisplayMonth = currDisplayMonth.AddMonths(-1);
             Containter.Children.Clear();
             LoadDays();
@@ -104,10 +100,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void nextBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //if (calView)
-            //    calendar.Events = serviceClient.GetCalendarEvents(calendar);
-            //else
-            //    calendar.Events = user.Events = serviceClient.GetUserEvents(user);
             currDisplayMonth = currDisplayMonth.AddMonths(1);
             Containter.Children.Clear();
             LoadDays();
