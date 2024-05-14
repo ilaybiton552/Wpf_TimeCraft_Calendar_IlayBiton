@@ -78,6 +78,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             signup.Visibility = Visibility.Collapsed;
             calendars.Visibility = Visibility.Visible;
             events.Visibility = Visibility.Visible;
+            if (user.IsAdmin) admin.Visibility = Visibility.Visible;
             settings.Visibility = Visibility.Visible;
             logout.Visibility = Visibility.Visible;
             tbHello.Text = "Hello " + user.Username;
@@ -96,6 +97,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             signup.Visibility = Visibility.Visible;
             calendars.Visibility = Visibility.Collapsed;
             events.Visibility = Visibility.Collapsed;
+            admin.Visibility = Visibility.Collapsed;
             settings.Visibility = Visibility.Collapsed;
             logout.Visibility = Visibility.Collapsed;
             grid.Children.Clear();
@@ -119,6 +121,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             update.Top = currWindow.Top + (currWindow.Height - update.Height) / 2;
             update.ShowDialog();
             if (string.IsNullOrWhiteSpace(user.Username)) Logout_Down(null, null);
+        }
+
+        private void Admin_Down(object sender, MouseButtonEventArgs e)
+        {
+            grid.Children.Clear();
+            grid.Children.Add(new AdminUserControl());
         }
     }
 }

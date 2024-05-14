@@ -77,6 +77,9 @@
     <Compile Include="AddEventUserControl.xaml.cs">
       <DependentUpon>AddEventUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminUserControl.xaml.cs">
+      <DependentUpon>AdminUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BaseColorListUserControl.xaml.cs">
       <DependentUpon>BaseColorListUserControl.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddEventUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
