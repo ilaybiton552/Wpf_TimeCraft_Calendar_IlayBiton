@@ -22,17 +22,40 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     public partial class SignUpWindow : Window
     {
         private User user;
+        private User tempUser;
         private CalendarServiceReference.CalendarServiceClient serviceClient;
-        public SignUpWindow(ref User user)
+        private bool update;
+        public SignUpWindow(ref User user, bool update = false)
         {
             InitializeComponent();
             serviceClient = new CalendarServiceReference.CalendarServiceClient();
             this.user = user;
-            this.DataContext = this.user;
-            this.user.Birthday = DateTime.Now;
+            tempUser = new User()
+            { 
+                ID = user.ID,
+                FirstName = user.FirstName, 
+                LastName = user.LastName, 
+                Birthday = user.Birthday,
+                Username = user.Username,
+                Password = user.Password,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                IsAdmin = user.IsAdmin
+            };
+            this.update = update;
+            this.DataContext = tempUser;
+            if (!update) tempUser.Birthday = DateTime.Now;
             CloseWindowUserControl closeWindowUserControl = new CloseWindowUserControl(ref user);
             closeWindowUserControl.MainWindow = false;
             grid.Children.Add(closeWindowUserControl);
+            if (update) ChangeUpdate();
+        }
+
+        private void ChangeUpdate()
+        {
+            sendBtn.Content = "Edit";
+            loginPass.Text = "Delete User";
+            pbPass.Password = tempUser.Password;
         }
 
         private void ShowPassword_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -70,7 +93,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 pbPass.ToolTip = string.Empty;
                 pbPass.BorderThickness = new Thickness(0);
                 tbPass.BorderThickness = new Thickness(0);
-                user.Password = ((PasswordBox)sender).Password;
+                if (!update)
+                    tempUser.Password = ((PasswordBox)sender).Password;
+                else
+                    tempUser.Password = ((PasswordBox)sender).Password;
             }
         }
 
@@ -85,30 +111,54 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("Fix your errors!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (serviceClient.IsEmailTaken(user))
+            if (serviceClient.IsEmailTaken(tempUser))
             {
                 MessageBox.Show("Email is already used!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (serviceClient.IsUsenameTaken(user))
+            if (serviceClient.IsUsenameTaken(tempUser))
             {
                 MessageBox.Show("Username is already used!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             try
             {
-                if (serviceClient.InsertUser(user) == -1)
+                if (!update)
                 {
-                    MessageBox.Show("Success creating user!");
-                    Close();
+                    user.ID = serviceClient.InsertUser(tempUser);
+                    if (user.ID != -1)
+                    {
+                        MessageBox.Show("Success creating user!");
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error Creating User", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
                 }
                 else
-                    MessageBox.Show("Error Creating User", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                {
+                    if (serviceClient.UpdateUser(tempUser) == 1)
+                    {
+                        MessageBox.Show("Success editing user!");
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error editing User", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+                user.Email = tempUser.Email;
+                user.Birthday = tempUser.Birthday;
+                user.FirstName = tempUser.FirstName;
+                user.LastName = tempUser.LastName;
+                user.Username = tempUser.Username;
+                user.Password = tempUser.Password;
+                user.PhoneNumber = tempUser.PhoneNumber;
             }
-            catch(Exception)
-            {
-                return;
-            }
+            catch(Exception) { }
         }
 
         private void Login_MouseEnter(object sender, MouseEventArgs e)
@@ -126,9 +176,17 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void Login_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             user = new User();
-            LoginWindow loginWindow = new LoginWindow(ref user);
-            Close();
-            loginWindow.ShowDialog();
+            if (!update)
+            {
+                LoginWindow loginWindow = new LoginWindow(ref user);
+                Close();
+                loginWindow.ShowDialog();
+            }
+            else
+            {
+                serviceClient.DeleteUser(tempUser);
+                Close();
+            }
         }
 
     }

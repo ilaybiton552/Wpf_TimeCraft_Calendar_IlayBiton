@@ -938,7 +938,8 @@
                             Margin="0,15"
                             Height="35"
                             Width="250"
-                            Click="Signup_Click">
+                            Click="Signup_Click"
+                            x:Name="sendBtn">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Template">
@@ -974,7 +975,8 @@
                                Margin="0, 5, 0, 15" 
                                MouseEnter="Login_MouseEnter"
                                MouseLeave="Login_MouseLeave"
-                               MouseLeftButtonDown="Login_MouseLeftButtonDown"/>
+                               MouseLeftButtonDown="Login_MouseLeftButtonDown"
+                               x:Name="loginPass"/>
                 </StackPanel>
             </HeaderedItemsControl.Items>
         </HeaderedItemsControl>

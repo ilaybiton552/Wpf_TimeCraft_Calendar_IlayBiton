@@ -65,6 +65,11 @@
                        MouseLeave="TB_MouseLeave"
                        MouseLeftButtonDown="Event_Down"
                        Visibility="Collapsed"/>
+            <TextBlock Text="Settings" x:Name="settings"
+                       MouseEnter="TB_MouseEnter"
+                       MouseLeave="TB_MouseLeave"
+                       MouseLeftButtonDown="Settings_Down"
+                       Visibility="Collapsed"/>
             <TextBlock Text="Log Out" x:Name="logout"
                        MouseEnter="TB_MouseEnter"
                        MouseLeave="TB_MouseLeave"

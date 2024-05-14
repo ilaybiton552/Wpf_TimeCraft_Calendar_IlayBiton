@@ -78,6 +78,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             signup.Visibility = Visibility.Collapsed;
             calendars.Visibility = Visibility.Visible;
             events.Visibility = Visibility.Visible;
+            settings.Visibility = Visibility.Visible;
             logout.Visibility = Visibility.Visible;
             tbHello.Text = "Hello " + user.Username;
         }
@@ -95,6 +96,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             signup.Visibility = Visibility.Visible;
             calendars.Visibility = Visibility.Collapsed;
             events.Visibility = Visibility.Collapsed;
+            settings.Visibility = Visibility.Collapsed;
             logout.Visibility = Visibility.Collapsed;
             grid.Children.Clear();
             grid.Children.Add(new HomeUserControl());
@@ -108,6 +110,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             calendar.BaseColor = Color.FromRgb(0, 0, 0);
             calendar.Events = user.Events;
             grid.Children.Add(new CalendarUserControl(ref calendar, ref user, false));
+        }
+
+        private void Settings_Down(object sender, MouseButtonEventArgs e)
+        {
+            SignUpWindow update = new SignUpWindow(ref user, true);
+            update.Show();
         }
     }
 }
