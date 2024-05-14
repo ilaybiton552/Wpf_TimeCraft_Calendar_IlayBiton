@@ -115,7 +115,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void Settings_Down(object sender, MouseButtonEventArgs e)
         {
             SignUpWindow update = new SignUpWindow(ref user, true);
-            update.Show();
+            update.Left = currWindow.Left + (currWindow.Width - update.Width) / 2;
+            update.Top = currWindow.Top + (currWindow.Height - update.Height) / 2;
+            update.ShowDialog();
+            if (string.IsNullOrWhiteSpace(user.Username)) Logout_Down(null, null);
         }
     }
 }

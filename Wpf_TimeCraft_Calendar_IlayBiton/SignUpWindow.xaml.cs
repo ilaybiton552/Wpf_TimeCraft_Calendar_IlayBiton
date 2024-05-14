@@ -175,17 +175,24 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Login_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            user = new User();
             if (!update)
             {
                 LoginWindow loginWindow = new LoginWindow(ref user);
+                user = new User();
                 Close();
                 loginWindow.ShowDialog();
             }
             else
             {
-                serviceClient.DeleteUser(tempUser);
-                Close();
+                int rows = serviceClient.DeleteUser(tempUser);
+                if (user.Calendars != null && rows == 1 + user.Calendars.Count || rows == 1) 
+                {
+                    MessageBox.Show("Deleted User");
+                    user.Username = string.Empty;
+                    Close();
+                    return;
+                }
+                MessageBox.Show("Error deleting user");
             }
         }
 
