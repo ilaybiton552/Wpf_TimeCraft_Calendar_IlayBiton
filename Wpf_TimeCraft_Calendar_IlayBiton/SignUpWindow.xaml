@@ -868,7 +868,7 @@
                                            FontStyle="Italic"
                                            Foreground="Red"
                                            Width="245"
-                                           TextWrapping="Wrap" />
+                                           TextWrapping="WrapWithOverflow" />
                                 <Image Source="/Media/hide-password.png"
                                        Grid.Row="4"
                                        Margin="5, 0"

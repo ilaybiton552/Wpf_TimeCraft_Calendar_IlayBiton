@@ -37,6 +37,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void Calendars_Click(object sender, RoutedEventArgs e)
         {
             tablesGrid.Children.Clear();
+            tablesGrid.Children.Add(new CalendarsTableUserControl());
         }
 
         private void Events_Click(object sender, RoutedEventArgs e)

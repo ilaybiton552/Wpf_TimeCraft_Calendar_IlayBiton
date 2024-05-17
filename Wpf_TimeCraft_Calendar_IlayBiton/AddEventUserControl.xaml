@@ -210,7 +210,7 @@
                    Text="Event Data:" />
         <Border Grid.Column="1"
                 Grid.Row="2" Style="{StaticResource BorderStyle}">
-            <TextBox TextWrapping="Wrap"
+            <TextBox TextWrapping="WrapWithOverflow"
                      AcceptsReturn="True"
                      TextChanged="TextBox_TextChanged"
                      VerticalScrollBarVisibility="Visible">

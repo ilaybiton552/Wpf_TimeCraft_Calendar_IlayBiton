@@ -38,7 +38,7 @@
                 <TextBlock x:Name="tbHello" FontSize="25"
                            VerticalAlignment="Center" TextAlignment="Center"
                            Height="auto"
-                           Text="Hello Guest" TextWrapping="Wrap"/>
+                           Text="Hello Guest" TextWrapping="WrapWithOverflow"/>
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="1"

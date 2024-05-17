@@ -89,6 +89,9 @@
     <Compile Include="CalendarDetailsUserConstrol.xaml.cs">
       <DependentUpon>CalendarDetailsUserConstrol.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CalendarsTableUserControl.xaml.cs">
+      <DependentUpon>CalendarsTableUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CalendarsUserControl.xaml.cs">
       <DependentUpon>CalendarsUserControl.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="CalendarDetailsUserConstrol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CalendarsTableUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
