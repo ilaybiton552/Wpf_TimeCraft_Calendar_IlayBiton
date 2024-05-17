@@ -48,6 +48,6 @@
                    VerticalAlignment="Bottom"
                    Visibility="Visible"
                    ViewportSize="0.1"
-                   Maximum="0.1" />
+                   Maximum="0.5" />
     </Grid>
 </UserControl>
