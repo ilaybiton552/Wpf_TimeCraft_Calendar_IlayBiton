@@ -49,6 +49,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void EventTypes_Click(object sender, RoutedEventArgs e)
         {
             tablesGrid.Children.Clear();
+            tablesGrid.Children.Add(new EventTypeTableUserControl());
         }
     }
 }
