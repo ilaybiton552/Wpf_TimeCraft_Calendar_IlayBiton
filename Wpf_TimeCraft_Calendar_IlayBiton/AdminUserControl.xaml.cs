@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
 
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
@@ -20,9 +21,32 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class AdminUserControl : UserControl
     {
+        private CalendarServiceClient serviceClient;
         public AdminUserControl()
         {
             InitializeComponent();
+            serviceClient = new CalendarServiceClient();
+        }
+
+        private void Users_Click(object sender, RoutedEventArgs e)
+        {
+            tablesGrid.Children.Clear();
+            tablesGrid.Children.Add(new UsersTableUserControl());
+        }
+
+        private void Calendars_Click(object sender, RoutedEventArgs e)
+        {
+            tablesGrid.Children.Clear();
+        }
+
+        private void Events_Click(object sender, RoutedEventArgs e)
+        {
+            tablesGrid.Children.Clear();
+        }
+
+        private void EventTypes_Click(object sender, RoutedEventArgs e)
+        {
+            tablesGrid.Children.Clear();
         }
     }
 }

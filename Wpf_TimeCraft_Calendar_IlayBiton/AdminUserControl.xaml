@@ -6,7 +6,133 @@
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="ButtonStyle"
+               TargetType="{x:Type Button}">
+            <Setter Property="Width"
+                    Value="140" />
+            <Setter Property="Height"
+                    Value="45" />
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="Foreground"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="FontSize"
+                    Value="18" />
+            <Setter Property="Foreground"
+                    Value="Black" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border"
+                                CornerRadius="15"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="true">
+                            <Border.Background>
+                                <RadialGradientBrush x:Name="radialGradientBrush"
+                                                     RadiusX=".5"
+                                                     RadiusY=".75">
+                                    <GradientStop x:Name="GardientStop1"
+                                                  Color="White" />
+                                    <GradientStop x:Name="GardientStop2"
+                                                  Offset=".5"
+                                                  Color="White" />
+                                    <GradientStop x:Name="GardientStop3"
+                                                  Offset="1"
+                                                  Color="White" />
+                                </RadialGradientBrush>
+                            </Border.Background>
+                            <TextBlock x:Name="textBlock"
+                                       Text="{TemplateBinding Content}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="true">
+                                <Setter Property="FontWeight"
+                                        TargetName="textBlock"
+                                        Value="Bold" />
+                                <Setter Property="BorderThickness"
+                                        TargetName="border"
+                                        Value="2" />
+                            </Trigger>
+                            <Trigger Property="IsPressed"
+                                     Value="true">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="GardientStop1"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#FF10C4FF"
+                                                            Duration="0:0:.25" />
+                                            <ColorAnimation Storyboard.TargetName="GardientStop2"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#FF10C4FF"
+                                                            Duration="0:0:.5" />
+                                            <ColorAnimation Storyboard.TargetName="GardientStop3"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#FF10C4FF"
+                                                            Duration="0:0:.75" />
+                                            <ColorAnimation Storyboard.TargetName="GardientStop1"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#FFFFFF"
+                                                            BeginTime="0:0:.80"
+                                                            Duration="0:0:.25" />
+                                            <ColorAnimation Storyboard.TargetName="GardientStop2"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#FFFFFF"
+                                                            BeginTime="0:0:.80"
+                                                            Duration="0:0:.5" />
+                                            <ColorAnimation Storyboard.TargetName="GardientStop3"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#FFFFFF"
+                                                            BeginTime="0:0:.80"
+                                                            Duration="0:0:.75" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".15*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Users"
+                    Style="{DynamicResource ButtonStyle}"
+                    Click="Users_Click" />
+            <Button Content="Calendars"
+                    Style="{DynamicResource ButtonStyle}"
+                    Click="Calendars_Click" />
+            <Button Content="Events"
+                    Style="{DynamicResource ButtonStyle}"
+                    Click="Events_Click" />
+            <Button Content="Event Type"
+                    Style="{DynamicResource ButtonStyle}"
+                    Click="EventTypes_Click" />
+        </StackPanel>
+        <Grid Grid.Row="1"
+              x:Name="tablesGrid" />
     </Grid>
 </UserControl>

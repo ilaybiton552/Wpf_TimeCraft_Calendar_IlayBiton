@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="Wpf_TimeCraft_Calendar_IlayBiton.UsersTableUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Visible" x:Name="viewer">
+                <ListView x:Name="usersListView">
+                    <ListView.View>
+                        <GridView>
+                        <GridViewColumn Header="ID"
+                                        DisplayMemberBinding="{Binding ID}" />
+                        <GridViewColumn Header="First Name"
+                                        DisplayMemberBinding="{Binding FirstName}" />
+                        <GridViewColumn Header="Last Name"
+                                        DisplayMemberBinding="{Binding LastName}" />
+                        <GridViewColumn Header="Phone"
+                                        DisplayMemberBinding="{Binding PhoneNumber}" />
+                        <GridViewColumn Header="Email"
+                                        DisplayMemberBinding="{Binding Email}" />
+                        <GridViewColumn Header="Username"
+                                        DisplayMemberBinding="{Binding Username}" />
+                        <GridViewColumn Header="Password"
+                                        DisplayMemberBinding="{Binding Password}" />
+                        <GridViewColumn Header="Is Admin"
+                                        DisplayMemberBinding="{Binding IsAdmin}" />
+                        <GridViewColumn Header="Calendars">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ItemsControl ItemsSource="{Binding Calendars}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding CalendarName}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Events">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ItemsControl ItemsSource="{Binding Events}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding EventName}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+        </ScrollViewer>
+        <ScrollBar Scroll="ScrollBar_Scroll"
+                   Width="auto"
+                   Style="{x:Null}"
+                   Orientation="Horizontal"
+                   VerticalAlignment="Bottom"
+                   Visibility="Visible" />
+    </Grid>
+</UserControl>
