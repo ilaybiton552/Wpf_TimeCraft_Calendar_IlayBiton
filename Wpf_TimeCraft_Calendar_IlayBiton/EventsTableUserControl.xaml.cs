@@ -18,27 +18,21 @@ using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
-    /// Interaction logic for UsersTableUserControl.xaml
+    /// Interaction logic for EventsTableUserControl.xaml
     /// </summary>
-    public partial class UsersTableUserControl : UserControl
+    public partial class EventsTableUserControl : UserControl
     {
-        public UsersTableUserControl()
+        public EventsTableUserControl()
         {
             InitializeComponent();
             CalendarServiceClient serviceClient = new CalendarServiceClient();
-            UserList users = serviceClient.GetAllUsers();
-            foreach (User user in users) 
-            {
-                user.Calendars = serviceClient.GetUserCalendars(user);
-                user.Events = serviceClient.GetUserEvents(user);
-            }
-            usersListView.ItemsSource = users;
+            eventsListView.ItemsSource = serviceClient.GetAllEvents();
         }
 
         private void ScrollBar_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
         {
             ScrollBar scroll = sender as ScrollBar;
-            viewer.ScrollToHorizontalOffset(2 * scroll.Value * (usersListView.ActualWidth - scroll.ActualWidth));
+            viewer.ScrollToHorizontalOffset(5 * scroll.Value * (eventsListView.ActualWidth - scroll.ActualWidth));
         }
     }
 }

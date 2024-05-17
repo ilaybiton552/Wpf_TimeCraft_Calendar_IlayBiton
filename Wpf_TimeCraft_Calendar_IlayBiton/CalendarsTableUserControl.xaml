@@ -64,6 +64,6 @@
                    Style="{x:Null}"
                    Orientation="Horizontal"
                    VerticalAlignment="Bottom"
-                   Visibility="Visible" />
+                   Visibility="Visible" ViewportSize="0.1" Maximum="0.1" />
     </Grid>
 </UserControl>

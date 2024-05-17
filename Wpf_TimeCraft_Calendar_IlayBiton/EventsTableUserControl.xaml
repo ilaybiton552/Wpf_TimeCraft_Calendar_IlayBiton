@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Wpf_TimeCraft_Calendar_IlayBiton.EventsTableUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                      x:Name="viewer">
+            <ListView x:Name="eventsListView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID"
+                                        DisplayMemberBinding="{Binding ID}" />
+                        <GridViewColumn Header="Name"
+                                        DisplayMemberBinding="{Binding EventName}" />
+                        <GridViewColumn Header="Data"
+                                        Width="150">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="WrapWithOverflow"
+                                               Text="{Binding Data}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Creator"
+                                        DisplayMemberBinding="{Binding Creator.Username}" />
+                        <GridViewColumn Header="Calendar"
+                                        DisplayMemberBinding="{Binding Calendar.CalendarName}" />
+                        <GridViewColumn Header="Type"
+                                        DisplayMemberBinding="{Binding EventType.Type}" />
+                        <GridViewColumn Header="Done?"
+                                        DisplayMemberBinding="{Binding IsDone}" />
+                        <GridViewColumn Header="Start"
+                                        DisplayMemberBinding="{Binding StartDate}" />
+                        <GridViewColumn Header="End"
+                                        DisplayMemberBinding="{Binding DueDate}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
+        <ScrollBar Scroll="ScrollBar_Scroll"
+                   Width="auto"
+                   Style="{x:Null}"
+                   Orientation="Horizontal"
+                   VerticalAlignment="Bottom"
+                   Visibility="Visible"
+                   ViewportSize="0.1"
+                   Maximum="0.1" />
+    </Grid>
+</UserControl>

@@ -39,7 +39,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private void ScrollBar_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
         {
             ScrollBar scroll = sender as ScrollBar;
-            viewer.ScrollToHorizontalOffset(scroll.Value * (calendarsListView.ActualWidth - scroll.ActualWidth));
+            viewer.ScrollToHorizontalOffset(5 * scroll.Value * (calendarsListView.ActualWidth - scroll.ActualWidth));
         }
     }
 }

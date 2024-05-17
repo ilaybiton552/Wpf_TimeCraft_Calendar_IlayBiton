@@ -116,6 +116,9 @@
     <Compile Include="EventDetailsUserControl.xaml.cs">
       <DependentUpon>EventDetailsUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EventsTableUserControl.xaml.cs">
+      <DependentUpon>EventsTableUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomeUserControl.xaml.cs">
       <DependentUpon>HomeUserControl.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EventDetailsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EventsTableUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
