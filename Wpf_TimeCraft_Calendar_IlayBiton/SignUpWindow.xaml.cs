@@ -47,6 +47,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             if (!update) tempUser.Birthday = DateTime.Now;
             CloseWindowUserControl closeWindowUserControl = new CloseWindowUserControl(ref user);
             closeWindowUserControl.MainWindow = false;
+            closeWindowUserControl.SetValue(Grid.ColumnProperty, 1);
             grid.Children.Add(closeWindowUserControl);
             if (update) ChangeUpdate();
         }

@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
         mc:Ignorable="d"
         Title="SignUpWindow"
-        Height="410"
-        Width="325"
+        Height="450"
+        Width="600"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent">
@@ -17,11 +17,11 @@
             <Setter Property="FontFamily"
                     Value="Lucida Console" />
             <Setter Property="FontSize"
-                    Value="20" />
+                    Value="25" />
             <Setter Property="HorizontalAlignment"
                     Value="Left" />
             <Setter Property="Margin"
-                    Value="0,15" />
+                    Value="0,5" />
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontSize"
@@ -712,274 +712,239 @@
         </Style>
     </Window.Resources>
 
-    <Grid Margin="5">
-
-        <HeaderedItemsControl>
-            <HeaderedItemsControl.Template>
-                <ControlTemplate TargetType="{x:Type HeaderedItemsControl}">
-                    <Border Width="315"
-                            Height="400"
-                            Background="White"
-                            CornerRadius="6">
-                        <Border.Effect>
-                            <DropShadowEffect BlurRadius="15"
-                                              Direction="-90"
-                                              RenderingBias="Quality"
-                                              ShadowDepth="2"
-                                              Color="Gray" />
-                        </Border.Effect>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <ContentPresenter ContentSource="Header" />
-                            <ScrollViewer VerticalScrollBarVisibility="Visible"
-                                          Grid.Row="2">
-                                <ItemsPresenter />
-                            </ScrollViewer>
-                        </Grid>
-                    </Border>
-                </ControlTemplate>
-            </HeaderedItemsControl.Template>
-            <HeaderedItemsControl.Header>
-                <Grid x:Name="grid">
-                    <TextBlock Text="Sign Up"
-                               FontSize="30"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
-                               FontWeight="Bold"
-                               Margin="0, 5" />
-                </Grid>
-            </HeaderedItemsControl.Header>
-            <HeaderedItemsControl.Items>
-                <StackPanel Orientation="Vertical"
-                            Margin="20, 0, 20, 0">
-
-                    <Grid VerticalAlignment="Center"
-                          Margin="0, 0, 0, 5">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="First Name"
-                                   Grid.Row="0" />
-                        <StackPanel Grid.Row="1"
-                                    HorizontalAlignment="Left">
-                            <Border Width="255"
-                                    BorderThickness="0,0,0,2"
-                                    BorderBrush="Black">
-                                <TextBox x:Name="tbxFirstname">
-                                    <Binding Path="FirstName"
-                                             ValidatesOnDataErrors="True"
-                                             UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-                                            <local:ValidName Min="2"
-                                                             Max="30" />
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox>
-                            </Border>
-                            <ContentPresenter Margin="0, 5"
-                                              Content="{Binding ElementName=tbxFirstname, Path=(Validation.Errors)[0]}" />
-                        </StackPanel>
-                        <TextBlock Text="Last Name"
-                                   Grid.Row="2" />
-                        <StackPanel Grid.Row="3"
-                                    HorizontalAlignment="Left">
-                            <Border Width="255"
-                                    BorderThickness="0,0,0,2"
-                                    BorderBrush="Black">
-                                <TextBox x:Name="tbxLastname">
-                                    <Binding Path="LastName"
-                                             ValidatesOnDataErrors="True"
-                                             UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-                                            <local:ValidName Min="2"
-                                                             Max="30" />
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox>
-                            </Border>
-                            <ContentPresenter Margin="0, 5"
-                                              Content="{Binding ElementName=tbxLastname, Path=(Validation.Errors)[0]}" />
-                        </StackPanel>
-                        <TextBlock Text="Username"
-                                   Grid.Row="4" />
-                        <StackPanel Grid.Row="5"
-                                    HorizontalAlignment="Left">
-                            <Border Width="255"
-                                    BorderThickness="0,0,0,2"
-                                    BorderBrush="Black">
-                                <TextBox x:Name="tbxUsername">
-                                    <Binding Path="Username"
-                                             ValidatesOnDataErrors="True"
-                                             UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-                                            <local:ValidUsername Min="4"
-                                                                 Max="20" />
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox>
-                            </Border>
-                            <ContentPresenter Margin="0, 5"
-                                              Content="{Binding ElementName=tbxUsername, Path=(Validation.Errors)[0]}" />
-                        </StackPanel>
-                        <TextBlock Text="Password"
-                                   Grid.Row="6" />
-                        <StackPanel Grid.Row="7">
-                            <Border Grid.Column="1"
-                                    BorderThickness="0,0,0,2"
-                                    BorderBrush="Black"
-                                    Width="255">
-                                <Grid>
-                                    <PasswordBox x:Name="pbPass"
-                                                 FontFamily="Comic Sans MS"
-                                                 Padding="0, 0, 0, 5"
-                                                 Width="255"
-                                                 Height="25"
-                                                 BorderThickness="0"
-                                                 HorizontalAlignment="Left"
-                                                 FontSize="15"
-                                                 PasswordChanged="Password_PasswordChanged"
-                                                 BorderBrush="Red" />
-                                    <TextBox x:Name="tbPass"
-                                             Visibility="Collapsed"
-                                             BorderBrush="Red" />
-                                </Grid>
-                            </Border>
-                            <Grid>
-                                <TextBlock x:Name="errPass"
-                                           Margin="0, 5"
-                                           FontSize="10"
-                                           FontStyle="Italic"
-                                           Foreground="Red"
-                                           Width="245"
-                                           TextWrapping="WrapWithOverflow" />
-                                <Image Source="/Media/hide-password.png"
-                                       Grid.Row="4"
-                                       Margin="5, 0"
-                                       Width="15"
-                                       HorizontalAlignment="Right"
-                                       MouseLeftButtonDown="ShowPassword_MouseLeftButtonDown"
-                                       MouseLeftButtonUp="HidePassword_MouseLeftButtonUp" />
-                            </Grid>
-                        </StackPanel>
-                        <TextBlock Text="Email"
-                                   Grid.Row="8" />
-                        <StackPanel Grid.Row="9"
-                                    HorizontalAlignment="Left">
-                            <Border Width="255"
-                                    BorderThickness="0,0,0,2"
-                                    BorderBrush="Black">
-                                <TextBox x:Name="tbxEmail">
-                                    <Binding Path="Email"
-                                             ValidatesOnDataErrors="True"
-                                             UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-                                            <local:ValidEmail />
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox>
-                            </Border>
-                            <ContentPresenter Margin="0, 5"
-                                              Content="{Binding ElementName=tbxEmail, Path=(Validation.Errors)[0]}" />
-                        </StackPanel>
-                        <TextBlock Text="Phone Number"
-                                   Grid.Row="10" />
-                        <StackPanel Grid.Row="11"
-                                    HorizontalAlignment="Left">
-                            <Border Width="255"
-                                    BorderThickness="0,0,0,2"
-                                    BorderBrush="Black">
-                                <TextBox x:Name="tbxPhone">
-                                    <Binding Path="PhoneNumber"
-                                             ValidatesOnDataErrors="True"
-                                             UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-                                            <local:ValidPhoneNumber />
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox>
-                            </Border>
-                            <ContentPresenter Margin="0, 5"
-                                              Content="{Binding ElementName=tbxPhone, Path=(Validation.Errors)[0]}" />
-                        </StackPanel>
-                        <TextBlock Text="Birthday"
-                                   Grid.Row="12" />
-                        <StackPanel Grid.Row="13"
-                                    HorizontalAlignment="Left">
-                            <DatePicker Width="255"
-                                        Foreground="Black"
-                                        BorderThickness="0, 0, 0, 2"
-                                        BorderBrush="Black"
-                                        SelectedDate="{Binding Path=Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                        CalendarStyle="{StaticResource CalendarStyle}" />
-                            <ContentPresenter Margin="0, 5"
-                                              Content="{Binding ElementName=tbxBirthday, Path=(Validation.Errors)[0]}" />
-                        </StackPanel>
+    <Border Width="590" Height="440" Background="White"
+            CornerRadius="10">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="10"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="5"
+                              Color="Gray" />
+        </Border.Effect>
+        <Grid x:Name="grid" Margin="5, 0, 0, 5" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="1.5*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Sign Up"
+                       Grid.ColumnSpan="2"
+                       FontSize="30"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       FontWeight="Bold"
+                       Margin="0, 5" />
+            <TextBlock Text="First Name"
+                       Grid.Row="1" />
+            <StackPanel Grid.Row="2"
+                        HorizontalAlignment="Left">
+                <Border Width="255"
+                        BorderThickness="0,0,0,2"
+                        BorderBrush="Black">
+                    <TextBox x:Name="tbxFirstname">
+                        <Binding Path="FirstName"
+                                 ValidatesOnDataErrors="True"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:ValidName Min="2"
+                                                 Max="30" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </Border>
+                <ContentPresenter Margin="0, 5"
+                                  Content="{Binding ElementName=tbxFirstname, Path=(Validation.Errors)[0]}" />
+            </StackPanel>
+            <TextBlock Text="Last Name"
+                       Grid.Row="1" Grid.Column="1" />
+            <StackPanel Grid.Row="2" Grid.Column="1"
+                        HorizontalAlignment="Left">
+                <Border Width="255"
+                        BorderThickness="0,0,0,2"
+                        BorderBrush="Black">
+                    <TextBox x:Name="tbxLastname">
+                        <Binding Path="LastName"
+                                 ValidatesOnDataErrors="True"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:ValidName Min="2"
+                                                 Max="30" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </Border>
+                <ContentPresenter Margin="0, 5"
+                                  Content="{Binding ElementName=tbxLastname, Path=(Validation.Errors)[0]}" />
+            </StackPanel>
+            <TextBlock Text="Username"
+                       Grid.Row="3" />
+            <StackPanel Grid.Row="4"
+                        HorizontalAlignment="Left">
+                <Border Width="255"
+                        BorderThickness="0,0,0,2"
+                        BorderBrush="Black">
+                    <TextBox x:Name="tbxUsername">
+                        <Binding Path="Username"
+                                 ValidatesOnDataErrors="True"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:ValidUsername Min="4"
+                                                     Max="20" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </Border>
+                <ContentPresenter Margin="0, 5"
+                                  Content="{Binding ElementName=tbxUsername, Path=(Validation.Errors)[0]}" />
+            </StackPanel>
+            <TextBlock Text="Password"
+                       Grid.Row="3" Grid.Column="1" />
+            <StackPanel Grid.Row="4" Grid.Column="1">
+                <Border BorderThickness="0,0,0,2"
+                        BorderBrush="Black"
+                        Width="255" HorizontalAlignment="Left">
+                    <Grid>
+                        <PasswordBox x:Name="pbPass"
+                                     FontFamily="Comic Sans MS"
+                                     Padding="0, 0, 0, 5"
+                                     Width="255"
+                                     Height="25"
+                                     BorderThickness="0"
+                                     HorizontalAlignment="Left"
+                                     FontSize="15"
+                                     PasswordChanged="Password_PasswordChanged"
+                                     BorderBrush="Red" />
+                        <TextBox x:Name="tbPass"
+                                 Visibility="Collapsed"
+                                 BorderBrush="Red" />
                     </Grid>
-                    <Button Content="Sign Up"
-                            Foreground="White"
-                            Background="Black"
-                            Margin="0,15"
-                            Height="35"
-                            Width="250"
-                            Click="Signup_Click"
-                            x:Name="sendBtn">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type Button}">
-                                            <Border x:Name="SignupBorder"
-                                                    Background="{TemplateBinding Background}"
-                                                    CornerRadius="16">
-                                                <ContentPresenter HorizontalAlignment="Center"
-                                                                  VerticalAlignment="Center" />
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsMouseOver"
-                                                         Value="True">
-                                                    <Setter Property="Background"
-                                                            Value="LightBlue"
-                                                            TargetName="SignupBorder" />
-                                                    <Setter Property="TextBlock.Foreground"
-                                                            Value="Black"
-                                                            TargetName="SignupBorder" />
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                    <TextBlock Text="Already have an account? Login"
-                               VerticalAlignment="Bottom"
-                               HorizontalAlignment="Center"
-                               FontSize="13"
-                               Margin="0, 5, 0, 15" 
-                               MouseEnter="Login_MouseEnter"
-                               MouseLeave="Login_MouseLeave"
-                               MouseLeftButtonDown="Login_MouseLeftButtonDown"
-                               x:Name="loginPass"/>
-                </StackPanel>
-            </HeaderedItemsControl.Items>
-        </HeaderedItemsControl>
-    </Grid>
-
+                </Border>
+                <Grid>
+                    <TextBlock x:Name="errPass"
+                               FontSize="8"
+                               FontStyle="Italic"
+                               Foreground="Red"
+                               Width="255"
+                               TextWrapping="WrapWithOverflow" />
+                    <Image Source="/Media/hide-password.png"
+                           Margin="10, 0"
+                           Width="15"
+                           HorizontalAlignment="Right" VerticalAlignment="Top"
+                           MouseLeftButtonDown="ShowPassword_MouseLeftButtonDown"
+                           MouseLeftButtonUp="HidePassword_MouseLeftButtonUp" />
+                </Grid>
+            </StackPanel>
+            <TextBlock Text="Email"
+                       Grid.Row="5" />
+            <StackPanel Grid.Row="6"
+                        HorizontalAlignment="Left">
+                <Border Width="255"
+                        BorderThickness="0,0,0,2"
+                        BorderBrush="Black">
+                    <TextBox x:Name="tbxEmail">
+                        <Binding Path="Email"
+                                 ValidatesOnDataErrors="True"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:ValidEmail />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </Border>
+                <ContentPresenter Margin="0, 5"
+                                  Content="{Binding ElementName=tbxEmail, Path=(Validation.Errors)[0]}" />
+            </StackPanel>
+            <TextBlock Text="Phone Number"
+                       Grid.Row="5" Grid.Column="1" />
+            <StackPanel Grid.Row="6" Grid.Column="1"
+                        HorizontalAlignment="Left">
+                <Border Width="255"
+                        BorderThickness="0,0,0,2"
+                        BorderBrush="Black">
+                    <TextBox x:Name="tbxPhone">
+                        <Binding Path="PhoneNumber"
+                                 ValidatesOnDataErrors="True"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:ValidPhoneNumber />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                </Border>
+                <ContentPresenter Margin="0, 5"
+                                  Content="{Binding ElementName=tbxPhone, Path=(Validation.Errors)[0]}" />
+            </StackPanel>
+            <TextBlock Text="Birthday"
+                       Grid.Row="7" />
+            <StackPanel Grid.Row="7" Grid.Column="1"
+                        HorizontalAlignment="Left">
+                <DatePicker Width="255"
+                            Margin="0, 10"
+                            Foreground="Black"
+                            BorderThickness="0, 0, 0, 2"
+                            BorderBrush="Black"
+                            SelectedDate="{Binding Path=Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            CalendarStyle="{StaticResource CalendarStyle}" />
+                <ContentPresenter Margin="0, 5"
+                                  Content="{Binding ElementName=tbxBirthday, Path=(Validation.Errors)[0]}" />
+            </StackPanel>
+            <StackPanel Grid.Row="8" Grid.ColumnSpan="2">
+            <Button Content="Sign Up"
+                    Foreground="White"
+                    Background="Black"
+                    Margin="0,5"
+                    Height="35"
+                    Width="250"
+                    Click="Signup_Click"
+                    x:Name="sendBtn">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="SignupBorder"
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="16">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver"
+                                                 Value="True">
+                                            <Setter Property="Background"
+                                                    Value="LightBlue"
+                                                    TargetName="SignupBorder" />
+                                            <Setter Property="TextBlock.Foreground"
+                                                    Value="Black"
+                                                    TargetName="SignupBorder" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <TextBlock Text="Already have an account? Login"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center"
+                       FontSize="13"
+                       Margin="0, 5, 0, 15"
+                       MouseEnter="Login_MouseEnter"
+                       MouseLeave="Login_MouseLeave"
+                       MouseLeftButtonDown="Login_MouseLeftButtonDown"
+                       x:Name="loginPass" />
+            </StackPanel>
+        </Grid>
+    </Border>
 </Window>
