@@ -120,6 +120,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             user = new User();
             SignUpWindow signUpWindow = new SignUpWindow(ref user);
+            signUpWindow.Left = Left + (Width - signUpWindow.Width) / 2;
+            signUpWindow.Top = Top;
             Close();
             signUpWindow.ShowDialog();
         }

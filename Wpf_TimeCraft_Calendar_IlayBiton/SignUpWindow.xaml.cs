@@ -179,6 +179,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             if (!update)
             {
                 LoginWindow loginWindow = new LoginWindow(ref user);
+                loginWindow.Left = Left + (Width - loginWindow.Width) / 2;
+                loginWindow.Top = Top;
                 user = new User();
                 Close();
                 loginWindow.ShowDialog();
