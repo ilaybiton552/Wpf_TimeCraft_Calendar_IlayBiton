@@ -7,8 +7,17 @@
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
-    <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Visible" x:Name="viewer">
+    <DockPanel LastChildFill="True">
+        <ScrollBar Scroll="ScrollBar_Scroll"
+                   Width="auto"
+                   Style="{x:Null}"
+                   Orientation="Horizontal"
+                   VerticalAlignment="Bottom"
+                   Visibility="Visible"
+                   ViewportSize="0.2"
+                   Maximum="0.5"
+                   DockPanel.Dock="Bottom" />
+        <ScrollViewer HorizontalScrollBarVisibility="Visible" x:Name="viewer" DockPanel.Dock="Top">
                 <ListView x:Name="usersListView">
                     <ListView.View>
                         <GridView>
@@ -58,11 +67,5 @@
                     </ListView.View>
                 </ListView>
         </ScrollViewer>
-        <ScrollBar Scroll="ScrollBar_Scroll"
-                   Width="auto"
-                   Style="{x:Null}"
-                   Orientation="Horizontal"
-                   VerticalAlignment="Bottom"
-                   Visibility="Visible" ViewportSize="0.2" Maximum="0.5" />
-    </Grid>
+    </DockPanel>
 </UserControl>

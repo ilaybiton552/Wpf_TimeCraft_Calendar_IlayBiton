@@ -6,8 +6,16 @@
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Visible"
+    <DockPanel LastChildFill="True">
+        <ScrollBar Scroll="ScrollBar_Scroll" DockPanel.Dock="Bottom"
+                   Width="auto"
+                   Style="{x:Null}"
+                   Orientation="Horizontal"
+                   VerticalAlignment="Bottom"
+                   Visibility="Visible"
+                   ViewportSize="0.1"
+                   Maximum="0.5" />
+        <ScrollViewer HorizontalScrollBarVisibility="Visible" DockPanel.Dock="Top"
                       x:Name="viewer">
             <ListView x:Name="eventsListView">
                 <ListView.View>
@@ -41,13 +49,6 @@
                 </ListView.View>
             </ListView>
         </ScrollViewer>
-        <ScrollBar Scroll="ScrollBar_Scroll"
-                   Width="auto"
-                   Style="{x:Null}"
-                   Orientation="Horizontal"
-                   VerticalAlignment="Bottom"
-                   Visibility="Visible"
-                   ViewportSize="0.1"
-                   Maximum="0.5" />
-    </Grid>
+        
+    </DockPanel>
 </UserControl>
