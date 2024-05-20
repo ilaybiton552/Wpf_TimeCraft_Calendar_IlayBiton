@@ -5,10 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="533">
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="640">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily"
+                    Value="Lucida Console" />
+            <Setter Property="FontSize"
+                    Value="35" />
+            <Setter Property="Margin"
+                    Value="5, 15" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel>
         <Image Source="/Media/logo-slogan.png"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"/>
-    </Grid>
+        <TextBlock Text="Today's Hebrew Date:" />
+        <TextBlock x:Name="hebrewDate" FontSize="25" />
+    </StackPanel>
 </UserControl>

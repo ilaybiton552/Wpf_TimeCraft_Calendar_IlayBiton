@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
@@ -20,9 +21,28 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class HomeUserControl : UserControl
     {
+        private string hebrew, english;
         public HomeUserControl()
         {
             InitializeComponent();
+            hebrew = GetDate("https://www.hebcal.com/etc/hdate-he.xml");
+            english = GetDate("https://www.hebcal.com/etc/hdate-en.xml");
+            hebrewDate.Text = english;
+        }
+
+        private string GetDate(string url)
+        {
+            XmlTextReader reader = new XmlTextReader(url);
+            string date = "";
+            while (reader.Read()) 
+            {
+                if (reader.Name == "description" && reader.NodeType == XmlNodeType.Element)
+                {
+                    reader.Read();
+                    date = reader.Value;
+                }
+            }
+            return date;
         }
     }
 }
