@@ -76,14 +76,13 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            user.Username = "Username"; user.Password = "Password1";
             ValidPassword validPassword = new ValidPassword();
             ValidationResult validationResult = validPassword.Validate(pbPass.Password, CultureInfo.CurrentCulture);
-            //if (!validationResult.IsValid || Validation.GetHasError(tbxUsername))
-            //{
-            //    MessageBox.Show("Fix your errors!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    return;
-            //}
+            if (!validationResult.IsValid || Validation.GetHasError(tbxUsername))
+            {
+                MessageBox.Show("Fix your errors!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             User temp = serviceClient.Login(user);
             if (temp == null) 
             {

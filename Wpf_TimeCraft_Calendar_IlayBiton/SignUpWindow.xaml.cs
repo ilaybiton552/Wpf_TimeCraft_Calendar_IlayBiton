@@ -45,6 +45,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             this.update = update;
             this.DataContext = tempUser;
             if (!update) tempUser.Birthday = DateTime.Now;
+            else title.Text = "Update";
             CloseWindowUserControl closeWindowUserControl = new CloseWindowUserControl(ref user);
             closeWindowUserControl.MainWindow = false;
             closeWindowUserControl.SetValue(Grid.ColumnProperty, 1);

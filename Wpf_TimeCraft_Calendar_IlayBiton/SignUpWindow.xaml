@@ -738,6 +738,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <TextBlock Text="Sign Up"
+                       x:Name="title"
                        Grid.ColumnSpan="2"
                        FontSize="30"
                        HorizontalAlignment="Center"

@@ -21,11 +21,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class AdminUserControl : UserControl
     {
-        private CalendarServiceClient serviceClient;
         public AdminUserControl()
         {
             InitializeComponent();
-            serviceClient = new CalendarServiceClient();
         }
 
         private void Users_Click(object sender, RoutedEventArgs e)
