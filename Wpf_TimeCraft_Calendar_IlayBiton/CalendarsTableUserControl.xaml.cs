@@ -23,23 +23,39 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class CalendarsTableUserControl : UserControl
     {
+        private CalendarServiceClient serviceClient;
+        private CalendarList calendars;
         public CalendarsTableUserControl()
         {
             InitializeComponent();
-            CalendarServiceClient serviceClient = new CalendarServiceClient();
-            CalendarList calendars = serviceClient.GetAllCalendars();
+            serviceClient = new CalendarServiceClient();
+            calendars = serviceClient.GetAllCalendars();
             foreach (Calendar calendar in calendars)
             {
                 calendar.Events = serviceClient.GetCalendarEvents(calendar);
                 calendar.Users = serviceClient.GetCalendarUsers(calendar);
             }
-            calendarsListView.ItemsSource = calendars;
+            calendarsListView.ItemsSource = calsCB.ItemsSource = calendars;
+            calsCB.DisplayMemberPath = "CalendarName";
         }
 
         private void ScrollBar_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
         {
             ScrollBar scroll = sender as ScrollBar;
             viewer.ScrollToHorizontalOffset(5 * scroll.Value * (calendarsListView.ActualWidth - scroll.ActualWidth));
+        }
+
+        private void calsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Calendar calendar = (sender as ComboBox).SelectedItem as Calendar;
+            if (calendar != null)
+            {
+                if (serviceClient.DeleteCalendar(calendar) == 1)
+                {
+                    calendars.RemoveAll(cal => cal.ID == calendar.ID);
+                    MessageBox.Show("Deleted calendar successfully");
+                }
+            }
         }
     }
 }

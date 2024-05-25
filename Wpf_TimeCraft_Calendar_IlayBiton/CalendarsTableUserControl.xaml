@@ -21,6 +21,14 @@
                    FontSize="30"
                    Margin="5, 5"
                    FontFamily="Lucida Console" />
+        <StackPanel DockPanel.Dock="Bottom"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Delete Calendar" />
+            <ComboBox x:Name="calsCB"
+                      SelectionChanged="calsCB_SelectionChanged"
+                      Style="{x:Null}" />
+        </StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Visible" DockPanel.Dock="Top"
                       x:Name="viewer">
             <ListView x:Name="calendarsListView">

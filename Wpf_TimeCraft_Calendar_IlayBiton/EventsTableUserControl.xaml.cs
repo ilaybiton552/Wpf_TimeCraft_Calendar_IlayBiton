@@ -22,17 +22,34 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class EventsTableUserControl : UserControl
     {
+        private CalendarServiceClient serviceClient;
+        private EventList events;
         public EventsTableUserControl()
         {
             InitializeComponent();
-            CalendarServiceClient serviceClient = new CalendarServiceClient();
-            eventsListView.ItemsSource = serviceClient.GetAllEvents();
+            serviceClient = new CalendarServiceClient();
+            eventsListView.ItemsSource = events = serviceClient.GetAllEvents();
+            eventsCB.ItemsSource = events;
+            eventsCB.DisplayMemberPath = "ID";
         }
 
         private void ScrollBar_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
         {
             ScrollBar scroll = sender as ScrollBar;
             viewer.ScrollToHorizontalOffset(2 * scroll.Value * (eventsListView.ActualWidth - scroll.ActualWidth + 10));
+        }
+
+        private void eventsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Event _event = (sender as ComboBox).SelectedItem as Event;
+            if (_event != null)
+            {
+                if (serviceClient.DeleteEvent(_event) == 1)
+                {
+                    events.RemoveAll(eve => eve.ID == _event.ID);
+                    MessageBox.Show("Deleted event successfully");
+                }
+            }
         }
     }
 }
