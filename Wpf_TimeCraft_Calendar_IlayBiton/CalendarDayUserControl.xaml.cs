@@ -50,10 +50,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Event_Click(object sender, RoutedEventArgs e)
         {
-            Event _event = (sender as Button).Tag as Event;
+            Button button = sender as Button;
+            Event _event = button.Tag as Event;
             if (_event.ID != -1) // happy birthday event
             {
                 popup.IsOpen = true;
+                popup.Tag = button;
                 popup.Child = new EventDetailsUserControl(ref _event, user);
             }
         }

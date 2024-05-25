@@ -26,6 +26,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private Calendar calendar;
         private Event _event;
         private CalendarServiceClient serviceClient;
+        private User user;
         public AddEventUserControl(ref User user, ref Calendar calendar)
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             _event.Calendar = this.calendar;
             _event.Users = serviceClient.GetCalendarUsers(this.calendar);
             _event.Creator = user;
+            this.user = user;
             EventTypeList eventTypes = serviceClient.GetAllEventTypes();
             cmbTypes.ItemsSource = eventTypes;
             cmbTypes.DisplayMemberPath = "Type";
@@ -86,7 +88,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                     return;
                 }
                 MessageBox.Show("Created event Succesfully");
-                calendar.Events = serviceClient.GetCalendarEvents(calendar);
+                calendar.Events.Add(_event);
+                user.Events.Add(_event);
                 ClearDetails();
             }
             catch { }

@@ -111,7 +111,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             Calendar calendar = new Calendar();
             calendar.BaseColor = Color.FromRgb(0, 0, 0);
             calendar.Events = user.Events;
-            grid.Children.Add(new CalendarUserControl(ref calendar, ref user, false));
+            grid.Children.Add(new CalendarUserControl(ref calendar, ref user));
         }
 
         private void Settings_Down(object sender, MouseButtonEventArgs e)
