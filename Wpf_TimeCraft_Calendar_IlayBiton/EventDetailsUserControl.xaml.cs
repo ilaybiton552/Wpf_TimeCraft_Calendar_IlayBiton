@@ -30,7 +30,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             if (_event.EventType.Type == "Task")
             {
                 tbDone.Visibility = Visibility.Visible;
-                tbDone.Text = (_event.IsDone) ? "Done" : "Not Done";
+                tbDone.Text = _event.IsDone ? "Done" : "Not Done";
             }
             if (_event.Creator.ID == user.ID || _event.Calendar.Creator.ID == user.ID) 
             {
@@ -42,6 +42,15 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             popup.Child = new EditEventUserControl(ref _event);
             popup.IsOpen = true;
+        }
+
+        private void popup_Closed(object sender, EventArgs e)
+        {
+            if (_event.EventType.Type == "Task")
+            {
+                tbDone.Visibility = Visibility.Visible;
+                tbDone.Text = _event.IsDone ? "Done" : "Not Done";
+            }
         }
     }
 }

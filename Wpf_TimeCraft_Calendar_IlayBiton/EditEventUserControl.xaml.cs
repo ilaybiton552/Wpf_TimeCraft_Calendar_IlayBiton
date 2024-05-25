@@ -94,6 +94,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("End date can't be 'older' than start date");
                 return;
             }
+            if (tempEvent.EventType.Type == "Task")
+            {
+                tempEvent.IsDone = (bool)checkboxDone.IsChecked;
+            }
             try
             {
                 if (serviceClient.UpdateEvent(tempEvent) != 1)
@@ -129,13 +133,17 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            if (serviceClient.DeleteEvent(_event) == 1)
+            try
             {
-                UpdateGrid();
-                MessageBox.Show("Deleted event");
-                ClearDetails();
-                (Parent as Popup).IsOpen = false;
+                if (serviceClient.DeleteEvent(_event) == 1)
+                {
+                    UpdateGrid();
+                    MessageBox.Show("Deleted event");
+                    ClearDetails();
+                    (Parent as Popup).IsOpen = false;
+                }
             }
+            catch { }
         }
 
         private void UpdateGrid()

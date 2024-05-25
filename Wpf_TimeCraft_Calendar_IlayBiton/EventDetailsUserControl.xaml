@@ -162,7 +162,8 @@
                    Width="400"
                    AllowsTransparency="True"
                    StaysOpen="False"
-                   x:Name="popup" />
+                   x:Name="popup"
+                   Closed="popup_Closed"/>
         </Grid>
     </Border>
 </UserControl>
