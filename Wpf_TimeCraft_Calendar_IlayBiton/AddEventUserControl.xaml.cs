@@ -35,7 +35,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             _event = new Event();
             this.DataContext = _event;
             _event.Calendar = this.calendar;
-            _event.Users = serviceClient.GetCalendarUsers(this.calendar);
             _event.Creator = user;
             this.user = user;
             EventTypeList eventTypes = serviceClient.GetAllEventTypes();

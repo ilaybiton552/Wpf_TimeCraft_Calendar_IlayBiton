@@ -100,7 +100,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             try
             {
-                if (serviceClient.UpdateEvent(tempEvent) != 1)
+                if (serviceClient.UpdateEvent(ref tempEvent) != 1)
                 {
                     MessageBox.Show("Error editing event");
                     return;
@@ -112,6 +112,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 _event.Data = tempEvent.Data;
                 _event.EventName = tempEvent.EventName;
                 _event.IsDone = tempEvent.IsDone;
+                _event.EventBackground = tempEvent.EventBackground;
                 ClearDetails();
                 UpdateGrid();
             }

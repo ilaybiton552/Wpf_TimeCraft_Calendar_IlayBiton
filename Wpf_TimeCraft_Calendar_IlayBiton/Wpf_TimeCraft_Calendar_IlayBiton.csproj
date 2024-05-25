@@ -278,10 +278,16 @@
     <None Include="Connected Services\CalendarServiceReference\Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.CalendarList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\CalendarServiceReference\Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CalendarServiceReference\Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.EventList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CalendarServiceReference\Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.EventTypeList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CalendarServiceReference\Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\CalendarServiceReference\Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.User.datasource">

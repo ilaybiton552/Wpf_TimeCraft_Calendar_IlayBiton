@@ -372,9 +372,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDateField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList UsersField;
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar Calendar {
             get {
@@ -488,19 +485,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
                 if ((this.StartDateField.Equals(value) != true)) {
                     this.StartDateField = value;
                     this.RaisePropertyChanged("StartDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList Users {
-            get {
-                return this.UsersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsersField, value) != true)) {
-                    this.UsersField = value;
-                    this.RaisePropertyChanged("Users");
                 }
             }
         }
@@ -654,12 +638,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetCalendarUsers", ReplyAction="http://tempuri.org/ICalendarService/GetCalendarUsersResponse")]
         System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetCalendarUsersAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetEventUsers", ReplyAction="http://tempuri.org/ICalendarService/GetEventUsersResponse")]
-        Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList GetEventUsers(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetEventUsers", ReplyAction="http://tempuri.org/ICalendarService/GetEventUsersResponse")]
-        System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetEventUsersAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/GetAllEventTypes", ReplyAction="http://tempuri.org/ICalendarService/GetAllEventTypesResponse")]
         Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.EventTypeList GetAllEventTypes();
         
@@ -697,10 +675,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         System.Threading.Tasks.Task<int> InsertEventAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/UpdateEvent", ReplyAction="http://tempuri.org/ICalendarService/UpdateEventResponse")]
-        int UpdateEvent(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event);
+        Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventResponse UpdateEvent(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/UpdateEvent", ReplyAction="http://tempuri.org/ICalendarService/UpdateEventResponse")]
-        System.Threading.Tasks.Task<int> UpdateEventAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event);
+        System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventResponse> UpdateEventAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/DeleteEvent", ReplyAction="http://tempuri.org/ICalendarService/DeleteEventResponse")]
         int DeleteEvent(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event);
@@ -755,6 +734,42 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalendarService/IsCalendarNameTaken", ReplyAction="http://tempuri.org/ICalendarService/IsCalendarNameTakenResponse")]
         System.Threading.Tasks.Task<bool> IsCalendarNameTakenAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar calendar);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateEvent", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdateEventRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event;
+        
+        public UpdateEventRequest() {
+        }
+        
+        public UpdateEventRequest(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
+            this._event = _event;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateEventResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdateEventResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int UpdateEventResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event;
+        
+        public UpdateEventResponse() {
+        }
+        
+        public UpdateEventResponse(int UpdateEventResult, Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
+            this.UpdateEventResult = UpdateEventResult;
+            this._event = _event;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -856,14 +871,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
             return base.Channel.GetCalendarUsersAsync(calendar);
         }
         
-        public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList GetEventUsers(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
-            return base.Channel.GetEventUsers(_event);
-        }
-        
-        public System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UserList> GetEventUsersAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
-            return base.Channel.GetEventUsersAsync(_event);
-        }
-        
         public Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.EventTypeList GetAllEventTypes() {
             return base.Channel.GetAllEventTypes();
         }
@@ -912,12 +919,21 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference {
             return base.Channel.InsertEventAsync(_event);
         }
         
-        public int UpdateEvent(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
-            return base.Channel.UpdateEvent(_event);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventResponse Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.ICalendarService.UpdateEvent(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventRequest request) {
+            return base.Channel.UpdateEvent(request);
         }
         
-        public System.Threading.Tasks.Task<int> UpdateEventAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
-            return base.Channel.UpdateEventAsync(_event);
+        public int UpdateEvent(ref Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {
+            Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventRequest inValue = new Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventRequest();
+            inValue._event = _event;
+            Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventResponse retVal = ((Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.ICalendarService)(this)).UpdateEvent(inValue);
+            _event = retVal._event;
+            return retVal.UpdateEventResult;
+        }
+        
+        public System.Threading.Tasks.Task<Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventResponse> UpdateEventAsync(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.UpdateEventRequest request) {
+            return base.Channel.UpdateEventAsync(request);
         }
         
         public int DeleteEvent(Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Event _event) {

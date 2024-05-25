@@ -75,7 +75,6 @@
           <xs:element minOccurs="0" name="EventType" nillable="true" type="tns:EventType" />
           <xs:element minOccurs="0" name="IsDone" type="xs:boolean" />
           <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:UserList" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

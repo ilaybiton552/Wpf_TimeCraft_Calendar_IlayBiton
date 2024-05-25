@@ -62,12 +62,6 @@
   <wsdl:message name="ICalendarService_GetCalendarUsers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCalendarUsersResponse" />
   </wsdl:message>
-  <wsdl:message name="ICalendarService_GetEventUsers_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetEventUsers" />
-  </wsdl:message>
-  <wsdl:message name="ICalendarService_GetEventUsers_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetEventUsersResponse" />
-  </wsdl:message>
   <wsdl:message name="ICalendarService_GetAllEventTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEventTypes" />
   </wsdl:message>
@@ -200,10 +194,6 @@
     <wsdl:operation name="GetCalendarUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetCalendarUsers" message="tns:ICalendarService_GetCalendarUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/GetCalendarUsersResponse" message="tns:ICalendarService_GetCalendarUsers_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetEventUsers">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetEventUsers" message="tns:ICalendarService_GetEventUsers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICalendarService/GetEventUsersResponse" message="tns:ICalendarService_GetEventUsers_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllEventTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalendarService/GetAllEventTypes" message="tns:ICalendarService_GetAllEventTypes_InputMessage" />
@@ -346,15 +336,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetCalendarUsers">
       <soap:operation soapAction="http://tempuri.org/ICalendarService/GetCalendarUsers" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetEventUsers">
-      <soap:operation soapAction="http://tempuri.org/ICalendarService/GetEventUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

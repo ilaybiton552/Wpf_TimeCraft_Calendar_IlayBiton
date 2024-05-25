@@ -55,7 +55,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             if (_event.ID != -1) // happy birthday event
             {
                 popup.IsOpen = true;
-                popup.Tag = button;
                 popup.Child = new EventDetailsUserControl(ref _event, user);
             }
         }
