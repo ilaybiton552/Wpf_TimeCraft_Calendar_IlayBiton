@@ -87,7 +87,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             if (temp == null) 
             {
                 MessageBox.Show("Error login in", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                user = new User() { Username = tbxUsername.Text, Password = pbPass.Password.ToString() };
                 return;
             }
             user.Email = temp.Email;
@@ -117,7 +116,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Signup_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            user = new User();
             SignUpWindow signUpWindow = new SignUpWindow(ref user);
             signUpWindow.Left = Left + (Width - signUpWindow.Width) / 2;
             signUpWindow.Top = Top;

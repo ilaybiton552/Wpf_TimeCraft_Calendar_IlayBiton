@@ -15,10 +15,11 @@
         <StackPanel DockPanel.Dock="Bottom"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <TextBlock Text="Delete Event Type" />
+            <TextBlock Text="Delete Event Type" Margin="5, 0" />
             <ComboBox x:Name="typessCB"
                       SelectionChanged="typessCB_SelectionChanged"
-                      Style="{x:Null}" />
+                      Style="{x:Null}"
+                      Width="100"/>
         </StackPanel>
         <ListView x:Name="typesListView">
                 <ListView.View>

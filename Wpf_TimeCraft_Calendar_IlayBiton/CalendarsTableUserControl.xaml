@@ -24,10 +24,10 @@
         <StackPanel DockPanel.Dock="Bottom"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <TextBlock Text="Delete Calendar" />
+            <TextBlock Text="Delete Calendar" Margin="5, 0" />
             <ComboBox x:Name="calsCB"
                       SelectionChanged="calsCB_SelectionChanged"
-                      Style="{x:Null}" />
+                      Style="{x:Null}" Width="100" />
         </StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Visible" DockPanel.Dock="Top"
                       x:Name="viewer">

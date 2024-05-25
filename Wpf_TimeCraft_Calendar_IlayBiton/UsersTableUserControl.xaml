@@ -21,8 +21,8 @@
         <StackPanel DockPanel.Dock="Bottom"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <TextBlock Text="Delete User" />
-            <ComboBox x:Name="usersCB" SelectionChanged="usersCB_SelectionChanged" Style="{x:Null}"/>
+            <TextBlock Text="Delete User" Margin="5, 0" />
+            <ComboBox x:Name="usersCB" SelectionChanged="usersCB_SelectionChanged" Style="{x:Null}" Width="100"/>
         </StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Visible"
                       x:Name="viewer"
