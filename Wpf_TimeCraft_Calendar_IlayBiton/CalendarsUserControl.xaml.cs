@@ -66,6 +66,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             ucGrid.Children.Clear();
             calendars.ItemsSource = user.Calendars;
+            CollectionViewSource.GetDefaultView(calendars.ItemsSource).Refresh();
             addEveBtn.Visibility = Visibility.Hidden;
             editCalBtn.Visibility = Visibility.Hidden;
             yourCalsBtn.Visibility = Visibility.Hidden;

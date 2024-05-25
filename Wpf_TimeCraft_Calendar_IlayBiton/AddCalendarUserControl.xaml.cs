@@ -120,7 +120,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                     return;
                 }
                 MessageBox.Show("Created Calendar Succesfully");
-                user.Calendars.Add(calendar);
+                user.Calendars = serviceClient.GetUserCalendars(user);
                 ClearDetails();
             }
             catch

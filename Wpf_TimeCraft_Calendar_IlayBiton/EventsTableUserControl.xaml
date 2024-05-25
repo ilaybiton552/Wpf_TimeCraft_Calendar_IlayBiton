@@ -28,7 +28,9 @@
                       SelectionChanged="eventsCB_SelectionChanged"
                       Style="{x:Null}" Width="100"/>
         </StackPanel>
-        <ScrollViewer HorizontalScrollBarVisibility="Visible" DockPanel.Dock="Top"
+        <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                      VerticalScrollBarVisibility="Visible"
+                      DockPanel.Dock="Top"
                       x:Name="viewer">
             <ListView x:Name="eventsListView">
                 <ListView.View>

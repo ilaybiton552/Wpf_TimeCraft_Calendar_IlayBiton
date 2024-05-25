@@ -43,6 +43,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 {
                     types.RemoveAll(evType => evType.ID == type.ID);
                     MessageBox.Show("Deleted type successfully");
+                    CollectionViewSource.GetDefaultView(typesListView.ItemsSource).Refresh();
                 }
             }
         }

@@ -25,6 +25,7 @@
             <ComboBox x:Name="usersCB" SelectionChanged="usersCB_SelectionChanged" Style="{x:Null}" Width="100"/>
         </StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                      VerticalScrollBarVisibility="Visible"
                       x:Name="viewer"
                       DockPanel.Dock="Top">
             <ListView x:Name="usersListView">

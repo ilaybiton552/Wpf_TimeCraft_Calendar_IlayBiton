@@ -48,6 +48,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 {
                     events.RemoveAll(eve => eve.ID == _event.ID);
                     MessageBox.Show("Deleted event successfully");
+                    CollectionViewSource.GetDefaultView(eventsListView.ItemsSource).Refresh();
                 }
             }
         }

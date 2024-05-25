@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,10 +51,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             User user = (sender as ComboBox).SelectedItem as User;
             if (user != null)
             {
-                if (serviceClient.DeleteUser(user) == 1 + user.Calendars.Count)
+                if (serviceClient.DeleteUser(user) == 1)
                 {
                     users.RemoveAll(usr => usr.ID == user.ID);
                     MessageBox.Show("Deleted user successfully");
+                    CollectionViewSource.GetDefaultView(usersListView.ItemsSource).Refresh();
                 }
             }
         }

@@ -121,6 +121,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             update.Top = currWindow.Top + (currWindow.Height - update.Height) / 2;
             update.ShowDialog();
             if (string.IsNullOrWhiteSpace(user.Username)) Logout_Down(null, null);
+            else tbHello.Text = "Hello " + user.Username;
         }
 
         private void Admin_Down(object sender, MouseButtonEventArgs e)

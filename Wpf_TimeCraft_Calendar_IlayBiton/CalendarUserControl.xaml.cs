@@ -70,11 +70,14 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             {
                 events.Add(new Event() { ID = -1, EventName = "Happy Birthday!" });
             }
-            foreach (Event _event in calendar.Events) 
+            if (calendar.Events != null)
             {
-                if (_event.StartDate.Date <= day.Date && _event.DueDate.Date >= day.Date)
+                foreach (Event _event in calendar.Events)
                 {
-                    events.Add(_event);
+                    if (_event.StartDate.Date <= day.Date && _event.DueDate.Date >= day.Date)
+                    {
+                        events.Add(_event);
+                    }
                 }
             }
             return events;

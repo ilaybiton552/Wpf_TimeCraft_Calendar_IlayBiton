@@ -87,8 +87,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                     return;
                 }
                 MessageBox.Show("Created event Succesfully");
-                calendar.Events.Add(_event);
-                user.Events.Add(_event);
+                calendar.Events = serviceClient.GetCalendarEvents(calendar);
+                user.Events = serviceClient.GetUserEvents(user);
                 ClearDetails();
             }
             catch { }

@@ -138,7 +138,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                     if (user.ID != -1)
                     {
                         MessageBox.Show("Success creating user!");
-                        Close();
+                        user.Calendars = new CalendarList();
+                        user.Events = new EventList();
                     }
                     else
                     {
@@ -151,7 +152,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                     if (serviceClient.UpdateUser(tempUser) == 1)
                     {
                         MessageBox.Show("Success editing user!");
-                        Close();
                     }
                     else
                     {
@@ -166,6 +166,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 user.Username = tempUser.Username;
                 user.Password = tempUser.Password;
                 user.PhoneNumber = tempUser.PhoneNumber;
+                Close();
             }
             catch(Exception) { }
         }

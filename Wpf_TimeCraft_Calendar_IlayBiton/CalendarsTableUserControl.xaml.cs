@@ -54,6 +54,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 {
                     calendars.RemoveAll(cal => cal.ID == calendar.ID);
                     MessageBox.Show("Deleted calendar successfully");
+                    CollectionViewSource.GetDefaultView(calendarsListView.ItemsSource).Refresh();
                 }
             }
         }
