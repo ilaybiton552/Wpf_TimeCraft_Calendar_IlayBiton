@@ -73,6 +73,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("Fields can't remian empty");
                 return;
             }
+            if (_event.StartDate > _event.DueDate)
+            {
+                MessageBox.Show("End date can't be 'older' than start date");
+                return;
+            }
             try
             {
                 if (serviceClient.InsertEvent(_event) != 1)

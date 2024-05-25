@@ -155,22 +155,4 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             return ValidationResult.ValidResult;
         }
     }
-
-    public class ValidBirthday : ValidationRule
-    {
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            try
-            {
-                string birthday = value.ToString();
-                MessageBox.Show(birthday);
-            }
-            catch (Exception ex)
-            {
-                return new ValidationResult(false, "Error: " + ex.Message);
-            }
-            return ValidationResult.ValidResult;
-        }
-    }
-
 }

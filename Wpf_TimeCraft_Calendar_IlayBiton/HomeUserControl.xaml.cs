@@ -25,8 +25,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         public HomeUserControl()
         {
             InitializeComponent();
-            hebrew = GetDate("https://www.hebcal.com/etc/hdate-he.xml");
-            english = GetDate("https://www.hebcal.com/etc/hdate-en.xml");
+            try
+            {
+                hebrew = GetDate("https://www.hebcal.com/etc/hdate-he.xml");
+                english = GetDate("https://www.hebcal.com/etc/hdate-en.xml");
+            }
+            catch { }
             hebrewDate.Text = hebrew;
         }
 

@@ -40,7 +40,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 Password = user.Password,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
-                IsAdmin = user.IsAdmin
+                IsAdmin = user.IsAdmin,
+                Calendars = user.Calendars,
+                Events = user.Events
             };
             this.update = update;
             this.DataContext = tempUser;
@@ -111,6 +113,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 Validation.GetHasError(tbxUsername))
             {
                 MessageBox.Show("Fix your errors!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (DateTime.Today.Year - tempUser.Birthday.Year < 8)
+            {
+                MessageBox.Show("You must be at least 8 years old");
                 return;
             }
             if (serviceClient.IsEmailTaken(tempUser))
@@ -187,14 +194,18 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             else
             {
-                int rows = serviceClient.DeleteUser(tempUser);
-                if (user.Calendars != null && rows == 1 + user.Calendars.Count || rows == 1) 
+                try
                 {
-                    MessageBox.Show("Deleted User");
-                    user.Username = string.Empty;
-                    Close();
-                    return;
+                    int rows = serviceClient.DeleteUser(tempUser);
+                    if (user.Calendars != null && rows == 1)
+                    {
+                        MessageBox.Show("Deleted User");
+                        user.Username = string.Empty;
+                        Close();
+                        return;
+                    }
                 }
+                catch { }
                 MessageBox.Show("Error deleting user");
             }
         }

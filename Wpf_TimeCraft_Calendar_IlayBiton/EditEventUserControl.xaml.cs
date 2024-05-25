@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -88,6 +89,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("Fields can't remian empty");
                 return;
             }
+            if (_event.StartDate > _event.DueDate)
+            {
+                MessageBox.Show("End date can't be 'older' than start date");
+                return;
+            }
             try
             {
                 if (serviceClient.UpdateEvent(tempEvent) != 1)
@@ -150,7 +156,8 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void cmbTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CheckTask();
+            if ((sender as ComboBox).SelectedItem != null)
+                CheckTask();
         }
     }
 }
