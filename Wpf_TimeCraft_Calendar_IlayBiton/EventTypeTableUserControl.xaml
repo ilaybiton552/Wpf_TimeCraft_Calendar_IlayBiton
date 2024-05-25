@@ -12,6 +12,14 @@
                    FontSize="30"
                    Margin="5, 5"
                    FontFamily="Lucida Console" />
+        <StackPanel DockPanel.Dock="Bottom"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Delete Event Type" />
+            <ComboBox x:Name="typessCB"
+                      SelectionChanged="typessCB_SelectionChanged"
+                      Style="{x:Null}" />
+        </StackPanel>
         <ListView x:Name="typesListView">
                 <ListView.View>
                     <GridView>

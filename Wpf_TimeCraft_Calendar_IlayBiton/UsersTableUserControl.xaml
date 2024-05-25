@@ -18,10 +18,18 @@
                    Maximum="0.5"
                    DockPanel.Dock="Bottom" />
         <TextBlock Text="Users: " DockPanel.Dock="Top" FontSize="30" Margin="5, 5" FontFamily="Lucida Console" />
-        <ScrollViewer HorizontalScrollBarVisibility="Visible" x:Name="viewer" DockPanel.Dock="Top">
-                <ListView x:Name="usersListView">
-                    <ListView.View>
-                        <GridView>
+        <StackPanel DockPanel.Dock="Bottom"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Delete User" />
+            <ComboBox x:Name="usersCB" SelectionChanged="usersCB_SelectionChanged" Style="{x:Null}"/>
+        </StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                      x:Name="viewer"
+                      DockPanel.Dock="Top">
+            <ListView x:Name="usersListView">
+                <ListView.View>
+                    <GridView>
                         <GridViewColumn Header="ID"
                                         DisplayMemberBinding="{Binding ID}" />
                         <GridViewColumn Header="First Name"
@@ -63,10 +71,10 @@
                                     </ItemsControl>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

@@ -22,11 +22,29 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     /// </summary>
     public partial class EventTypeTableUserControl : UserControl
     {
+        private CalendarServiceClient serviceClient;
+        private EventTypeList types;
         public EventTypeTableUserControl()
         {
             InitializeComponent();
-            CalendarServiceClient serviceClient = new CalendarServiceClient();
-            typesListView.ItemsSource = serviceClient.GetAllEventTypes();
+            serviceClient = new CalendarServiceClient();
+            types = serviceClient.GetAllEventTypes();
+            typesListView.ItemsSource = types;
+            typessCB.ItemsSource = types;
+            typessCB.DisplayMemberPath = "Type";
+        }
+
+        private void typessCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            EventType type = (sender as ComboBox).SelectedItem as EventType;
+            if (type != null)
+            {
+                if (serviceClient.DeleteEventType(type) == 1)
+                {
+                    types.RemoveAll(evType => evType.ID == type.ID);
+                    MessageBox.Show("Deleted type successfully");
+                }
+            }
         }
     }
 }
