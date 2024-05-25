@@ -16,6 +16,11 @@
                    Visibility="Visible"
                    ViewportSize="0.1"
                    Maximum="0.1" />
+        <TextBlock Text="Calendars: "
+                   DockPanel.Dock="Top"
+                   FontSize="30"
+                   Margin="5, 5"
+                   FontFamily="Lucida Console" />
         <ScrollViewer HorizontalScrollBarVisibility="Visible" DockPanel.Dock="Top"
                       x:Name="viewer">
             <ListView x:Name="calendarsListView">

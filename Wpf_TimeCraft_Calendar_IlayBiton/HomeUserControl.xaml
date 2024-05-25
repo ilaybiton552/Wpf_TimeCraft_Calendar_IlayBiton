@@ -24,5 +24,69 @@
                VerticalAlignment="Top"/>
         <TextBlock Text="Today's Hebrew Date:" />
         <TextBlock x:Name="hebrewDate" FontSize="25" />
+        <StackPanel Height="70" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Hebrew"
+                       VerticalAlignment="Center" />
+            <ToggleButton Width="100" Margin="20" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked">
+                <ToggleButton.Template>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Canvas>
+                            <Line Stroke="LightBlue"
+                                  StrokeEndLineCap="Round"
+                                  StrokeStartLineCap="Round"
+                                  X1="25"
+                                  X2="75"
+                                  Y1="15"
+                                  Y2="15"
+                                  StrokeThickness="30"
+                                  x:Name="line" />
+                            <Ellipse Width="24"
+                                     Height="24"
+                                     Fill="White"
+                                     Canvas.Left="13"
+                                     Canvas.Top="3"
+                                     x:Name="circle">
+                            </Ellipse>
+
+                        </Canvas>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked"
+                                     Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="circle"
+                                                             Storyboard.TargetProperty="(Canvas.Left)"
+                                                             To="63"
+                                                             Duration="0:0:0.5" />
+                                            <ColorAnimation Storyboard.TargetName="line"
+                                                            Storyboard.TargetProperty="(Line.Stroke).(SolidColorBrush.Color)"
+                                                            Duration="0:0:0.5"
+                                                            To="#FF10C4FF" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="circle"
+                                                             Storyboard.TargetProperty="(Canvas.Left)"
+                                                             To="13"
+                                                             Duration="0:0:.5" />
+                                            <ColorAnimation Storyboard.TargetName="line"
+                                                            Storyboard.TargetProperty="(Line.Stroke).(SolidColorBrush.Color)"
+                                                            Duration="0:0:.5"
+                                                            To="LightBlue" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </ToggleButton.Template>
+            </ToggleButton>
+            <TextBlock Text="English"
+                       VerticalAlignment="Center" />
+        </StackPanel>
     </StackPanel>
 </UserControl>

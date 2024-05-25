@@ -22,18 +22,9 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     public partial class CloseWindowUserControl : UserControl
     {
         public bool MainWindow {  get; set; }
-        private User user;
         public CloseWindowUserControl()
         {
             InitializeComponent();
-            tbClose.HorizontalAlignment = HorizontalAlignment.Center;
-            user = null;
-        }
-
-        public CloseWindowUserControl(ref User user)
-        {
-            InitializeComponent();
-            this.user = user;
             tbClose.HorizontalAlignment = HorizontalAlignment.Center;
         }
 
@@ -53,7 +44,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Close_LeftClick(object sender, MouseButtonEventArgs e)
         {
-            if (user != null) user = new User();
             if (MainWindow) Application.Current.Shutdown();
             Window.GetWindow(this).Close();
         }

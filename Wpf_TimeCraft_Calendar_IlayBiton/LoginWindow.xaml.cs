@@ -30,7 +30,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             serviceClient = new CalendarServiceClient();
             this.user = user;
             this.DataContext = this.user;
-            CloseWindowUserControl closeWindowUserControl = new CloseWindowUserControl(ref user);
+            CloseWindowUserControl closeWindowUserControl = new CloseWindowUserControl();
             closeWindowUserControl.MainWindow = false;
             grid.Children.Add(closeWindowUserControl);
         }

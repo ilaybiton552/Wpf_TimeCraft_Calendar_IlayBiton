@@ -17,6 +17,7 @@
                    ViewportSize="0.2"
                    Maximum="0.5"
                    DockPanel.Dock="Bottom" />
+        <TextBlock Text="Users: " DockPanel.Dock="Top" FontSize="30" Margin="5, 5" FontFamily="Lucida Console" />
         <ScrollViewer HorizontalScrollBarVisibility="Visible" x:Name="viewer" DockPanel.Dock="Top">
                 <ListView x:Name="usersListView">
                     <ListView.View>

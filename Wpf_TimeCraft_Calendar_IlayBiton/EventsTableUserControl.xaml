@@ -15,6 +15,11 @@
                    Visibility="Visible"
                    ViewportSize="0.1"
                    Maximum="0.5" />
+        <TextBlock Text="Events: "
+                   DockPanel.Dock="Top"
+                   FontSize="30"
+                   Margin="5, 5"
+                   FontFamily="Lucida Console" />
         <ScrollViewer HorizontalScrollBarVisibility="Visible" DockPanel.Dock="Top"
                       x:Name="viewer">
             <ListView x:Name="eventsListView">

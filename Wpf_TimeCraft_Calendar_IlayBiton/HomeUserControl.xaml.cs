@@ -27,7 +27,17 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             InitializeComponent();
             hebrew = GetDate("https://www.hebcal.com/etc/hdate-he.xml");
             english = GetDate("https://www.hebcal.com/etc/hdate-en.xml");
+            hebrewDate.Text = hebrew;
+        }
+
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
             hebrewDate.Text = english;
+        }
+
+        private void ToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            hebrewDate.Text = hebrew;
         }
 
         private string GetDate(string url)

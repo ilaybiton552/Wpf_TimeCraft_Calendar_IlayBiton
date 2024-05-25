@@ -648,39 +648,25 @@
                                             Margin="5">
                                     <StackPanel.Resources>
                                         <Style TargetType="TextBlock">
-                                            <Setter Property="FontFamily"
-                                                    Value="Cooper Black" />
-                                            <Setter Property="FontSize"
-                                                    Value="20" />
-                                            <Setter Property="HorizontalAlignment"
-                                                    Value="Left" />
-                                            <Setter Property="Margin"
-                                                    Value="0, 0, 0, 5" />
-                                            <Setter Property="Foreground"
-                                                    Value="Black" />
-                                            <Setter Property="FontWeight"
-                                                    Value="Bold" />
+                                            <Setter Property="FontFamily" Value="Cooper Black" />
+                                            <Setter Property="FontSize" Value="20" />
+                                            <Setter Property="HorizontalAlignment" Value="Left" />
+                                            <Setter Property="Margin" Value="0, 0, 0, 5" />
+                                            <Setter Property="Foreground" Value="Black" />
+                                            <Setter Property="FontWeight" Value="Bold" />
                                         </Style>
                                         <Style TargetType="ComboBox">
-                                            <Setter Property="Margin"
-                                                    Value="0, 0, 0, 5" />
-                                            <Setter Property="FontSize"
-                                                    Value="15" />
-                                            <Setter Property="FontFamily"
-                                                    Value="Lucida Console" />
+                                            <Setter Property="Margin" Value="0, 0, 0, 5" />
+                                            <Setter Property="FontSize" Value="15" />
+                                            <Setter Property="FontFamily" Value="Lucida Console" />
                                         </Style>
                                     </StackPanel.Resources>
                                     <TextBlock Text="Hours:" />
-                                    <ComboBox x:Name="hours"
-                                              Loaded="Hours_Loaded"
-                                              SelectionChanged="ComboBox_SelectionChanged"
+                                    <ComboBox x:Name="hours" Loaded="Hours_Loaded" SelectionChanged="ComboBox_SelectionChanged" 
                                               LostFocus="ComboBox_LostFocus" />
                                     <TextBlock Text="Minutes:" />
-                                    <ComboBox x:Name="minutes"
-                                              Loaded="Minutes_Loaded"
-                                              IsEditable="True"
-                                              SelectionChanged="ComboBox_SelectionChanged"
-                                              LostFocus="ComboBox_LostFocus" />
+                                    <ComboBox x:Name="minutes" Loaded="Minutes_Loaded" IsEditable="True"
+                                              SelectionChanged="ComboBox_SelectionChanged" LostFocus="ComboBox_LostFocus" />
                                 </StackPanel>
                             </StackPanel>
                         </Border>

@@ -101,6 +101,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 _event.EventType = tempEvent.EventType;
                 _event.Data = tempEvent.Data;
                 _event.EventName = tempEvent.EventName;
+                _event.IsDone = tempEvent.IsDone;
                 ClearDetails();
                 UpdateGrid();
             }
