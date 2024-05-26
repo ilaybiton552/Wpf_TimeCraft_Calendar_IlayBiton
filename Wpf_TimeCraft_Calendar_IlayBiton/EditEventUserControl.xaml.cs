@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -117,9 +116,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             {
                 textBox.Height = 30;
             }
-        }
-        private void UpdateAndDelete(Event _event)
-        { 
         }
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
