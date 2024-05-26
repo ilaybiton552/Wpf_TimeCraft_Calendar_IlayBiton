@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
@@ -37,13 +25,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 editButton.Visibility = Visibility.Visible;
             }
         }
-
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             popup.Child = new EditEventUserControl(ref _event);
             popup.IsOpen = true;
         }
-
         private void popup_Closed(object sender, EventArgs e)
         {
             if (_event.EventType.Type == "Task")

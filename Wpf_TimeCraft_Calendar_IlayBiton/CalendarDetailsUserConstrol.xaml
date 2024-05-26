@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="300">
-
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily"
@@ -19,7 +18,6 @@
                     Value="WrapWithOverflow" />
         </Style>
     </UserControl.Resources>
-
     <Border BorderBrush="Black" BorderThickness="1" CornerRadius="15" Background="White">
         <Grid>
             <Grid.RowDefinitions>

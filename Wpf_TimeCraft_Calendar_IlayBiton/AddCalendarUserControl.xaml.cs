@@ -1,20 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
 using Calendar = Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
@@ -33,15 +21,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             calendar = new Calendar();
             this.DataContext = calendar;
             calendar.Users = new UserList();
-            calendar.Creator = user;
-            AddUsers();
+            calendar.Creator = user;            AddUsers();
         }
-
-        private void AddUsers()
-        {
-            try
-            {
-                UserList users = serviceClient.GetAllUsers();
+        private void AddUsers()        {
+            try            {                UserList users = serviceClient.GetAllUsers();
                 users.RemoveAll(x => x.ID == user.ID);
                 foreach (User user in users)
                 {
@@ -54,7 +37,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 }
             } catch { }
         }
-
         private void GetChosenUsers()
         {
             calendar.Users.Clear();
@@ -67,7 +49,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 }
             }
         }
-
         private void ClearChosenUsers()
         {
             foreach (CheckBox userDB in usersWP.Children)
@@ -78,7 +59,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 }
             }
         }
-
         private void ClearDetails()
         {
             calendar.CalendarName = string.Empty;
@@ -86,12 +66,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             calendar.Users = new UserList();
             ClearChosenUsers();
         }
-
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             ClearDetails();
         }
-
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             GetChosenUsers();
@@ -131,7 +109,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("Error creating calendar");
             }
         }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;

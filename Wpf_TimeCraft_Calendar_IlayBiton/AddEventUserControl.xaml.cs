@@ -1,21 +1,8 @@
-﻿using MaterialDesignThemes.Wpf;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
 using Calendar = Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
@@ -41,7 +28,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             cmbTypes.ItemsSource = eventTypes;
             cmbTypes.DisplayMemberPath = "Type";
         }
-
         private void ClearDetails()
         {
             _event.EventName = string.Empty;
@@ -50,12 +36,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             startDate.ClearDateChoice();
             dueDate.ClearDateChoice();
         }
-
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             ClearDetails();
         }
-
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -93,7 +77,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             catch { }
         }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -106,6 +89,5 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 textBox.Height = 40;
             }
         }
-
     }
 }

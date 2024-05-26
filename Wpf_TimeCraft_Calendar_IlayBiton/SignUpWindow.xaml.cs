@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
@@ -54,14 +45,12 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             grid.Children.Add(closeWindowUserControl);
             if (update) ChangeUpdate();
         }
-
         private void ChangeUpdate()
         {
             sendBtn.Content = "Edit";
             loginPass.Text = "Delete User";
             pbPass.Password = tempUser.Password;
         }
-
         private void ShowPassword_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image image = sender as Image;
@@ -70,7 +59,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             tbPass.Text = pbPass.Password.ToString();
             tbPass.Visibility = Visibility.Visible;
         }
-
         private void HidePassword_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Image image = sender as Image;
@@ -79,7 +67,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             pbPass.Visibility = Visibility.Visible;
             tbPass.Visibility = Visibility.Collapsed;
         }
-
         private void Password_PasswordChanged(object sender, RoutedEventArgs e)
         {
             ValidPassword validPassword = new ValidPassword();
@@ -103,7 +90,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                     tempUser.Password = ((PasswordBox)sender).Password;
             }
         }
-
         private void Signup_Click(object sender, RoutedEventArgs e)
         {
             ValidPassword validPassword = new ValidPassword();
@@ -170,19 +156,16 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             catch(Exception) { }
         }
-
         private void Login_MouseEnter(object sender, MouseEventArgs e)
         {
             TextBlock textBlock = sender as TextBlock;
             textBlock.FontWeight = FontWeights.Bold;
         }
-
         private void Login_MouseLeave(object sender, MouseEventArgs e)
         {
             TextBlock textBlock = sender as TextBlock;
             textBlock.FontWeight = FontWeights.Normal;
         }
-
         private void Login_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (!update)
@@ -210,6 +193,5 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("Error deleting user");
             }
         }
-
     }
 }

@@ -7,7 +7,6 @@
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="250">
-
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize"
@@ -20,7 +19,6 @@
                     Value="10, 5, 0, 5" />
         </Style>
     </UserControl.Resources>
-
     <Grid Background="LightBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*" />
@@ -83,6 +81,5 @@
                        MouseLeftButtonDown="Logout_Down" 
                        Visibility="Collapsed"/>
         </StackPanel>
-        
     </Grid>
 </UserControl>

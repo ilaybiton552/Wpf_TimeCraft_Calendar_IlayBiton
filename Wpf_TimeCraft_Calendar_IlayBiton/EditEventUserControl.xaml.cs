@@ -1,23 +1,9 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
-using Calendar = Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
@@ -47,7 +33,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             startDate.Date = tempEvent.StartDate;
             dueDate.Date = tempEvent.DueDate;
         }
-
         private void CheckTask()
         {
             if ((cmbTypes.SelectedItem as EventType).Type == "Task")
@@ -56,7 +41,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 checkboxDone.IsChecked = tempEvent.IsDone;
             }
         }
-
         private void ClearDetails()
         {
             tempEvent.EventName = string.Empty;
@@ -65,12 +49,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             startDate.ClearDateChoice();
             dueDate.ClearDateChoice();
         }
-
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             ClearDetails();
         }
-
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -118,7 +100,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             catch { }
         }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -131,7 +112,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 textBox.Height = 30;
             }
         }
-
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -146,7 +126,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             catch { }
         }
-
         private void UpdateGrid()
         {
             var editPopup = Parent as Popup;
@@ -162,7 +141,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             CalendarUserControl calendarUserControl = grid.Parent as CalendarUserControl;
             calendarUserControl.LoadDays();
         }
-
         private void cmbTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if ((sender as ComboBox).SelectedItem != null)

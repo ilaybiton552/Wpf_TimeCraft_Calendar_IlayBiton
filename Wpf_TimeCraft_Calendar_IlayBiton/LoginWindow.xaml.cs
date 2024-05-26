@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Media.TextFormatting;
-using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
@@ -34,7 +24,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             closeWindowUserControl.MainWindow = false;
             grid.Children.Add(closeWindowUserControl);
         }
-
         private void ShowPassword_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image image = sender as Image;
@@ -43,7 +32,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             tbPass.Text = pbPass.Password.ToString();
             tbPass.Visibility = Visibility.Visible;
         }
-
         private void HidePassword_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Image image = sender as Image;
@@ -52,7 +40,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             pbPass.Visibility = Visibility.Visible;
             tbPass.Visibility = Visibility.Collapsed;
         }
-
         private void Password_PasswordChanged(object sender, RoutedEventArgs e)
         {
             ValidPassword validPassword = new ValidPassword();
@@ -73,7 +60,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 user.Password = ((PasswordBox)sender).Password;
             }
         }
-
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             ValidPassword validPassword = new ValidPassword();
@@ -104,19 +90,16 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             MessageBox.Show("Logged in!");
             Close();
         }
-
         private void Signup_MouseEnter(object sender, MouseEventArgs e)
         {
             TextBlock textBlock = sender as TextBlock;
             textBlock.FontWeight = FontWeights.Bold;
         }
-
         private void Singup_MouseLeave(object sender, MouseEventArgs e)
         {
             TextBlock textBlock = sender as TextBlock;
             textBlock.FontWeight = FontWeights.Normal;
         }
-
         private void Signup_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             SignUpWindow signUpWindow = new SignUpWindow(ref user);

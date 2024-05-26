@@ -1,21 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
@@ -43,13 +30,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             usersCB.ItemsSource = users;
             usersCB.DisplayMemberPath = "Username";
         }
-
         private void ScrollBar_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
         {
             ScrollBar scroll = sender as ScrollBar;
             viewer.ScrollToHorizontalOffset(2 * scroll.Value * (usersListView.ActualWidth - scroll.ActualWidth));
         }
-
         private void usersCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             User user = (sender as ComboBox).SelectedItem as User;

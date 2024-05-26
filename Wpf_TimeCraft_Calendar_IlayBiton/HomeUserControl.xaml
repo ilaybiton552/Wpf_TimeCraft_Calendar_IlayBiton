@@ -47,7 +47,6 @@
                                      Canvas.Top="3"
                                      x:Name="circle">
                             </Ellipse>
-
                         </Canvas>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked"

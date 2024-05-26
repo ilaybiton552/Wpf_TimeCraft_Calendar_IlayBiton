@@ -11,7 +11,6 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent">
-
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily"
@@ -711,7 +710,6 @@
             </Setter>
         </Style>
     </Window.Resources>
-
     <Border Width="590" Height="440" Background="White"
             CornerRadius="10">
         <Border.Effect>

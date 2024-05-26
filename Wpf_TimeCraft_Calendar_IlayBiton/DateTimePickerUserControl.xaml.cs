@@ -1,21 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Converters;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
@@ -50,7 +35,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 datePicker.SelectedDate = value;
             }
         }
-
         public DateTimePickerUserControl()
         {
             InitializeComponent();
@@ -58,7 +42,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             hoursValue = "00";
             minutesValue = "00";
         }
-
         private void CheckValidMinutes()
         {
             if (cmbMinutes != null)
@@ -71,7 +54,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 }
             }
         }
-
         private void SetHours()
         {
             for (int i = 0; i < 24; i++)
@@ -80,8 +62,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             cmbHours.Text = hoursValue;
         }
-
-
         private void SetMinutes()
         {
             for (int i = 0; i < 60; i+=5)
@@ -91,24 +71,20 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             cmbMinutes.Text = minutesValue;
             CheckValidMinutes();
         }
-
         private void Minutes_Loaded(object sender, RoutedEventArgs e)
         {
             cmbMinutes = sender as ComboBox;
             SetMinutes();
         }
-
         private void Hours_Loaded(object sender, RoutedEventArgs e)
         {
             cmbHours = sender as ComboBox;
             SetHours();
         }
-
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             isChanged = true;
         }
-
         private void ComboBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (isChanged)
@@ -126,13 +102,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 isChanged = false;
             }
         }
-
         public void ClearDateChoice()
         {
             hoursValue = "00";
             minutesValue = "00";
             datePicker.SelectedDate = null;
         }
-
     }
 }

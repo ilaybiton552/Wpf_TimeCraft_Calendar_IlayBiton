@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     public class ValidName : ValidationRule
@@ -40,7 +39,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             return ValidationResult.ValidResult;
         }
     }
-
     public class ValidUsername : ValidationRule
     {
         public int Min { get; set; }
@@ -73,7 +71,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             return ValidationResult.ValidResult;
         }
     }
-
     public class ValidPassword : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
@@ -117,7 +114,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             return ValidationResult.ValidResult;
         }
     }
-
     public class ValidEmail : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
@@ -136,7 +132,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             return ValidationResult.ValidResult;
         }
     }
-
     public class ValidPhoneNumber : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)

@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
 using Calendar = Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
@@ -37,7 +27,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             prevBtn.Background = nextBtn.Background = new SolidColorBrush(baseColor);
             LoadDays();   
         }
-
         public void LoadDays()
         {
             Containter.Children.Clear();
@@ -60,7 +49,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 AddControl(i, GetEvents(new DateTime(currDisplayMonth.Year, currDisplayMonth.Month, i).AddMonths(1)), 0.5);
             }
         }
-
         private EventList GetEvents(DateTime day)
         {
             EventList events = new EventList();
@@ -80,7 +68,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             return events;
         }
-
         private void AddControl(int day, EventList events, double opacity = 1)
         {
             CalendarDayUserControl dayUC = new CalendarDayUserControl(day, events, baseColor, user);
@@ -90,13 +77,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             dayUC.Opacity = opacity;
             Containter.Children.Add(dayUC);
         }
-
         private void prevBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             currDisplayMonth = currDisplayMonth.AddMonths(-1);
             LoadDays();
         }
-
         private void nextBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             currDisplayMonth = currDisplayMonth.AddMonths(1);

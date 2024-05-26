@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d" 
              d:DesignHeight="560" d:DesignWidth="750">
-
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize"
@@ -52,7 +51,6 @@
                     Value="Center" />
         </Style>
     </UserControl.Resources>
-    
     <Grid Height="460" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition />

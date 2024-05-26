@@ -167,7 +167,6 @@
                        Text="{Binding ErrorContent}" />
         </DataTemplate>
     </UserControl.Resources>
-
     <Grid Height="460">
         <Grid.RowDefinitions>
             <RowDefinition />

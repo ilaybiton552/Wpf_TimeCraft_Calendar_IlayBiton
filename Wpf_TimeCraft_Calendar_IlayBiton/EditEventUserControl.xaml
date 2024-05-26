@@ -164,7 +164,6 @@
                        Text="{Binding ErrorContent}" />
         </DataTemplate>
     </UserControl.Resources>
-
     <Border Width="400" Height="300"
             Background="White"
             CornerRadius="15" BorderBrush="Black" BorderThickness="1">

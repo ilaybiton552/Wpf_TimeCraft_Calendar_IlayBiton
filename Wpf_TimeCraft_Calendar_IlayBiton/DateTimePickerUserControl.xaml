@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-
     <UserControl.Resources>
         <Style x:Key="CalendarStyle"
                TargetType="{x:Type Calendar}"
@@ -701,7 +700,6 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    
     <Grid>
             <DatePicker CalendarStyle="{DynamicResource CalendarStyle}"
                         x:Name="datePicker"/>

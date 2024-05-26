@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:Wpf_TimeCraft_Calendar_IlayBiton"
              mc:Ignorable="d" 
              d:DesignHeight="540" d:DesignWidth="800">
-
     <UserControl.Resources>
         <Style x:Key="ButtonStyle"
                TargetType="{x:Type Button}">
@@ -166,7 +165,6 @@
                        Text="{Binding ErrorContent}" />
         </DataTemplate>
     </UserControl.Resources>
-
     <Grid Height="460">
         <Grid.RowDefinitions>
             <RowDefinition />

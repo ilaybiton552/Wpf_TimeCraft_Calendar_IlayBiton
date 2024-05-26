@@ -1,21 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference;
 using Calendar = Wpf_TimeCraft_Calendar_IlayBiton.CalendarServiceReference.Calendar;
-
 namespace Wpf_TimeCraft_Calendar_IlayBiton
 {
     /// <summary>
@@ -40,13 +28,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             AddUsers();
             baseColor.SetColor(tempCal.BaseColor);
         }
-
         private void AddUsers()
         {
             try
             {
                 UserList users = serviceClient.GetAllUsers();
-
                 users.RemoveAll(x => x.ID == user.ID);
                 foreach (User user in users)
                 {
@@ -63,7 +49,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 }
             } catch { }
         }
-
         private void GetChosenUsers()
         {
             tempCal.Users.Clear();
@@ -76,7 +61,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 }
             }
         }
-
         private void ClearChosenUsers()
         {
             foreach (CheckBox userDB in usersWP.Children)
@@ -87,7 +71,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 }
             }
         }
-
         private void ClearDetails()
         {
             tempCal.CalendarName = string.Empty;
@@ -95,12 +78,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             tempCal.Users = new UserList();
             ClearChosenUsers();
         }
-
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             ClearDetails();
         }
-
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             GetChosenUsers();
@@ -135,7 +116,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 ClearDetails();
             } catch { }
         }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -148,7 +128,6 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 textBox.Height = 40;
             }
         }
-
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             try
