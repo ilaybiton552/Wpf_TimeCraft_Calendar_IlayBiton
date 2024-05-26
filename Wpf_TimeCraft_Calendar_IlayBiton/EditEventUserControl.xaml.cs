@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -76,6 +77,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("End date can't be 'older' than start date");
                 return;
             }
+            if (_event.Data == string.Empty || _event.Data == null)
+            {
+                MessageBox.Show("Event's Data can't remain empty");
+                return;
+            }
             if (tempEvent.EventType.Type == "Task")
             {
                 tempEvent.IsDone = (bool)checkboxDone.IsChecked;
@@ -112,13 +118,16 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 textBox.Height = 30;
             }
         }
+        private void UpdateAndDelete(Event _event)
+        { 
+        }
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 if (serviceClient.DeleteEvent(_event) == 1)
                 {
-                    UpdateGrid();
+                    UpdateGrid(_event);
                     MessageBox.Show("Deleted event");
                     ClearDetails();
                     (Parent as Popup).IsOpen = false;
@@ -126,7 +135,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             }
             catch { }
         }
-        private void UpdateGrid()
+        private void UpdateGrid(Event _event = null)
         {
             var editPopup = Parent as Popup;
             var gridPopup = editPopup.Parent as Grid;
@@ -139,6 +148,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             var wrapPanel = dayUserControl.Parent as WrapPanel;
             var grid = wrapPanel.Parent as Grid;
             CalendarUserControl calendarUserControl = grid.Parent as CalendarUserControl;
+            if (_event != null)
+            {
+                calendarUserControl.calendar.Events.RemoveAll(item => item.ID == _event.ID);
+            }
             calendarUserControl.LoadDays();
         }
         private void cmbTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)

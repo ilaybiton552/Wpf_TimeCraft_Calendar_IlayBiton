@@ -15,7 +15,7 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
     {
         private Color baseColor;
         private DateTime currDisplayMonth;
-        private Calendar calendar;
+        public Calendar calendar;
         private User user;
         public CalendarUserControl(ref Calendar calendar, ref User user)
         {

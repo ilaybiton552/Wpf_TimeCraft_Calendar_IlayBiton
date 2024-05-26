@@ -95,6 +95,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("Fix your errors", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            if (calendar.Data == string.Empty || calendar.Data == null)
+            {
+                MessageBox.Show("Calendar's Data can't remain empty");
+                return;
+            }
             try
             {
                 if (serviceClient.IsCalendarNameTaken(tempCal))

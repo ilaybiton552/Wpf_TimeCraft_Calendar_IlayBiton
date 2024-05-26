@@ -63,6 +63,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("End date can't be 'older' than start date");
                 return;
             }
+            if (_event.Data == string.Empty || _event.Data == null)
+            {
+                MessageBox.Show("Event's Data can't remain empty");
+                return;
+            }
             try
             {
                 if (serviceClient.InsertEvent(_event) != 1)
