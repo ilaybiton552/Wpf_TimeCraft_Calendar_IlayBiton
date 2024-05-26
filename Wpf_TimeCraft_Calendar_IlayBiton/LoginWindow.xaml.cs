@@ -83,21 +83,24 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("Fix your errors!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            User temp = serviceClient.Login(user);
-            if (temp == null) 
+            try
             {
-                MessageBox.Show("Error login in", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            user.Email = temp.Email;
-            user.Birthday = temp.Birthday;
-            user.PhoneNumber = temp.PhoneNumber;
-            user.FirstName = temp.FirstName;
-            user.LastName = temp.LastName;
-            user.IsAdmin = temp.IsAdmin;
-            user.ID = temp.ID;
-            user.Calendars = serviceClient.GetUserCalendars(user);
-            user.Events = serviceClient.GetUserEvents(user);
+                User temp = serviceClient.Login(user);
+                if (temp == null)
+                {
+                    MessageBox.Show("Error login in", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                user.Email = temp.Email;
+                user.Birthday = temp.Birthday;
+                user.PhoneNumber = temp.PhoneNumber;
+                user.FirstName = temp.FirstName;
+                user.LastName = temp.LastName;
+                user.IsAdmin = temp.IsAdmin;
+                user.ID = temp.ID;
+                user.Calendars = serviceClient.GetUserCalendars(user);
+                user.Events = serviceClient.GetUserEvents(user);
+            } catch { return; }
             MessageBox.Show("Logged in!");
             Close();
         }

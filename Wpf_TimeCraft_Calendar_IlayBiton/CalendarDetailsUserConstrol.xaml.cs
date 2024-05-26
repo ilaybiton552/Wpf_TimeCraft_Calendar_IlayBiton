@@ -30,8 +30,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             serviceClient = new CalendarServiceClient();
             this.DataContext = calendar;
             inBorder.Background = new SolidColorBrush(calendar.BaseColor);
-            users.Text += string.Join(", ", serviceClient.GetCalendarUsers(calendar).Select(user => user.Username));
-            events.Text += string.Join(", ", serviceClient.GetCalendarEvents(calendar).Select(eve => eve.EventName));
+            try
+            {
+                users.Text += string.Join(", ", serviceClient.GetCalendarUsers(calendar).Select(user => user.Username));
+                events.Text += string.Join(", ", serviceClient.GetCalendarEvents(calendar).Select(eve => eve.EventName));
+            } catch { }
         }
     }
 }

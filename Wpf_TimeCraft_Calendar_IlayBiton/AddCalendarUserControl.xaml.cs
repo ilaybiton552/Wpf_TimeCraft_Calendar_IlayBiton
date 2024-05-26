@@ -39,17 +39,20 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void AddUsers()
         {
-            UserList users = serviceClient.GetAllUsers();
-            users.RemoveAll(x => x.ID == user.ID);
-            foreach (User user in users) 
+            try
             {
-                CheckBox userCB = new CheckBox();
-                userCB.Margin = new Thickness(2.5);
-                userCB.Content = user.Username;
-                userCB.Tag = user;
-                userCB.Style = new Style();
-                usersWP.Children.Add(userCB);
-            }
+                UserList users = serviceClient.GetAllUsers();
+                users.RemoveAll(x => x.ID == user.ID);
+                foreach (User user in users)
+                {
+                    CheckBox userCB = new CheckBox();
+                    userCB.Margin = new Thickness(2.5);
+                    userCB.Content = user.Username;
+                    userCB.Tag = user;
+                    userCB.Style = new Style();
+                    usersWP.Children.Add(userCB);
+                }
+            } catch { }
         }
 
         private void GetChosenUsers()

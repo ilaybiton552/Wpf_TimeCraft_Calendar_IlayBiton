@@ -43,21 +43,25 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void AddUsers()
         {
-            UserList users = serviceClient.GetAllUsers();
-            users.RemoveAll(x => x.ID == user.ID);
-            foreach (User user in users)
+            try
             {
-                CheckBox userCB = new CheckBox();
-                userCB.Margin = new Thickness(2.5);
-                userCB.Content = user.Username;
-                userCB.Tag = user;
-                userCB.Style = new Style();
-                if (tempCal.Users.Where(usr=>usr.ID == user.ID).ToList().Count != 0) // checking calendar's users
+                UserList users = serviceClient.GetAllUsers();
+
+                users.RemoveAll(x => x.ID == user.ID);
+                foreach (User user in users)
                 {
-                    userCB.IsChecked = true;
+                    CheckBox userCB = new CheckBox();
+                    userCB.Margin = new Thickness(2.5);
+                    userCB.Content = user.Username;
+                    userCB.Tag = user;
+                    userCB.Style = new Style();
+                    if (tempCal.Users.Where(usr => usr.ID == user.ID).ToList().Count != 0) // checking calendar's users
+                    {
+                        userCB.IsChecked = true;
+                    }
+                    usersWP.Children.Add(userCB);
                 }
-                usersWP.Children.Add(userCB);
-            }
+            } catch { }
         }
 
         private void GetChosenUsers()
@@ -110,23 +114,26 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("Fix your errors", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (serviceClient.IsCalendarNameTaken(tempCal))
+            try
             {
-                MessageBox.Show("Calendar name already taken", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            int numOfRows = serviceClient.UpdateCalendar(tempCal);
-            if (numOfRows != 1)
-            {
-                MessageBox.Show("Error editing calendar");
-                return;
-            }
-            MessageBox.Show("Edited Calendar Succesfully");
-            calendar.CalendarName = tempCal.CalendarName;
-            calendar.Data = tempCal.Data;
-            calendar.Users = tempCal.Users;
-            calendar.BaseColor = tempCal.BaseColor;
-            ClearDetails();
+                if (serviceClient.IsCalendarNameTaken(tempCal))
+                {
+                    MessageBox.Show("Calendar name already taken", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                int numOfRows = serviceClient.UpdateCalendar(tempCal);
+                if (numOfRows != 1)
+                {
+                    MessageBox.Show("Error editing calendar");
+                    return;
+                }
+                MessageBox.Show("Edited Calendar Succesfully");
+                calendar.CalendarName = tempCal.CalendarName;
+                calendar.Data = tempCal.Data;
+                calendar.Users = tempCal.Users;
+                calendar.BaseColor = tempCal.BaseColor;
+                ClearDetails();
+            } catch { }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -144,13 +151,16 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            if (serviceClient.DeleteCalendar(calendar) == calendar.Users.Count + 1)
+            try
             {
-                user.Calendars.Remove(calendar);
-                ClearDetails();
-                MessageBox.Show("Deleted calendar successfully");
-                return;
-            }
+                if (serviceClient.DeleteCalendar(calendar) == calendar.Users.Count + 1)
+                {
+                    user.Calendars.Remove(calendar);
+                    ClearDetails();
+                    MessageBox.Show("Deleted calendar successfully");
+                    return;
+                }
+            } catch { }
             MessageBox.Show("Error deleting Calednar");
         }
     }

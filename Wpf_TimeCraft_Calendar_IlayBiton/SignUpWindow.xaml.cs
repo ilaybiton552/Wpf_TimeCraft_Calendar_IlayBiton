@@ -120,18 +120,18 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
                 MessageBox.Show("You must be at least 8 years old");
                 return;
             }
-            if (serviceClient.IsEmailTaken(tempUser))
-            {
-                MessageBox.Show("Email is already used!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (serviceClient.IsUsenameTaken(tempUser))
-            {
-                MessageBox.Show("Username is already used!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
             try
             {
+                if (serviceClient.IsEmailTaken(tempUser))
+                {
+                    MessageBox.Show("Email is already used!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                if (serviceClient.IsUsenameTaken(tempUser))
+                {
+                    MessageBox.Show("Username is already used!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 if (!update)
                 {
                     user.ID = serviceClient.InsertUser(tempUser);

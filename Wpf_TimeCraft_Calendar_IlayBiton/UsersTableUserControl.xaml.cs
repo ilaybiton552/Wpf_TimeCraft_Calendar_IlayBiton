@@ -29,12 +29,16 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             InitializeComponent();
             serviceClient = new CalendarServiceClient();
-            users = serviceClient.GetAllUsers();
-            foreach (User user in users) 
+            try
             {
-                user.Calendars = serviceClient.GetUserCalendars(user);
-                user.Events = serviceClient.GetUserEvents(user);
+                users = serviceClient.GetAllUsers();
+                foreach (User user in users)
+                {
+                    user.Calendars = serviceClient.GetUserCalendars(user);
+                    user.Events = serviceClient.GetUserEvents(user);
+                }
             }
+            catch { }
             usersListView.ItemsSource = users;
             usersCB.ItemsSource = users;
             usersCB.DisplayMemberPath = "Username";
@@ -51,12 +55,15 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             User user = (sender as ComboBox).SelectedItem as User;
             if (user != null)
             {
-                if (serviceClient.DeleteUser(user) == 1)
+                try
                 {
-                    users.RemoveAll(usr => usr.ID == user.ID);
-                    MessageBox.Show("Deleted user successfully");
-                    CollectionViewSource.GetDefaultView(usersListView.ItemsSource).Refresh();
-                }
+                    if (serviceClient.DeleteUser(user) == 1)
+                    {
+                        users.RemoveAll(usr => usr.ID == user.ID);
+                        MessageBox.Show("Deleted user successfully");
+                        CollectionViewSource.GetDefaultView(usersListView.ItemsSource).Refresh();
+                    }
+                } catch { }
             }
         }
     }

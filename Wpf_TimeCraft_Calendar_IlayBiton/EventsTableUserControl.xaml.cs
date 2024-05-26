@@ -28,7 +28,10 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         {
             InitializeComponent();
             serviceClient = new CalendarServiceClient();
-            eventsListView.ItemsSource = events = serviceClient.GetAllEvents();
+            try
+            {
+                eventsListView.ItemsSource = events = serviceClient.GetAllEvents();
+            } catch { }
             eventsCB.ItemsSource = events;
             eventsCB.DisplayMemberPath = "ID";
         }
@@ -44,12 +47,15 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
             Event _event = (sender as ComboBox).SelectedItem as Event;
             if (_event != null)
             {
-                if (serviceClient.DeleteEvent(_event) == 1)
+                try
                 {
-                    events.RemoveAll(eve => eve.ID == _event.ID);
-                    MessageBox.Show("Deleted event successfully");
-                    CollectionViewSource.GetDefaultView(eventsListView.ItemsSource).Refresh();
-                }
+                    if (serviceClient.DeleteEvent(_event) == 1)
+                    {
+                        events.RemoveAll(eve => eve.ID == _event.ID);
+                        MessageBox.Show("Deleted event successfully");
+                        CollectionViewSource.GetDefaultView(eventsListView.ItemsSource).Refresh();
+                    }
+                } catch { }
             }
         }
     }

@@ -27,13 +27,11 @@ namespace Wpf_TimeCraft_Calendar_IlayBiton
         private DateTime currDisplayMonth;
         private Calendar calendar;
         private User user;
-        private CalendarServiceClient serviceClient;
         public CalendarUserControl(ref Calendar calendar, ref User user)
         {
             InitializeComponent();
             this.calendar = calendar;
             this.user = user;
-            serviceClient = new CalendarServiceClient();
             baseColor = calendar.BaseColor;
             currDisplayMonth = DateTime.Now;
             prevBtn.Background = nextBtn.Background = new SolidColorBrush(baseColor);
